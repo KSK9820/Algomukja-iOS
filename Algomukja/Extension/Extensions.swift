@@ -22,7 +22,7 @@ extension UIView {
     }
     
 
-    func setViewShadow(backView: UIView, colorName: String) {
+    func setViewShadow(backView: UIView, colorName: String, width: Int, height: Int) {
             backView.layer.masksToBounds = true
             backView.layer.cornerRadius = 10
             //backView.layer.borderWidth = 1
@@ -30,8 +30,8 @@ extension UIView {
             layer.shadowColor = UIColor(named: colorName)!.cgColor
             layer.masksToBounds = false
             layer.shadowOpacity = 0.6
-            layer.shadowOffset = CGSize(width: -2, height: 3)
-            layer.shadowRadius = 4
+            layer.shadowOffset = CGSize(width: width, height: height)
+            layer.shadowRadius = 6
         }
     
     
@@ -55,5 +55,19 @@ extension UIImageView{
         let templateImage = self.image?.withRenderingMode(.alwaysTemplate)
         self.image = templateImage
         self.tintColor = color
+      }
+}
+
+extension UILabel{
+    func setHeight(_ lineHeight: CGFloat) {
+          let text = self.text
+          if let text = text {
+              let attributeString = NSMutableAttributedString(string: text)
+              let style = NSMutableParagraphStyle()
+
+              style.minimumLineHeight = lineHeight
+              attributeString.addAttribute(NSAttributedString.Key.paragraphStyle, value: style, range: NSMakeRange(0, attributeString.length))
+              self.attributedText = attributeString
+          }
       }
 }

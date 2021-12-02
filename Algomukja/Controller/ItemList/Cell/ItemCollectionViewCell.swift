@@ -19,7 +19,7 @@ class ItemCollectionViewCell: UICollectionViewCell {
     static var identifier = "ItemCollectionViewCell"
     
     let level = ["프루테리언","비건", "락토 베지테리언", "오보 베지테리언", "페스코 베지테리언", "폴로 베지테리언", "플렉시테리언"]
-    let caution = ["확인되지 않은 재료명이 있습니다. \n제조사에 문의 바랍니다.", "완벽한 비건제품입니다!"]
+    let caution = ["확인되지 않은 재료명이 있습니다. \n제조사에 문의 바랍니다.", "분석이 확실합니다!"]
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -30,7 +30,7 @@ class ItemCollectionViewCell: UICollectionViewCell {
     func UISetting(){
         self.contentView.makeRoundView(radius: 10)
         self.itemview.makeRoundView(radius: 10)
-        setViewShadow(backView: itemview, colorName: "400")
+        setViewShadow(backView: itemview, colorName: "400", width: -2, height: 3)
         self.lbl_name.numberOfLines = 3
         self.lbl_name.sizeToFit()
         self.lbl_name.lineBreakMode = .byCharWrapping
@@ -50,7 +50,12 @@ class ItemCollectionViewCell: UICollectionViewCell {
         iv_item.load(url: url!)
         lbl_name.text = item.name
         lbl_level.text = level[item.finalLevel]
-        lbl_caution.text = caution[0]
+        if item.accurate == false{
+            lbl_caution.text = caution[0]
+        }else {
+            lbl_caution.text = caution[1]
+        }
+        
        
         for i in 0..<7{
             iv_level[i].image = UIImage(named: String(i))

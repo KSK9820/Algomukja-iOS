@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="19455" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19454"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="gTV-IL-0wX" customClass="MaterialCollectionViewCell" customModule="Algomukja" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="50" height="26"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="50" height="26"/>
+                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bYt-Rr-gPY">
+                        <rect key="frame" x="0.0" y="0.0" width="50" height="26"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="g9D-KL-Aeu">
+                                <rect key="frame" x="3" y="3" width="44" height="20"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="g9D-KL-Aeu" firstAttribute="top" secondItem="bYt-Rr-gPY" secondAttribute="top" constant="3" id="Z83-g9-ajx"/>
+                            <constraint firstAttribute="bottom" secondItem="g9D-KL-Aeu" secondAttribute="bottom" constant="3" id="b0z-Am-bgx"/>
+                            <constraint firstAttribute="trailing" secondItem="g9D-KL-Aeu" secondAttribute="trailing" constant="3" id="job-eL-duA"/>
+                            <constraint firstItem="g9D-KL-Aeu" firstAttribute="leading" secondItem="bYt-Rr-gPY" secondAttribute="leading" constant="3" id="sF1-3V-9jW"/>
+                        </constraints>
+                    </view>
+                </subviews>
+            </view>
+            <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
+            <constraints>
+                <constraint firstAttribute="bottom" secondItem="bYt-Rr-gPY" secondAttribute="bottom" id="0Sr-L6-lwh"/>
+                <constraint firstItem="bYt-Rr-gPY" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="Ost-VK-VFn"/>
+                <constraint firstAttribute="trailing" secondItem="bYt-Rr-gPY" secondAttribute="trailing" id="iDv-3B-mc7"/>
+                <constraint firstItem="bYt-Rr-gPY" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="pvv-zr-xH6"/>
+            </constraints>
+            <connections>
+                <outlet property="lbl_meterial" destination="g9D-KL-Aeu" id="h4p-aU-SNi"/>
+                <outlet property="materialview" destination="bYt-Rr-gPY" id="fU9-n2-c4V"/>
+            </connections>
+            <point key="canvasLocation" x="131.8840579710145" y="79.6875"/>
+        </collectionViewCell>
+    </objects>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

@@ -11,6 +11,7 @@ struct ITEM {
     let photo, name: String
     let finalLevel: Int
     let level: [Int]
+    let accurate: Bool?
 }
 
 enum ChatAlarmFilterType {
@@ -32,7 +33,7 @@ class ListViewController: UIViewController {
     @IBOutlet weak var collectionview: UICollectionView!
     var filterType: ChatAlarmFilterType = .level0
     
-    var item: [ITEM] = [ITEM(photo: "https://contents.lotteon.com/itemimage/_v010018/LF/15/38/53/3_/0/LF1538533_0_1.jpg", name: "고기대신 비건 제육볶음 (냉동)", finalLevel: 1, level: [0,1,0,0,0,0,0]), ITEM(photo: "https://image.homeplus.kr/td/967ef98d-08fd-4ece-a1b5-dd6dd745b4b8", name: "고기대신 맛있는녀석들 비건육포 오리지널", finalLevel: 1, level: [0,1,0,0,0,0,0]), ITEM(photo: "https://image.homeplus.kr/td/ef39ed5d-7bc7-4ab2-96d3-908e1601215d", name: "씨제이 삼호 맑은 어묵", finalLevel: 4, level: [0,1,0,0,1,0,0]), ITEM(photo: "https://image.homeplus.kr/td/29983ea0-51ff-4a94-813e-8922cd372d0b", name: "홈플러스시그니처 매콤한 순대 볶음", finalLevel: 6, level: [0,1,1,0,0,0,1]), ITEM(photo: "https://image.homeplus.kr/td/2e29ccec-0dc8-438b-acc6-e80e67e15506", name: "풀무원 국물 떡볶이", finalLevel: 1, level: [1,1,0,0,0,0,0]), ITEM(photo: "https://image.homeplus.kr/td/e334c618-804c-4905-b262-4f3f71ab9ddc", name: "농심 올리브 짜파게티", finalLevel: 6, level: [0,1,1,1,0,1,1]), ITEM(photo: "https://image.homeplus.kr/td/e2f6ca0b-9cf3-497a-a922-ac9ab03de5d5", name: "착한톡톡 사과비트즙", finalLevel: 0, level: [1,0,0,0,0,0,0])]
+    var item: [ITEM] = [ITEM(photo: "https://contents.lotteon.com/itemimage/_v010018/LF/15/38/53/3_/0/LF1538533_0_1.jpg", name: "고기대신 비건 제육볶음 (냉동)", finalLevel: 1, level: [0,1,0,0,0,0,0], accurate: true), ITEM(photo: "https://image.homeplus.kr/td/967ef98d-08fd-4ece-a1b5-dd6dd745b4b8", name: "고기대신 맛있는녀석들 비건육포 오리지널", finalLevel: 1, level: [0,1,0,0,0,0,0], accurate: false), ITEM(photo: "https://image.homeplus.kr/td/ef39ed5d-7bc7-4ab2-96d3-908e1601215d", name: "씨제이 삼호 맑은 어묵", finalLevel: 4, level: [0,1,0,0,1,0,0], accurate: false), ITEM(photo: "https://image.homeplus.kr/td/29983ea0-51ff-4a94-813e-8922cd372d0b", name: "홈플러스시그니처 매콤한 순대 볶음", finalLevel: 6, level: [0,1,1,0,0,0,1], accurate: false), ITEM(photo: "https://image.homeplus.kr/td/2e29ccec-0dc8-438b-acc6-e80e67e15506", name: "풀무원 국물 떡볶이", finalLevel: 1, level: [1,1,0,0,0,0,0], accurate: false), ITEM(photo: "https://image.homeplus.kr/td/e334c618-804c-4905-b262-4f3f71ab9ddc", name: "농심 올리브 짜파게티", finalLevel: 6, level: [0,1,1,1,1,0,1], accurate: false), ITEM(photo: "https://image.homeplus.kr/td/e2f6ca0b-9cf3-497a-a922-ac9ab03de5d5", name: "착한톡톡 사과비트즙", finalLevel: 0, level: [1,0,0,0,0,0,0], accurate: false)]
     
     var selectedItem: [ITEM] = []
     
@@ -182,11 +183,9 @@ extension ListViewController: UICollectionViewDelegate, UICollectionViewDataSour
             print("Controller not found")
             return
         }
-        VC.modalPresentationStyle = .fullScreen
+        VC.modalPresentationStyle = .overFullScreen
+        VC.info = selectedItem[indexPath.row]
         self.present(VC, animated: true, completion: nil)
-        
-        
-      
     }
     
     
