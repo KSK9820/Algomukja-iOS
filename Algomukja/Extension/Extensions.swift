@@ -29,7 +29,7 @@ extension UIView {
             
             layer.shadowColor = UIColor(named: colorName)!.cgColor
             layer.masksToBounds = false
-            layer.shadowOpacity = 0.6
+            layer.shadowOpacity = 1
             layer.shadowOffset = CGSize(width: width, height: height)
             layer.shadowRadius = 6
         }
@@ -70,4 +70,14 @@ extension UILabel{
               self.attributedText = attributeString
           }
       }
+}
+
+extension UITextView {
+
+    func setBottomInset(to value: CGFloat) {
+        let edgeInset = UIEdgeInsets(top: 0, left: 0, bottom: value, right: 0)
+
+        self.contentInset = edgeInset
+        self.scrollIndicatorInsets = edgeInset
+    }
 }

@@ -57,7 +57,7 @@ class ItemCollectionViewCell: UICollectionViewCell {
         }
         
        
-        for i in 0..<7{
+        for i in 0..<6{
             iv_level[i].image = UIImage(named: String(i))
             if item.level[i] == 0 {
                 iv_level[i].setImageColor(color: UIColor(named: "400")!)

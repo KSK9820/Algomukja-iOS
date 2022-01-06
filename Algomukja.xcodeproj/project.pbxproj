@@ -14,6 +14,9 @@
 		53380DA4273A72E10044E63E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 53380DA3273A72E10044E63E /* Assets.xcassets */; };
 		53380DA7273A72E10044E63E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 53380DA5273A72E10044E63E /* LaunchScreen.storyboard */; };
 		53380DB6273A735F0044E63E /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 53380DB5273A735F0044E63E /* Colors.xcassets */; };
+		533B79292774D43C00D0225D /* EditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 533B79282774D43C00D0225D /* EditViewController.swift */; };
+		533FE9BD2771D5F700CCC596 /* Camera.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 533FE9BC2771D5F700CCC596 /* Camera.storyboard */; };
+		533FE9C02771D61900CCC596 /* CameraViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 533FE9BF2771D61900CCC596 /* CameraViewController.swift */; };
 		53599BDB275919E7009EA34F /* MaterialCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53599BD9275919E7009EA34F /* MaterialCollectionViewCell.swift */; };
 		53599BDC275919E7009EA34F /* MaterialCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 53599BDA275919E7009EA34F /* MaterialCollectionViewCell.xib */; };
 		53622A83275699400063A4DB /* ListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53622A82275699400063A4DB /* ListViewController.swift */; };
@@ -23,6 +26,11 @@
 		53622A91275699EA0063A4DB /* ItemCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 53622A8F275699EA0063A4DB /* ItemCollectionViewCell.xib */; };
 		53622A9327569D5D0063A4DB /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53622A9227569D5D0063A4DB /* Extensions.swift */; };
 		53622A952757EABC0063A4DB /* ItemInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53622A942757EABC0063A4DB /* ItemInfoViewController.swift */; };
+		53BB54AA2785552700306AB2 /* Pods_Algomukja.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A9A74D08D08D0AED3BA060B1 /* Pods_Algomukja.framework */; };
+		53BB54AE278563DB00306AB2 /* Rank.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 53BB54AD278563DB00306AB2 /* Rank.storyboard */; };
+		53BB54B1278563F600306AB2 /* RankViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53BB54B0278563F600306AB2 /* RankViewController.swift */; };
+		53BB54B727859B4600306AB2 /* CardCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53BB54B527859B4600306AB2 /* CardCollectionViewCell.swift */; };
+		53BB54B827859B4600306AB2 /* CardCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 53BB54B627859B4600306AB2 /* CardCollectionViewCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -35,6 +43,9 @@
 		53380DA6273A72E10044E63E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		53380DA8273A72E10044E63E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		53380DB5273A735F0044E63E /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
+		533B79282774D43C00D0225D /* EditViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditViewController.swift; sourceTree = "<group>"; };
+		533FE9BC2771D5F700CCC596 /* Camera.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Camera.storyboard; sourceTree = "<group>"; };
+		533FE9BF2771D61900CCC596 /* CameraViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraViewController.swift; sourceTree = "<group>"; };
 		53599BD9275919E7009EA34F /* MaterialCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MaterialCollectionViewCell.swift; sourceTree = "<group>"; };
 		53599BDA275919E7009EA34F /* MaterialCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MaterialCollectionViewCell.xib; sourceTree = "<group>"; };
 		53622A82275699400063A4DB /* ListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListViewController.swift; sourceTree = "<group>"; };
@@ -44,6 +55,13 @@
 		53622A8F275699EA0063A4DB /* ItemCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ItemCollectionViewCell.xib; sourceTree = "<group>"; };
 		53622A9227569D5D0063A4DB /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		53622A942757EABC0063A4DB /* ItemInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemInfoViewController.swift; sourceTree = "<group>"; };
+		53BB54AD278563DB00306AB2 /* Rank.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Rank.storyboard; sourceTree = "<group>"; };
+		53BB54B0278563F600306AB2 /* RankViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RankViewController.swift; sourceTree = "<group>"; };
+		53BB54B527859B4600306AB2 /* CardCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardCollectionViewCell.swift; sourceTree = "<group>"; };
+		53BB54B627859B4600306AB2 /* CardCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CardCollectionViewCell.xib; sourceTree = "<group>"; };
+		A9A74D08D08D0AED3BA060B1 /* Pods_Algomukja.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Algomukja.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		B15B9690FFD5BFDCDD839649 /* Pods-Algomukja.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Algomukja.debug.xcconfig"; path = "Target Support Files/Pods-Algomukja/Pods-Algomukja.debug.xcconfig"; sourceTree = "<group>"; };
+		E9386F59357B420D2110BAD3 /* Pods-Algomukja.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Algomukja.release.xcconfig"; path = "Target Support Files/Pods-Algomukja/Pods-Algomukja.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -51,6 +69,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				53BB54AA2785552700306AB2 /* Pods_Algomukja.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -62,6 +81,8 @@
 			children = (
 				53380D99273A72DE0044E63E /* Algomukja */,
 				53380D98273A72DE0044E63E /* Products */,
+				F8E000CDD6F70CFAC93B9C6F /* Pods */,
+				C64D723A855C7F601BD5AFC5 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -107,6 +128,8 @@
 		53380DB0273A73030044E63E /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				53BB54AF278563E700306AB2 /* Rank */,
+				533FE9BE2771D60500CCC596 /* Camera */,
 				53622A7E275698E90063A4DB /* Recommend */,
 				53622A7D275698DA0063A4DB /* ItemList */,
 				53622A7C275698BE0063A4DB /* TabBar */,
@@ -138,8 +161,19 @@
 				53380DA5273A72E10044E63E /* LaunchScreen.storyboard */,
 				53622A842756997C0063A4DB /* TabBar.storyboard */,
 				53622A86275699860063A4DB /* ItemList.storyboard */,
+				533FE9BC2771D5F700CCC596 /* Camera.storyboard */,
+				53BB54AD278563DB00306AB2 /* Rank.storyboard */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		533FE9BE2771D60500CCC596 /* Camera */ = {
+			isa = PBXGroup;
+			children = (
+				533FE9BF2771D61900CCC596 /* CameraViewController.swift */,
+				533B79282774D43C00D0225D /* EditViewController.swift */,
+			);
+			path = Camera;
 			sourceTree = "<group>";
 		};
 		53622A7C275698BE0063A4DB /* TabBar */ = {
@@ -177,6 +211,41 @@
 			path = Cell;
 			sourceTree = "<group>";
 		};
+		53BB54AF278563E700306AB2 /* Rank */ = {
+			isa = PBXGroup;
+			children = (
+				53BB54B227859AF800306AB2 /* Cell */,
+				53BB54B0278563F600306AB2 /* RankViewController.swift */,
+			);
+			path = Rank;
+			sourceTree = "<group>";
+		};
+		53BB54B227859AF800306AB2 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				53BB54B527859B4600306AB2 /* CardCollectionViewCell.swift */,
+				53BB54B627859B4600306AB2 /* CardCollectionViewCell.xib */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
+		C64D723A855C7F601BD5AFC5 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				A9A74D08D08D0AED3BA060B1 /* Pods_Algomukja.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		F8E000CDD6F70CFAC93B9C6F /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				B15B9690FFD5BFDCDD839649 /* Pods-Algomukja.debug.xcconfig */,
+				E9386F59357B420D2110BAD3 /* Pods-Algomukja.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -184,9 +253,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 53380DAB273A72E10044E63E /* Build configuration list for PBXNativeTarget "Algomukja" */;
 			buildPhases = (
+				A62CBA0EECD2AA141FFAB779 /* [CP] Check Pods Manifest.lock */,
 				53380D93273A72DE0044E63E /* Sources */,
 				53380D94273A72DE0044E63E /* Frameworks */,
 				53380D95273A72DE0044E63E /* Resources */,
+				4465856E999F64DFF4B77FE7 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -235,32 +306,81 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				53BB54AE278563DB00306AB2 /* Rank.storyboard in Resources */,
 				53622A852756997C0063A4DB /* TabBar.storyboard in Resources */,
 				53380DA7273A72E10044E63E /* LaunchScreen.storyboard in Resources */,
 				53380DB6273A735F0044E63E /* Colors.xcassets in Resources */,
 				53622A91275699EA0063A4DB /* ItemCollectionViewCell.xib in Resources */,
+				53BB54B827859B4600306AB2 /* CardCollectionViewCell.xib in Resources */,
 				53622A87275699860063A4DB /* ItemList.storyboard in Resources */,
 				53599BDC275919E7009EA34F /* MaterialCollectionViewCell.xib in Resources */,
 				53380DA4273A72E10044E63E /* Assets.xcassets in Resources */,
+				533FE9BD2771D5F700CCC596 /* Camera.storyboard in Resources */,
 				53380DA2273A72DE0044E63E /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		4465856E999F64DFF4B77FE7 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Algomukja/Pods-Algomukja-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Algomukja/Pods-Algomukja-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Algomukja/Pods-Algomukja-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		A62CBA0EECD2AA141FFAB779 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Algomukja-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		53380D93273A72DE0044E63E /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				533B79292774D43C00D0225D /* EditViewController.swift in Sources */,
+				53BB54B1278563F600306AB2 /* RankViewController.swift in Sources */,
 				53622A90275699EA0063A4DB /* ItemCollectionViewCell.swift in Sources */,
 				53622A9327569D5D0063A4DB /* Extensions.swift in Sources */,
+				53BB54B727859B4600306AB2 /* CardCollectionViewCell.swift in Sources */,
 				53599BDB275919E7009EA34F /* MaterialCollectionViewCell.swift in Sources */,
 				53622A952757EABC0063A4DB /* ItemInfoViewController.swift in Sources */,
 				53380D9F273A72DE0044E63E /* ViewController.swift in Sources */,
 				53380D9B273A72DE0044E63E /* AppDelegate.swift in Sources */,
 				53622A83275699400063A4DB /* ListViewController.swift in Sources */,
 				53380D9D273A72DE0044E63E /* SceneDelegate.swift in Sources */,
+				533FE9C02771D61900CCC596 /* CameraViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -404,6 +524,7 @@
 		};
 		53380DAC273A72E10044E63E /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = B15B9690FFD5BFDCDD839649 /* Pods-Algomukja.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -412,26 +533,30 @@
 				DEVELOPMENT_TEAM = CX8P4D8Z7M;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Algomukja/Info.plist;
+				INFOPLIST_KEY_NSCameraUsageDescription = "카메라를 통해 원재료명을 읽을 수 있습니다.";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UIUserInterfaceStyle = Light;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = sk.Algomukja;
+				PRODUCT_BUNDLE_IDENTIFIER = "sk.algo-1";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_WORKSPACE = NO;
 			};
 			name = Debug;
 		};
 		53380DAD273A72E10044E63E /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = E9386F59357B420D2110BAD3 /* Pods-Algomukja.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -440,21 +565,24 @@
 				DEVELOPMENT_TEAM = CX8P4D8Z7M;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Algomukja/Info.plist;
+				INFOPLIST_KEY_NSCameraUsageDescription = "카메라를 통해 원재료명을 읽을 수 있습니다.";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UIUserInterfaceStyle = Light;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = sk.Algomukja;
+				PRODUCT_BUNDLE_IDENTIFIER = "sk.algo-1";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_WORKSPACE = NO;
 			};
 			name = Release;
 		};

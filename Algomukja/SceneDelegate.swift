@@ -21,7 +21,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
                self.window = UIWindow(windowScene: windowScene)
         
         let storyboard = UIStoryboard(name: "ItemList", bundle: nil)
-        guard let VC = storyboard.instantiateViewController(identifier: "ListViewController") as? ListViewController else {
+        guard let VC = storyboard.instantiateViewController(identifier: "ListViewController") as? ListViewController else { 
             print("Controller not found")
             return
         }

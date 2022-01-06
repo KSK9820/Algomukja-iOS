@@ -21,7 +21,6 @@ enum ChatAlarmFilterType {
     case level3
     case level4
     case level5
-    case level6
 }
 
 
@@ -30,10 +29,11 @@ let screenWidth = UIScreen.main.bounds.width
 class ListViewController: UIViewController {
 
     @IBOutlet var vegan_level: [UIImageView]!
+    
     @IBOutlet weak var collectionview: UICollectionView!
     var filterType: ChatAlarmFilterType = .level0
     
-    var item: [ITEM] = [ITEM(photo: "https://contents.lotteon.com/itemimage/_v010018/LF/15/38/53/3_/0/LF1538533_0_1.jpg", name: "고기대신 비건 제육볶음 (냉동)", finalLevel: 1, level: [0,1,0,0,0,0,0], accurate: true), ITEM(photo: "https://image.homeplus.kr/td/967ef98d-08fd-4ece-a1b5-dd6dd745b4b8", name: "고기대신 맛있는녀석들 비건육포 오리지널", finalLevel: 1, level: [0,1,0,0,0,0,0], accurate: false), ITEM(photo: "https://image.homeplus.kr/td/ef39ed5d-7bc7-4ab2-96d3-908e1601215d", name: "씨제이 삼호 맑은 어묵", finalLevel: 4, level: [0,1,0,0,1,0,0], accurate: false), ITEM(photo: "https://image.homeplus.kr/td/29983ea0-51ff-4a94-813e-8922cd372d0b", name: "홈플러스시그니처 매콤한 순대 볶음", finalLevel: 6, level: [0,1,1,0,0,0,1], accurate: false), ITEM(photo: "https://image.homeplus.kr/td/2e29ccec-0dc8-438b-acc6-e80e67e15506", name: "풀무원 국물 떡볶이", finalLevel: 1, level: [1,1,0,0,0,0,0], accurate: false), ITEM(photo: "https://image.homeplus.kr/td/e334c618-804c-4905-b262-4f3f71ab9ddc", name: "농심 올리브 짜파게티", finalLevel: 6, level: [0,1,1,1,1,0,1], accurate: false), ITEM(photo: "https://image.homeplus.kr/td/e2f6ca0b-9cf3-497a-a922-ac9ab03de5d5", name: "착한톡톡 사과비트즙", finalLevel: 0, level: [1,0,0,0,0,0,0], accurate: false)]
+    var item: [ITEM] = [ITEM(photo: "https://contents.lotteon.com/itemimage/_v010018/LF/15/38/53/3_/0/LF1538533_0_1.jpg", name: "고기대신 비건 제육볶음 (냉동)", finalLevel: 0, level: [1,0,0,0,0,0], accurate: true), ITEM(photo: "https://image.homeplus.kr/td/967ef98d-08fd-4ece-a1b5-dd6dd745b4b8", name: "고기대신 맛있는녀석들 비건육포 오리지널", finalLevel: 0, level: [1,0,0,0,0,0], accurate: false), ITEM(photo: "https://image.homeplus.kr/td/ef39ed5d-7bc7-4ab2-96d3-908e1601215d", name: "씨제이 삼호 맑은 어묵", finalLevel: 3, level: [1,0,0,1,0,0], accurate: false), ITEM(photo: "https://image.homeplus.kr/td/29983ea0-51ff-4a94-813e-8922cd372d0b", name: "홈플러스시그니처 매콤한 순대 볶음", finalLevel: 5, level: [1,1,0,0,0,1], accurate: false), ITEM(photo: "https://image.homeplus.kr/td/2e29ccec-0dc8-438b-acc6-e80e67e15506", name: "풀무원 국물 떡볶이", finalLevel: 0, level: [1,0,0,0,0,0], accurate: false), ITEM(photo: "https://image.homeplus.kr/td/e334c618-804c-4905-b262-4f3f71ab9ddc", name: "농심 올리브 짜파게티", finalLevel: 5, level: [1,1,1,1,0,1], accurate: false)]
     
     var selectedItem: [ITEM] = []
     
@@ -49,13 +49,13 @@ class ListViewController: UIViewController {
     }
     
     func UISetting(){
-        for i in 0..<7{
+        for i in 0..<6{
             vegan_level[i].isUserInteractionEnabled = true
         }
     }
     
     func greySetting(except: Int){
-        for i in 0..<7{
+        for i in 0..<6{
             if i == except {
 //                continue
                 vegan_level[i].image = UIImage(named: String(except))
@@ -95,9 +95,7 @@ class ListViewController: UIViewController {
             case .level5:
                 greySetting(except: 5)
                 setSelectedItem(selected: 5)
-            case .level6:
-                greySetting(except: 6)
-                setSelectedItem(selected: 6)
+           
                 
             }
         }
@@ -110,7 +108,7 @@ class ListViewController: UIViewController {
         let tap_3: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(buttonTapped(_:)))
         let tap_4: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(buttonTapped(_:)))
         let tap_5: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(buttonTapped(_:)))
-        let tap_6: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(buttonTapped(_:)))
+       
          
 
         vegan_level[0].addGestureRecognizer(tap_0)
@@ -119,7 +117,7 @@ class ListViewController: UIViewController {
         vegan_level[3].addGestureRecognizer(tap_3)
         vegan_level[4].addGestureRecognizer(tap_4)
         vegan_level[5].addGestureRecognizer(tap_5)
-        vegan_level[6].addGestureRecognizer(tap_6)
+        
     }
     
     @objc func buttonTapped(_ sender: UITapGestureRecognizer) {
@@ -142,9 +140,7 @@ class ListViewController: UIViewController {
         else if sender.view == vegan_level[5] {
             filterType = .level5
         }
-        else if sender.view == vegan_level[6] {
-            filterType = .level6
-        }
+       
         updateFilterType()
         
     }

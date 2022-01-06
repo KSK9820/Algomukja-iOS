@@ -7,6 +7,10 @@
 
 import UIKit
 
+protocol didselectEvent{
+    func didselect(indexPath: Int)
+}
+
 class MaterialCollectionViewCell: UICollectionViewCell {
 
     @IBOutlet weak var materialview: UIView!
@@ -35,7 +39,7 @@ class MaterialCollectionViewCell: UICollectionViewCell {
     
     public func configure(with material: material, indexpath: Int){
         lbl_meterial.text = material.name
-        lbl_meterial.backgroundColor = UIColor(named: "level\(material.level)")
+        lbl_meterial.backgroundColor = UIColor(named: "level\(material.level + 1)")
         lbl_meterial.makeRoundView(radius: 10)
         
     }
