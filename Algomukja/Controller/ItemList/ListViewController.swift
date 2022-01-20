@@ -54,6 +54,16 @@ class ListViewController: UIViewController {
         }
     }
     
+
+    
+    func collectionviewSetting(){
+            collectionview.delegate = self
+            collectionview.dataSource = self
+            collectionview.register(ItemCollectionViewCell.nib(), forCellWithReuseIdentifier: ItemCollectionViewCell.identifier)
+            let flowLayout = UICollectionViewFlowLayout()
+            collectionview.collectionViewLayout = flowLayout
+        }
+    
     func greySetting(except: Int){
         for i in 0..<6{
             if i == except {
@@ -65,15 +75,6 @@ class ListViewController: UIViewController {
             
         }
     }
-    
-    func collectionviewSetting(){
-            collectionview.delegate = self
-            collectionview.dataSource = self
-            collectionview.register(ItemCollectionViewCell.nib(), forCellWithReuseIdentifier: ItemCollectionViewCell.identifier)
-            let flowLayout = UICollectionViewFlowLayout()
-            collectionview.collectionViewLayout = flowLayout
-        }
-
     
     func updateFilterType() {
             switch filterType {
@@ -95,8 +96,6 @@ class ListViewController: UIViewController {
             case .level5:
                 greySetting(except: 5)
                 setSelectedItem(selected: 5)
-           
-                
             }
         }
 
@@ -187,7 +186,7 @@ extension ListViewController: UICollectionViewDelegate, UICollectionViewDataSour
     
 }
 
-extension ListViewController: UICollectionViewDelegateFlowLayout {
+extension ListViewController: UICollectionViewDelegateFlowLayout{
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         return CGSize(width: screenWidth - 40, height: 180)
     }

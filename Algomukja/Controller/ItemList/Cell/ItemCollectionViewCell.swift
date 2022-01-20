@@ -30,7 +30,7 @@ class ItemCollectionViewCell: UICollectionViewCell {
     func UISetting(){
         self.contentView.makeRoundView(radius: 10)
         self.itemview.makeRoundView(radius: 10)
-        setViewShadow(backView: itemview, colorName: "400", width: -2, height: 3)
+        setViewShadow(backView: itemview, colorName: "300", width: -1, height: 2)
         self.lbl_name.numberOfLines = 3
         self.lbl_name.sizeToFit()
         self.lbl_name.lineBreakMode = .byCharWrapping
