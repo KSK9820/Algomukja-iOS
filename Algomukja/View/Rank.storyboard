@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19455" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19455" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Y6W-OH-hqX">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19454"/>
@@ -11,7 +11,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Rank View Controller-->
+        <!--product search-->
         <scene sceneID="s0d-6b-0kx">
             <objects>
                 <viewController storyboardIdentifier="RankViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Y6W-OH-hqX" customClass="RankViewController" customModule="Algomukja" customModuleProvider="target" sceneMemberID="viewController">
@@ -70,7 +70,7 @@
                                 </constraints>
                             </view>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3Dv-6c-xk8">
-                                <rect key="frame" x="0.0" y="160" width="414" height="702"/>
+                                <rect key="frame" x="0.0" y="160" width="414" height="653"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9H2-Z5-lyg">
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="1000"/>
@@ -212,6 +212,10 @@
                             <constraint firstItem="bki-l9-DeS" firstAttribute="top" secondItem="5EZ-qb-Rvc" secondAttribute="top" id="i0u-Yt-ffK"/>
                         </constraints>
                     </view>
+                    <tabBarItem key="tabBarItem" title="product search" id="Sce-SZ-p6z">
+                        <imageReference key="image" image="bookmark" catalog="system" symbolScale="large"/>
+                    </tabBarItem>
+                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="CardCollectionView" destination="AJ8-fV-bWf" id="FJG-op-Prd"/>
                         <outlet property="iv_result" destination="Wmg-gU-MqS" id="UP2-25-rbJ"/>
@@ -242,6 +246,7 @@
         <image name="3" width="166" height="102"/>
         <image name="4" width="398" height="462"/>
         <image name="5" width="424" height="400"/>
+        <image name="bookmark" catalog="system" width="112" height="128"/>
         <image name="magnifyingglass" catalog="system" width="128" height="115"/>
         <namedColor name="200">
             <color red="0.81568627450980391" green="0.81960784313725488" blue="0.84313725490196079" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

@@ -31,6 +31,7 @@
 		53BB54B1278563F600306AB2 /* RankViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53BB54B0278563F600306AB2 /* RankViewController.swift */; };
 		53BB54B727859B4600306AB2 /* CardCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53BB54B527859B4600306AB2 /* CardCollectionViewCell.swift */; };
 		53BB54B827859B4600306AB2 /* CardCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 53BB54B627859B4600306AB2 /* CardCollectionViewCell.xib */; };
+		53EB7AC9279BD9AC007FD22A /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53EB7AC8279BD9AC007FD22A /* TabBarViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -59,6 +60,7 @@
 		53BB54B0278563F600306AB2 /* RankViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RankViewController.swift; sourceTree = "<group>"; };
 		53BB54B527859B4600306AB2 /* CardCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardCollectionViewCell.swift; sourceTree = "<group>"; };
 		53BB54B627859B4600306AB2 /* CardCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CardCollectionViewCell.xib; sourceTree = "<group>"; };
+		53EB7AC8279BD9AC007FD22A /* TabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
 		A9A74D08D08D0AED3BA060B1 /* Pods_Algomukja.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Algomukja.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B15B9690FFD5BFDCDD839649 /* Pods-Algomukja.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Algomukja.debug.xcconfig"; path = "Target Support Files/Pods-Algomukja/Pods-Algomukja.debug.xcconfig"; sourceTree = "<group>"; };
 		E9386F59357B420D2110BAD3 /* Pods-Algomukja.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Algomukja.release.xcconfig"; path = "Target Support Files/Pods-Algomukja/Pods-Algomukja.release.xcconfig"; sourceTree = "<group>"; };
@@ -179,6 +181,7 @@
 		53622A7C275698BE0063A4DB /* TabBar */ = {
 			isa = PBXGroup;
 			children = (
+				53EB7AC8279BD9AC007FD22A /* TabBarViewController.swift */,
 			);
 			path = TabBar;
 			sourceTree = "<group>";
@@ -379,6 +382,7 @@
 				53380D9F273A72DE0044E63E /* ViewController.swift in Sources */,
 				53380D9B273A72DE0044E63E /* AppDelegate.swift in Sources */,
 				53622A83275699400063A4DB /* ListViewController.swift in Sources */,
+				53EB7AC9279BD9AC007FD22A /* TabBarViewController.swift in Sources */,
 				53380D9D273A72DE0044E63E /* SceneDelegate.swift in Sources */,
 				533FE9C02771D61900CCC596 /* CameraViewController.swift in Sources */,
 			);

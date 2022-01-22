@@ -279,11 +279,13 @@
             </objects>
             <point key="canvasLocation" x="2689.8550724637685" y="83.705357142857139"/>
         </scene>
-        <!--Navigation Controller-->
+        <!--stage-->
         <scene sceneID="IMS-an-Aqm">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="fkL-Uo-xjM" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="stage" image="list.bullet.rectangle" catalog="system" selectedImage="list.bullet.rectangle" id="GNY-fQ-KSd"/>
                     <toolbarItems/>
+                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="6Rk-QI-heh">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -305,6 +307,7 @@
         <image name="3" width="166" height="102"/>
         <image name="4" width="398" height="462"/>
         <image name="5" width="424" height="400"/>
+        <image name="list.bullet.rectangle" catalog="system" width="128" height="93"/>
         <namedColor name="000">
             <color red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
