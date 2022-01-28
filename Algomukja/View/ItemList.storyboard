@@ -39,26 +39,23 @@
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="VIi-Kv-vrD">
                                 <rect key="frame" x="16" y="106.5" width="382" height="50"/>
                                 <subviews>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="0" translatesAutoresizingMaskIntoConstraints="NO" id="6xL-un-CBb">
-                                        <rect key="frame" x="0.0" y="0.0" width="54.5" height="50"/>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="0" translatesAutoresizingMaskIntoConstraints="NO" id="Sp9-NE-xxz">
+                                        <rect key="frame" x="0.0" y="0.0" width="63.5" height="50"/>
                                     </imageView>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="1" translatesAutoresizingMaskIntoConstraints="NO" id="Sp9-NE-xxz">
-                                        <rect key="frame" x="54.5" y="0.0" width="54.5" height="50"/>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="1" translatesAutoresizingMaskIntoConstraints="NO" id="o5b-fq-vJg">
+                                        <rect key="frame" x="63.5" y="0.0" width="64" height="50"/>
                                     </imageView>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="2" translatesAutoresizingMaskIntoConstraints="NO" id="o5b-fq-vJg">
-                                        <rect key="frame" x="109" y="0.0" width="54.5" height="50"/>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="2" translatesAutoresizingMaskIntoConstraints="NO" id="YIV-nm-vZ7">
+                                        <rect key="frame" x="127.5" y="0.0" width="63.5" height="50"/>
                                     </imageView>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="3" translatesAutoresizingMaskIntoConstraints="NO" id="YIV-nm-vZ7">
-                                        <rect key="frame" x="163.5" y="0.0" width="55" height="50"/>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="3" translatesAutoresizingMaskIntoConstraints="NO" id="q3p-aU-IlM">
+                                        <rect key="frame" x="191" y="0.0" width="63.5" height="50"/>
                                     </imageView>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="4" translatesAutoresizingMaskIntoConstraints="NO" id="q3p-aU-IlM">
-                                        <rect key="frame" x="218.5" y="0.0" width="54.5" height="50"/>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="4" translatesAutoresizingMaskIntoConstraints="NO" id="xhY-Mp-34O">
+                                        <rect key="frame" x="254.5" y="0.0" width="64" height="50"/>
                                     </imageView>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="5" translatesAutoresizingMaskIntoConstraints="NO" id="xhY-Mp-34O">
-                                        <rect key="frame" x="273" y="0.0" width="54.5" height="50"/>
-                                    </imageView>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="6" translatesAutoresizingMaskIntoConstraints="NO" id="lw0-qI-7fK">
-                                        <rect key="frame" x="327.5" y="0.0" width="54.5" height="50"/>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="5" translatesAutoresizingMaskIntoConstraints="NO" id="lw0-qI-7fK">
+                                        <rect key="frame" x="318.5" y="0.0" width="63.5" height="50"/>
                                     </imageView>
                                 </subviews>
                                 <constraints>
@@ -104,13 +101,12 @@
                     <navigationItem key="navigationItem" id="WA7-bV-LDv"/>
                     <connections>
                         <outlet property="collectionview" destination="bww-bv-MZI" id="eBj-WP-Ame"/>
-                        <outletCollection property="vegan_level" destination="6xL-un-CBb" collectionClass="NSMutableArray" id="eTl-uG-QrT"/>
-                        <outletCollection property="vegan_level" destination="Sp9-NE-xxz" collectionClass="NSMutableArray" id="mb1-T8-baG"/>
-                        <outletCollection property="vegan_level" destination="o5b-fq-vJg" collectionClass="NSMutableArray" id="ftA-Ra-fv7"/>
-                        <outletCollection property="vegan_level" destination="YIV-nm-vZ7" collectionClass="NSMutableArray" id="GL3-I7-Olb"/>
-                        <outletCollection property="vegan_level" destination="q3p-aU-IlM" collectionClass="NSMutableArray" id="6zh-xY-r5U"/>
-                        <outletCollection property="vegan_level" destination="xhY-Mp-34O" collectionClass="NSMutableArray" id="x5h-WE-G1Y"/>
-                        <outletCollection property="vegan_level" destination="lw0-qI-7fK" collectionClass="NSMutableArray" id="T0M-En-t4O"/>
+                        <outletCollection property="vegan_level" destination="Sp9-NE-xxz" collectionClass="NSMutableArray" id="sx5-cS-7ob"/>
+                        <outletCollection property="vegan_level" destination="o5b-fq-vJg" collectionClass="NSMutableArray" id="Qlb-gN-tlC"/>
+                        <outletCollection property="vegan_level" destination="YIV-nm-vZ7" collectionClass="NSMutableArray" id="DhC-sU-agY"/>
+                        <outletCollection property="vegan_level" destination="q3p-aU-IlM" collectionClass="NSMutableArray" id="0Zj-w4-LSq"/>
+                        <outletCollection property="vegan_level" destination="xhY-Mp-34O" collectionClass="NSMutableArray" id="RRa-SF-uCS"/>
+                        <outletCollection property="vegan_level" destination="lw0-qI-7fK" collectionClass="NSMutableArray" id="4xc-X8-YgK"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -153,25 +149,22 @@
                                                 <rect key="frame" x="0.0" y="90" width="334" height="50"/>
                                                 <subviews>
                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="0" translatesAutoresizingMaskIntoConstraints="NO" id="rJb-o0-9Uc">
-                                                        <rect key="frame" x="0.0" y="0.0" width="47.5" height="50"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="55.5" height="50"/>
                                                     </imageView>
                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="1" translatesAutoresizingMaskIntoConstraints="NO" id="6sM-4Q-5zs">
-                                                        <rect key="frame" x="47.5" y="0.0" width="48" height="50"/>
+                                                        <rect key="frame" x="55.5" y="0.0" width="56" height="50"/>
                                                     </imageView>
                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="2" translatesAutoresizingMaskIntoConstraints="NO" id="hrN-pM-nIp">
-                                                        <rect key="frame" x="95.5" y="0.0" width="47.5" height="50"/>
+                                                        <rect key="frame" x="111.5" y="0.0" width="55.5" height="50"/>
                                                     </imageView>
                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="3" translatesAutoresizingMaskIntoConstraints="NO" id="m7v-4S-Gj1">
-                                                        <rect key="frame" x="143" y="0.0" width="48" height="50"/>
+                                                        <rect key="frame" x="167" y="0.0" width="55.5" height="50"/>
                                                     </imageView>
                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="4" translatesAutoresizingMaskIntoConstraints="NO" id="3LZ-sr-SHh">
-                                                        <rect key="frame" x="191" y="0.0" width="47.5" height="50"/>
+                                                        <rect key="frame" x="222.5" y="0.0" width="56" height="50"/>
                                                     </imageView>
                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="5" translatesAutoresizingMaskIntoConstraints="NO" id="Qcv-Ni-NHD">
-                                                        <rect key="frame" x="238.5" y="0.0" width="48" height="50"/>
-                                                    </imageView>
-                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="6" translatesAutoresizingMaskIntoConstraints="NO" id="S5p-dc-g7B">
-                                                        <rect key="frame" x="286.5" y="0.0" width="47.5" height="50"/>
+                                                        <rect key="frame" x="278.5" y="0.0" width="55.5" height="50"/>
                                                     </imageView>
                                                 </subviews>
                                                 <constraints>
@@ -280,18 +273,19 @@
                         <outletCollection property="iv_level" destination="m7v-4S-Gj1" collectionClass="NSMutableArray" id="hpB-7k-cux"/>
                         <outletCollection property="iv_level" destination="3LZ-sr-SHh" collectionClass="NSMutableArray" id="nho-AO-DcG"/>
                         <outletCollection property="iv_level" destination="Qcv-Ni-NHD" collectionClass="NSMutableArray" id="Jvb-8I-SSH"/>
-                        <outletCollection property="iv_level" destination="S5p-dc-g7B" collectionClass="NSMutableArray" id="sO3-a9-7RC"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="l2A-kr-Fn7" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2689.8550724637685" y="83.705357142857139"/>
         </scene>
-        <!--Navigation Controller-->
+        <!--stage-->
         <scene sceneID="IMS-an-Aqm">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="fkL-Uo-xjM" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="stage" image="list.bullet.rectangle" catalog="system" selectedImage="list.bullet.rectangle" id="GNY-fQ-KSd"/>
                     <toolbarItems/>
+                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="6Rk-QI-heh">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -307,13 +301,13 @@
         </scene>
     </scenes>
     <resources>
-        <image name="0" width="122" height="114"/>
-        <image name="1" width="136" height="128"/>
-        <image name="2" width="348" height="482"/>
-        <image name="3" width="134" height="96"/>
-        <image name="4" width="166" height="102"/>
-        <image name="5" width="398" height="462"/>
-        <image name="6" width="424" height="400"/>
+        <image name="0" width="136" height="128"/>
+        <image name="1" width="348" height="482"/>
+        <image name="2" width="134" height="96"/>
+        <image name="3" width="166" height="102"/>
+        <image name="4" width="398" height="462"/>
+        <image name="5" width="424" height="400"/>
+        <image name="list.bullet.rectangle" catalog="system" width="128" height="93"/>
         <namedColor name="000">
             <color red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>

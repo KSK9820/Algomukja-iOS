@@ -20,8 +20,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         guard let windowScene = (scene as? UIWindowScene) else { return }
                self.window = UIWindow(windowScene: windowScene)
         
-        let storyboard = UIStoryboard(name: "ItemList", bundle: nil)
-        guard let VC = storyboard.instantiateViewController(identifier: "ListViewController") as? ListViewController else {
+        let storyboard = UIStoryboard(name: "TabBar", bundle: nil)
+        guard let VC = storyboard.instantiateViewController(identifier: "TabBarViewController") as? TabBarViewController else {
             print("Controller not found")
             return
         }
