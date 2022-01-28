@@ -7,6 +7,7 @@
 
 import UIKit
 import FloatingPanel
+import Moya
 
 
 
@@ -17,6 +18,13 @@ class CameraViewController: UIViewController{
     @IBOutlet weak var imageview: UIImageView!
     
     var fpc: FloatingPanelController!
+    
+   
+    let provider = MoyaProvider<CameraService>()
+    
+//    var documentsUrl: URL {
+//        return FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!
+//    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -89,8 +97,8 @@ extension CameraViewController: UIImagePickerControllerDelegate, UINavigationCon
             if let image = info[UIImagePickerController.InfoKey(rawValue: "UIImagePickerControllerEditedImage")] as? UIImage {
                 imageview.image = image
             }
-            //print("----\(info)")
-   
+//
+        
         picker.dismiss(animated: true, completion:{
             //self.openEditFloating()
         })
@@ -140,5 +148,12 @@ extension FloatingPanelController {
         
         surfaceView.grabberHandle.isHidden = true
         surfaceView.appearance = appearance
+    }
+}
+
+
+extension CameraViewController{
+    func post_Clova(){
+        
     }
 }

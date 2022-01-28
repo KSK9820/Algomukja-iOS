@@ -6,6 +6,8 @@
 //
 
 import UIKit
+import Foundation
+import Moya
 
 class EditViewController: UIViewController {
 
@@ -14,6 +16,10 @@ class EditViewController: UIViewController {
     
     @IBOutlet weak var btn_send: UIButton!
     
+    let provider = MoyaProvider<CameraService>()
+    var request = CameraRequest()
+    var imageRequest = [clova_image]()
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -21,6 +27,14 @@ class EditViewController: UIViewController {
         // Do any additional setup after loading the view.
         UISetting()
         setKeyboardObserver()
+        
+        let timestamp = Date().currentTimeMillis()
+        request = CameraRequest(images: [clova_image(format: "jpg", name: "medium", data: Data(), url: "http://image.nongshim.com/non/pro/bong_2.jpg")], lang: "ko", requestId: "e36ead3ac71f45d9a5c8d8da285818a7", resultType: "string", timestamp: timestamp ,version: "V2")
+        
+        print(request)
+        
+        
+        postOCR(data: request)
     }
     
     func UISetting(){
@@ -79,6 +93,41 @@ class EditViewController: UIViewController {
         }
     
     }
+   
 }
 
 
+extension EditViewController{
+    func postOCR(data: CameraRequest){
+        provider.request(.postOCR(ocr: request)){ [weak self] result in
+//                guard let self = self else {return}
+                
+                switch result {
+                case .success(let response):
+                    do{
+                        print("***result: \(try response.mapJSON())")
+                        
+                    }catch let DecodingError.dataCorrupted(context) {
+                        print(context)
+                    } catch let DecodingError.keyNotFound(key, context) {
+                        print("Key '\(key)' not found:", context.debugDescription)
+                        print("codingPath:", context.codingPath)
+                    } catch let DecodingError.valueNotFound(value, context) {
+                        print("Value '\(value)' not found:", context.debugDescription)
+                        print("codingPath:", context.codingPath)
+                    } catch let DecodingError.typeMismatch(type, context)  {
+                        print("Type '\(type)' mismatch:", context.debugDescription)
+                        print("codingPath:", context.codingPath)
+                    } catch {
+                        print("error: ", error)
+                    }
+                    
+                case .failure(let error):
+                    
+                    print("***error: \(error.localizedDescription)")
+                }
+                
+                
+            }
+        }
+}

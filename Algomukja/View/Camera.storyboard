@@ -3,13 +3,14 @@
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19454"/>
+        <capability name="Image references" minToolsVersion="12.0"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Camera View Controller-->
+        <!--Camera-->
         <scene sceneID="s0d-6b-0kx">
             <objects>
                 <viewController storyboardIdentifier="CameraViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Y6W-OH-hqX" customClass="CameraViewController" customModule="Algomukja" customModuleProvider="target" sceneMemberID="viewController">
@@ -18,7 +19,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xbA-ky-dlK">
-                                <rect key="frame" x="20" y="631" width="374" height="31"/>
+                                <rect key="frame" x="20" y="582" width="374" height="31"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="filled" title="갤러리">
                                     <color key="baseForegroundColor" name="900"/>
@@ -26,10 +27,10 @@
                                 </buttonConfiguration>
                             </button>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="o65-qT-Oqa">
-                                <rect key="frame" x="20" y="108" width="374" height="372"/>
+                                <rect key="frame" x="20" y="108" width="374" height="323"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xkQ-e0-xu9">
-                                <rect key="frame" x="20" y="580" width="374" height="31"/>
+                                <rect key="frame" x="20" y="531" width="374" height="31"/>
                                 <color key="tintColor" name="900"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="filled" title="카메라">
@@ -56,7 +57,11 @@
                             <constraint firstItem="xkQ-e0-xu9" firstAttribute="top" secondItem="o65-qT-Oqa" secondAttribute="bottom" constant="100" id="rQJ-iL-59j"/>
                         </constraints>
                     </view>
+                    <tabBarItem key="tabBarItem" title="Camera" id="Gyb-Yz-SEi">
+                        <imageReference key="image" image="camera" catalog="system" symbolScale="large"/>
+                    </tabBarItem>
                     <navigationItem key="navigationItem" id="QAs-bV-maO"/>
+                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="btnCamera" destination="xkQ-e0-xu9" id="UlY-KU-jHe"/>
                         <outlet property="btnGallery" destination="xbA-ky-dlK" id="PL4-JX-XHM"/>
@@ -157,6 +162,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="camera" catalog="system" width="128" height="94"/>
         <namedColor name="000">
             <color red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
