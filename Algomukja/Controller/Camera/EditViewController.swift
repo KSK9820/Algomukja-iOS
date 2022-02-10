@@ -9,7 +9,7 @@ import UIKit
 import Foundation
 import Moya
 
-class EditViewController: UIViewController {
+class EditViewController: UIViewController, UITextViewDelegate{
 
     @IBOutlet weak var topView: UIView!
     @IBOutlet weak var tf_material: UITextView!
@@ -20,6 +20,8 @@ class EditViewController: UIViewController {
     var request = CameraRequest()
     var imageRequest = [clova_image]()
     
+    var text_material = [field]()
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,9 +31,10 @@ class EditViewController: UIViewController {
         setKeyboardObserver()
         
         let timestamp = Date().currentTimeMillis()
+        
         request = CameraRequest(images: [clova_image(format: "jpg", name: "medium", data: Data(), url: "http://image.nongshim.com/non/pro/bong_2.jpg")], lang: "ko", requestId: "e36ead3ac71f45d9a5c8d8da285818a7", resultType: "string", timestamp: timestamp ,version: "V2")
         
-        print(request)
+        
         
         
         postOCR(data: request)
@@ -51,8 +54,29 @@ class EditViewController: UIViewController {
 //        btn_send.makeRoundView(radius: 15)
     }
 
-    func textSetting(){
-        //OCR결과 tf_material에 넣기
+    func textSetting(text: [field]){
+        //결과 수정해서 post할 때 수정된 string -> array로 변환 필요
+
+        var material: [String] = []
+        var string = ""
+        
+        for i in 0..<text.count {
+            //제품명과 식품유형을 제외
+            if text[i].inferText == "제품명" || text[i].inferText == "식품유형"{
+               
+                continue
+            }else if text[i].inferText == "유통기한"{
+                break
+            }else{
+                material.append(text[i].inferText)
+                string += text[i].inferText + " "
+            }
+           
+        }
+        
+        tf_material.delegate = self
+        tf_material.text = string
+        
         
     }
 
@@ -105,8 +129,14 @@ extension EditViewController{
                 switch result {
                 case .success(let response):
                     do{
-                        print("***result: \(try response.mapJSON())")
-                        
+                        //print("***result: \(try response.mapJSON())")
+                        let datas = try JSONDecoder().decode(CameraResponse.self, from: response.data)
+                        self!.text_material = datas.images[0].fields
+                     
+                        DispatchQueue.main.async{ [self] in
+                            self!.textSetting(text: self!.text_material)
+                        }
+                       
                     }catch let DecodingError.dataCorrupted(context) {
                         print(context)
                     } catch let DecodingError.keyNotFound(key, context) {

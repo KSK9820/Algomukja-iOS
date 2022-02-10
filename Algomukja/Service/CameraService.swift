@@ -59,27 +59,27 @@ extension CameraService: TargetType {
             //var url_test = CameraRequest()
             return .requestParameters(
                 parameters: [
-                    "images": [
-                        ["format": request.images[0].format,
-                               "name": request.images[0].name,
-                               "data": nil,
-                               "url": request.images[0].url]
-                    ],
-                "lang": request.lang,
-                "requestId": request.requestId,
-                "resultType": request.resultType,
-                "timestamp": request.timestamp,
-                "version": request.version
-//                    "images": [[
-//                            "format": "jpg",
-//                            "name": "medium",
-//                            "url": "http://image.nongshim.com/non/pro/bong_2.jpg"
-//                        ]],
-//                        "lang": "ko",
-//                        "requestId": "f35224d739c94a2e9b11c994982d7c70",
-//                        "resultType": "string",
-//                        "timestamp": request.timestamp,
-//                        "version": "V2"
+//                    "images": [
+//                        ["format": request.images[0].format,
+//                               "name": request.images[0].name,
+//                               "data": nil,
+//                               "url": request.images[0].url]
+//                    ],
+//                "lang": request.lang,
+//                "requestId": request.requestId,
+//                "resultType": request.resultType,
+//                "timestamp": request.timestamp,
+//                "version": request.version
+                    "images": [[
+                            "format": "jpg",
+                            "name": "medium",
+                            "url": "http://image.nongshim.com/non/pro/bong_2.jpg"
+                        ]],
+                        "lang": "ko",
+                        "requestId": "f35224d739c94a2e9b11c994982d7c70",
+                        "resultType": "string",
+                        "timestamp": request.timestamp,
+                        "version": "V2"
             ],
                 encoding: JSONEncoding.default)
         }
