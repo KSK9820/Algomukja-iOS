@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5325C0F227BD5CAC006D4B9F /* SearchResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5325C0F127BD5CAC006D4B9F /* SearchResultViewController.swift */; };
 		53380D9B273A72DE0044E63E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53380D9A273A72DE0044E63E /* AppDelegate.swift */; };
 		53380D9D273A72DE0044E63E /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53380D9C273A72DE0044E63E /* SceneDelegate.swift */; };
 		53380D9F273A72DE0044E63E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53380D9E273A72DE0044E63E /* ViewController.swift */; };
@@ -39,6 +40,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		5325C0F127BD5CAC006D4B9F /* SearchResultViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultViewController.swift; sourceTree = "<group>"; };
 		53380D97273A72DE0044E63E /* Algomukja.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Algomukja.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		53380D9A273A72DE0044E63E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		53380D9C273A72DE0044E63E /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -185,6 +187,7 @@
 			children = (
 				533FE9BF2771D61900CCC596 /* CameraViewController.swift */,
 				533B79282774D43C00D0225D /* EditViewController.swift */,
+				5325C0F127BD5CAC006D4B9F /* SearchResultViewController.swift */,
 			);
 			path = Camera;
 			sourceTree = "<group>";
@@ -410,6 +413,7 @@
 				53599BDB275919E7009EA34F /* MaterialCollectionViewCell.swift in Sources */,
 				53EB7ACB279DC20B007FD22A /* CameraService.swift in Sources */,
 				53622A952757EABC0063A4DB /* ItemInfoViewController.swift in Sources */,
+				5325C0F227BD5CAC006D4B9F /* SearchResultViewController.swift in Sources */,
 				53380D9F273A72DE0044E63E /* ViewController.swift in Sources */,
 				53EB7AD327A3192D007FD22A /* CameraResponse.swift in Sources */,
 				53380D9B273A72DE0044E63E /* AppDelegate.swift in Sources */,
