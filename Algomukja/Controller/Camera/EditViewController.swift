@@ -128,10 +128,10 @@ class EditViewController: UIViewController, UITextViewDelegate{
 }
 
 extension EditViewController{
-//    @IBAction func postButton(_ sender: Any) {
-//        postOCR(data: request)
+    @IBAction func postButton(_ sender: Any) {
         
-//    }
+        
+    }
 }
 
 

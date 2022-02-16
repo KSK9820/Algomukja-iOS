@@ -119,6 +119,7 @@
                                 </buttonConfiguration>
                                 <connections>
                                     <action selector="btnCamera:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="Jtg-rb-rFF"/>
+                                    <action selector="postButton:" destination="owE-yk-TQ2" eventType="touchUpInside" id="YbK-LY-afU"/>
                                 </connections>
                             </button>
                         </subviews>

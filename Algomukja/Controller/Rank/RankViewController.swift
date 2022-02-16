@@ -9,7 +9,7 @@ import UIKit
 import UPCarouselFlowLayout
 
 struct Card {
-    let photo, name, manufacture: String
+    let photo, name: String
     let finallevel: Int
     let level: [Int]
 }
@@ -32,9 +32,10 @@ class RankViewController: UIViewController {
     
     var filterType: ChatAlarmFilterType = .level0
     var selectedItem: [Card] = []
-    var card: [Card] = [Card(photo: "https://contents.lotteon.com/itemimage/_v010018/LF/15/38/53/3_/0/LF1538533_0_1.jpg", name: "고기대신 비건 제육볶음 (냉동)", manufacture: "vioMix", finallevel: 0, level: [1,0,0,0,0,0]), Card(photo: "https://image.homeplus.kr/td/967ef98d-08fd-4ece-a1b5-dd6dd745b4b8", name: "고기대신 맛있는녀석들 비건육포 오리지널", manufacture: "vioMix", finallevel: 0, level: [1,0,0,0,0,0]), Card(photo: "https://image.homeplus.kr/td/2e29ccec-0dc8-438b-acc6-e80e67e15506", name: "풀무원) 국물 떡볶이", manufacture: "풀무원", finallevel: 0, level: [1,0,0,0,0,0]), Card(photo: "https://image.homeplus.kr/td/ef39ed5d-7bc7-4ab2-96d3-908e1601215d", name: "씨제이 삼호 맑은 어묵", manufacture: "CJ", finallevel: 3, level: [1,0,0,1,0,0])]
+    var card: [ITEM] = [ITEM(photo: "https://contents.lotteon.com/itemimage/_v010018/LF/15/38/53/3_/0/LF1538533_0_1.jpg", name: "고기대신 비건 제육볶음 (냉동)", finalLevel: 0, level: [1,0,0,0,0,0], accurate: true), ITEM(photo: "https://image.homeplus.kr/td/967ef98d-08fd-4ece-a1b5-dd6dd745b4b8", name: "고기대신 맛있는녀석들 비건육포 오리지널", finalLevel: 0, level: [1,0,0,0,0,0], accurate: true), ITEM(photo: "https://image.homeplus.kr/td/2e29ccec-0dc8-438b-acc6-e80e67e15506", name: "풀무원) 국물 떡볶이", finalLevel: 0, level: [1,0,0,0,0,0], accurate: false), ITEM(photo: "https://image.homeplus.kr/td/ef39ed5d-7bc7-4ab2-96d3-908e1601215d", name: "씨제이 삼호 맑은 어묵", finalLevel: 3, level: [1,0,0,1,0,0], accurate: false)]
     
     var item: [ITEM] = []
+    var infoItem: ITEM?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -198,9 +199,11 @@ class RankViewController: UIViewController {
     func visibleResult(){
         iv_result.visibility = .visible
         
+        
         lbl_result.text = "'\(tf_search.text!)' 제품 검색 결과입니다."
         lbl_result.visibility = .visible
         searchCollectionView.visibility = .visible
+
         
         searchCollectionView.delegate = self
         searchCollectionView.dataSource = self
@@ -209,7 +212,7 @@ class RankViewController: UIViewController {
         flowLayout.itemSize = CGSize(width: screenWidth - 40, height: 180)
         
         searchCollectionView.collectionViewLayout = flowLayout
-        
+        searchCollectionView.isUserInteractionEnabled = true
         
         searchCollectionView.contentSize.height = CGFloat(self.item.count * 190)
         searchCollectionViewHeight.constant = searchCollectionView.contentSize.height
@@ -226,10 +229,22 @@ extension RankViewController{
         hideKeyboard()
         self.item = [ITEM(photo: "https://contents.lotteon.com/itemimage/_v010018/LF/15/38/53/3_/0/LF1538533_0_1.jpg", name: "고기대신 비건 제육볶음 (냉동)", finalLevel: 0, level: [1,0,0,0,0,0], accurate: true), ITEM(photo: "https://image.homeplus.kr/td/967ef98d-08fd-4ece-a1b5-dd6dd745b4b8", name: "고기대신 맛있는녀석들 비건육포 오리지널", finalLevel: 0, level: [1,0,0,0,0,0], accurate: false), ITEM(photo: "https://image.homeplus.kr/td/ef39ed5d-7bc7-4ab2-96d3-908e1601215d", name: "씨제이 삼호 맑은 어묵", finalLevel: 3, level: [1,0,0,1,0,0], accurate: false), ITEM(photo: "https://image.homeplus.kr/td/29983ea0-51ff-4a94-813e-8922cd372d0b", name: "홈플러스시그니처 매콤한 순대 볶음", finalLevel: 5, level: [1,1,0,0,0,1], accurate: false), ITEM(photo: "https://image.homeplus.kr/td/2e29ccec-0dc8-438b-acc6-e80e67e15506", name: "풀무원 국물 떡볶이", finalLevel: 0, level: [1,0,0,0,0,0], accurate: false), ITEM(photo: "https://image.homeplus.kr/td/e334c618-804c-4905-b262-4f3f71ab9ddc", name: "농심 올리브 짜파게티", finalLevel: 5, level: [1,1,1,1,0,1], accurate: false)]
         self.visibleResult()
-        
+        view.endEditing(true)
         self.scrollview.setContentOffset(CGPoint(x: 0, y: lbl_result.frame.origin.y), animated: true)
 
     }
+
+    @objc func tap(_ sender: UITapGestureRecognizer) {
+        let storyboard = UIStoryboard(name: "ItemList", bundle: nil)
+        guard let VC = storyboard.instantiateViewController(identifier: "ItemInfoViewController") as? ItemInfoViewController else {
+            print("Controller not found")
+            return
+        }
+        VC.modalPresentationStyle = .overFullScreen
+        VC.info = infoItem
+        self.present(VC, animated: true, completion: nil)
+    }
+    
 }
 
 extension RankViewController: UICollectionViewDelegate, UICollectionViewDataSource{
@@ -237,7 +252,6 @@ extension RankViewController: UICollectionViewDelegate, UICollectionViewDataSour
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         if collectionView == CardCollectionView{
-            
             return self.card.count
         }else if collectionView == searchCollectionView{
             return self.item.count
@@ -252,28 +266,26 @@ extension RankViewController: UICollectionViewDelegate, UICollectionViewDataSour
         if collectionView == CardCollectionView{
             let data = card[indexPath.row]
             let Cell = collectionView.dequeueReusableCell(withReuseIdentifier: CardCollectionViewCell.identifier, for: indexPath) as! CardCollectionViewCell
+            
+            //infoItem에 값 넣기
             Cell.configure(with: data, indexpath: indexPath.row)
-
+            infoItem = card[indexPath.row]
+            Cell.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(tap(_:))))
+            
            return Cell
         }else if collectionView == searchCollectionView{
             let data = item[indexPath.row]
             let Cell = collectionView.dequeueReusableCell(withReuseIdentifier: ItemCollectionViewCell.identifier, for: indexPath) as! ItemCollectionViewCell
+            infoItem = item[indexPath.row]
             Cell.configure(with: data, indexpath: indexPath.row)
+            Cell.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(tap(_:))))
             return Cell
             
         }
         return UICollectionViewCell()
     }
     
+
     
-    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let storyboard = UIStoryboard(name: "ItemList", bundle: nil)
-        guard let VC = storyboard.instantiateViewController(identifier: "ItemInfoViewController") as? ItemInfoViewController else {
-            print("Controller not found")
-            return
-        }
-        VC.modalPresentationStyle = .overFullScreen
-        VC.info = item[indexPath.row]
-        self.present(VC, animated: true, completion: nil)
-    }
+
 }
