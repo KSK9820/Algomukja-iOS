@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19455" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="vOD-GW-rY2">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="vOD-GW-rY2">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19454"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
         <capability name="Image references" minToolsVersion="12.0"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
@@ -19,18 +19,24 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xbA-ky-dlK">
-                                <rect key="frame" x="20" y="582" width="374" height="31"/>
+                                <rect key="frame" x="20" y="732" width="374" height="31"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="filled" title="갤러리">
                                     <color key="baseForegroundColor" name="900"/>
                                     <color key="baseBackgroundColor" name="000"/>
                                 </buttonConfiguration>
+                                <connections>
+                                    <action selector="btnGallery:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="mCN-82-dvh"/>
+                                </connections>
                             </button>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="o65-qT-Oqa">
-                                <rect key="frame" x="20" y="108" width="374" height="323"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ocrCaution" translatesAutoresizingMaskIntoConstraints="NO" id="o65-qT-Oqa">
+                                <rect key="frame" x="13" y="60" width="388" height="388"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="o65-qT-Oqa" secondAttribute="height" multiplier="1:1" id="Jpd-cL-gbz"/>
+                                </constraints>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xkQ-e0-xu9">
-                                <rect key="frame" x="20" y="531" width="374" height="31"/>
+                                <rect key="frame" x="20" y="681" width="374" height="31"/>
                                 <color key="tintColor" name="900"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="filled" title="카메라">
@@ -45,16 +51,15 @@
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="o65-qT-Oqa" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="20" id="3Jm-kd-SZg"/>
+                            <constraint firstItem="o65-qT-Oqa" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="13" id="3Jm-kd-SZg"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="xbA-ky-dlK" secondAttribute="trailing" constant="20" id="FdB-Fv-4ll"/>
-                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="o65-qT-Oqa" secondAttribute="trailing" constant="20" id="LQI-iY-OpL"/>
-                            <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="xbA-ky-dlK" secondAttribute="bottom" constant="200" id="Wfd-1P-04D"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="o65-qT-Oqa" secondAttribute="trailing" constant="13" id="LQI-iY-OpL"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="xbA-ky-dlK" secondAttribute="bottom" constant="50" id="Wfd-1P-04D"/>
                             <constraint firstItem="xbA-ky-dlK" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="20" id="XH8-Gf-pRC"/>
                             <constraint firstItem="xbA-ky-dlK" firstAttribute="top" secondItem="xkQ-e0-xu9" secondAttribute="bottom" constant="20" id="Xd9-3U-13y"/>
                             <constraint firstItem="xkQ-e0-xu9" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="20" id="buH-Dl-PQ4"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="xkQ-e0-xu9" secondAttribute="trailing" constant="20" id="dat-Xu-CDD"/>
-                            <constraint firstItem="o65-qT-Oqa" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="20" id="iEd-dp-lj6"/>
-                            <constraint firstItem="xkQ-e0-xu9" firstAttribute="top" secondItem="o65-qT-Oqa" secondAttribute="bottom" constant="100" id="rQJ-iL-59j"/>
+                            <constraint firstItem="o65-qT-Oqa" firstAttribute="top" secondItem="5EZ-qb-Rvc" secondAttribute="top" constant="60" id="iEd-dp-lj6"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Camera" id="Gyb-Yz-SEi">
@@ -105,7 +110,7 @@
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ijs-ab-LCu">
-                                <rect key="frame" x="20" y="280.5" width="374" height="31"/>
+                                <rect key="frame" x="20" y="270.5" width="374" height="31"/>
                                 <color key="tintColor" name="900"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="filled" title="채식 정보 확인하기">
@@ -126,7 +131,7 @@
                             <constraint firstItem="lnO-uh-7Hu" firstAttribute="top" secondItem="feC-Si-khg" secondAttribute="bottom" constant="10" id="cHI-Ck-fN3"/>
                             <constraint firstItem="lnO-uh-7Hu" firstAttribute="leading" secondItem="6CD-6j-7kJ" secondAttribute="leading" constant="20" id="eCm-Fs-RWf"/>
                             <constraint firstItem="6CD-6j-7kJ" firstAttribute="trailing" secondItem="ijs-ab-LCu" secondAttribute="trailing" constant="20" id="iT5-t7-85C"/>
-                            <constraint firstItem="ijs-ab-LCu" firstAttribute="top" secondItem="lnO-uh-7Hu" secondAttribute="bottom" constant="20" id="rji-sm-Acz"/>
+                            <constraint firstItem="ijs-ab-LCu" firstAttribute="top" secondItem="lnO-uh-7Hu" secondAttribute="bottom" constant="10" id="rji-sm-Acz"/>
                             <constraint firstItem="6CD-6j-7kJ" firstAttribute="trailing" secondItem="feC-Si-khg" secondAttribute="trailing" constant="20" id="ufV-RT-rLN"/>
                             <constraint firstItem="ijs-ab-LCu" firstAttribute="leading" secondItem="6CD-6j-7kJ" secondAttribute="leading" constant="20" id="vvi-id-Z07"/>
                             <constraint firstItem="feC-Si-khg" firstAttribute="leading" secondItem="6CD-6j-7kJ" secondAttribute="leading" constant="20" id="wav-4w-YYQ"/>
@@ -163,6 +168,7 @@
     </scenes>
     <resources>
         <image name="camera" catalog="system" width="128" height="94"/>
+        <image name="ocrCaution" width="2362" height="2362"/>
         <namedColor name="000">
             <color red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>

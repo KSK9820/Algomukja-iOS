@@ -8,7 +8,7 @@
 import UIKit
 import FloatingPanel
 import Moya
-
+import Photos
 
 
 class CameraViewController: UIViewController{
@@ -22,24 +22,22 @@ class CameraViewController: UIViewController{
    
     let provider = MoyaProvider<CameraService>()
     
-//    var documentsUrl: URL {
-//        return FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!
-//    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
 //        checkSimulator()
         UISetting()
-        CameraSetting()
-        openEditFloating()
+//        CameraSetting()
+//        openEditFloating()
+        
     }
     
     func UISetting(){
         
         btnGallery.setViewShadow(backView: btnCamera, colorName: "200", width: -2, height: 2)
         btnCamera.setViewShadow(backView: btnCamera, colorName: "200", width: -2, height: 2)
-        //btnCamera.
+    
        
     }
     
@@ -60,9 +58,7 @@ class CameraViewController: UIViewController{
     
     
     
-    @IBAction func btnCamera(_ sender: Any) {
-        CameraSetting()
-    }
+
     
     func CameraSetting(){
         let camera = UIImagePickerController()
@@ -74,11 +70,20 @@ class CameraViewController: UIViewController{
         present(camera, animated: true, completion: nil)
     }
     
+    func GallerySetting(){
+        let gallery = UIImagePickerController()
+        gallery.delegate = self
+        gallery.sourceType = .photoLibrary
+        present(gallery, animated: true, completion: nil)
+    }
+    
     func openEditFloating(){
         
         fpc = FloatingPanelController()
         fpc.delegate = self
         let vc = storyboard!.instantiateViewController(withIdentifier: "EditViewController") as! EditViewController
+       
+        vc.ocrImage = imageview.image
         fpc.set(contentViewController: vc)
         fpc.changePanelStyle()
         fpc.layout = MyFloatingPanelLayout()
@@ -96,11 +101,13 @@ extension CameraViewController: UIImagePickerControllerDelegate, UINavigationCon
             
             if let image = info[UIImagePickerController.InfoKey(rawValue: "UIImagePickerControllerEditedImage")] as? UIImage {
                 imageview.image = image
+            }else if let image = info[UIImagePickerController.InfoKey.originalImage] as? UIImage {
+                imageview.image = image
+                
             }
-//
-        
+
         picker.dismiss(animated: true, completion:{
-            //self.openEditFloating()
+            self.openEditFloating()
         })
             
             
@@ -125,7 +132,7 @@ class MyFloatingPanelLayout: FloatingPanelLayout{
         
         return [
             //.full: FloatingPanelLayoutAnchor(absoluteInset: 570, edge: .bottom, referenceGuide: .superview),
-            .half: FloatingPanelLayoutAnchor(absoluteInset: 370, edge: .bottom, referenceGuide: .superview),
+            .half: FloatingPanelLayoutAnchor(absoluteInset: 400, edge: .bottom, referenceGuide: .superview),
             .tip: FloatingPanelLayoutAnchor(absoluteInset: 113, edge: .bottom, referenceGuide: .superview)
         ]
     }
@@ -153,7 +160,11 @@ extension FloatingPanelController {
 
 
 extension CameraViewController{
-    func post_Clova(){
-        
+    @IBAction func btnCamera(_ sender: Any) {
+        CameraSetting()
     }
+    @IBAction func btnGallery(_ sender: Any) {
+        GallerySetting()
+    }
+    
 }
