@@ -79,7 +79,7 @@ class EditViewController: UIViewController, UITextViewDelegate{
         }
         
         tf_material.delegate = self
-        print(string)
+//        print(string)
         tf_material.text = string
         
         
@@ -128,10 +128,15 @@ class EditViewController: UIViewController, UITextViewDelegate{
 }
 
 extension EditViewController{
-//    @IBAction func postButton(_ sender: Any) {
-//        postOCR(data: request)
+    @IBAction func postButton(_ sender: Any) {
+        //print(self.tf_material.text.components(separatedBy: ", "))
         
-//    }
+        getResult()
+        
+      
+        
+        
+    }
 }
 
 
@@ -176,4 +181,15 @@ extension EditViewController{
                 
             }
         }
+    
+    func getResult(){
+        let storyboard = UIStoryboard(name: "Camera", bundle: nil)
+        guard let VC = storyboard.instantiateViewController(identifier: "SearchResultViewController") as? SearchResultViewController else {
+            print("Controller not found")
+            return
+        }
+        VC.modalPresentationStyle = .overFullScreen
+       
+        self.present(VC, animated: true, completion: nil)
+    }
 }

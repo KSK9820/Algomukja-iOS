@@ -39,21 +39,21 @@ class CardCollectionViewCell: UICollectionViewCell {
     
     static func nib() -> UINib { return UINib(nibName: "CardCollectionViewCell", bundle: nil) }
 
-    public func configure(with data: Card, indexpath: Int){
+    public func configure(with data: ITEM, indexpath: Int){
         let url = URL(string: data.photo)
         iv_item.load(url: url!)
         
         lbl_name.text = data.name
-        lbl_manufacture.text = data.manufacture
+//        lbl_manufacture.text = data.manufacture
         
         for i in 0..<6{
             if data.level[i] == 0 {
                 level[i].setImageColor(color: UIColor(named: "400")!)
             }
         }
-        iv_rank.setImageColor(color: UIColor(named: "level\(data.finallevel + 1)")!)
+        iv_rank.setImageColor(color: UIColor(named: "level\(data.finalLevel + 1)")!)
         lbl_rank.text = String(indexpath + 1)
-        cardview.setViewShadow(backView: cardview, colorName: "level\(data.finallevel + 1)", width: -3, height: 1)
+        cardview.setViewShadow(backView: cardview, colorName: "level\(data.finalLevel + 1)", width: -3, height: 1)
     }
   
 
