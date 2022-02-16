@@ -19,8 +19,9 @@ class EditViewController: UIViewController, UITextViewDelegate{
     let provider = MoyaProvider<CameraService>()
     var request = CameraRequest()
     var imageRequest = [clova_image]()
-    
     var text_material = [field]()
+    
+    var ocrImage: UIImage!
 
     
     override func viewDidLoad() {
@@ -31,13 +32,12 @@ class EditViewController: UIViewController, UITextViewDelegate{
         setKeyboardObserver()
         
         let timestamp = Date().currentTimeMillis()
+        let base64str = ocrImage.jpegData(compressionQuality: 1)?.base64EncodedString() ?? ""
         
-        request = CameraRequest(images: [clova_image(format: "jpg", name: "medium", data: Data(), url: "http://image.nongshim.com/non/pro/bong_2.jpg")], lang: "ko", requestId: "e36ead3ac71f45d9a5c8d8da285818a7", resultType: "string", timestamp: timestamp ,version: "V2")
-        
-        
-        
-        
+        request = CameraRequest(images: [clova_image(format: "jpg", name: String(timestamp), data: base64str, url: "http://image.nongshim.com/non/pro/bong_2.jpg")], lang: "ko", requestId: "e36ead3ac71f45d9a5c8d8da285818a7", resultType: "string", timestamp: timestamp ,version: "V2")
+     
         postOCR(data: request)
+ 
     }
     
     func UISetting(){
@@ -118,6 +118,14 @@ class EditViewController: UIViewController, UITextViewDelegate{
     
     }
    
+
+}
+
+extension EditViewController{
+//    @IBAction func postButton(_ sender: Any) {
+//        postOCR(data: request)
+        
+//    }
 }
 
 
@@ -129,7 +137,7 @@ extension EditViewController{
                 switch result {
                 case .success(let response):
                     do{
-                        //print("***result: \(try response.mapJSON())")
+                        print("***result: \(try response.mapJSON())")
                         let datas = try JSONDecoder().decode(CameraResponse.self, from: response.data)
                         self!.text_material = datas.images[0].fields
                      

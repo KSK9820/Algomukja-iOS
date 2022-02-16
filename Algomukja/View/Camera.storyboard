@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19455" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="vOD-GW-rY2">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="vOD-GW-rY2">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19454"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
         <capability name="Image references" minToolsVersion="12.0"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
@@ -105,7 +105,7 @@
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ijs-ab-LCu">
-                                <rect key="frame" x="20" y="280.5" width="374" height="31"/>
+                                <rect key="frame" x="20" y="270.5" width="374" height="31"/>
                                 <color key="tintColor" name="900"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="filled" title="채식 정보 확인하기">
@@ -126,7 +126,7 @@
                             <constraint firstItem="lnO-uh-7Hu" firstAttribute="top" secondItem="feC-Si-khg" secondAttribute="bottom" constant="10" id="cHI-Ck-fN3"/>
                             <constraint firstItem="lnO-uh-7Hu" firstAttribute="leading" secondItem="6CD-6j-7kJ" secondAttribute="leading" constant="20" id="eCm-Fs-RWf"/>
                             <constraint firstItem="6CD-6j-7kJ" firstAttribute="trailing" secondItem="ijs-ab-LCu" secondAttribute="trailing" constant="20" id="iT5-t7-85C"/>
-                            <constraint firstItem="ijs-ab-LCu" firstAttribute="top" secondItem="lnO-uh-7Hu" secondAttribute="bottom" constant="20" id="rji-sm-Acz"/>
+                            <constraint firstItem="ijs-ab-LCu" firstAttribute="top" secondItem="lnO-uh-7Hu" secondAttribute="bottom" constant="10" id="rji-sm-Acz"/>
                             <constraint firstItem="6CD-6j-7kJ" firstAttribute="trailing" secondItem="feC-Si-khg" secondAttribute="trailing" constant="20" id="ufV-RT-rLN"/>
                             <constraint firstItem="ijs-ab-LCu" firstAttribute="leading" secondItem="6CD-6j-7kJ" secondAttribute="leading" constant="20" id="vvi-id-Z07"/>
                             <constraint firstItem="feC-Si-khg" firstAttribute="leading" secondItem="6CD-6j-7kJ" secondAttribute="leading" constant="20" id="wav-4w-YYQ"/>

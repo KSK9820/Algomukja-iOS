@@ -8,7 +8,7 @@
 import UIKit
 import FloatingPanel
 import Moya
-
+import Photos
 
 
 class CameraViewController: UIViewController{
@@ -31,8 +31,8 @@ class CameraViewController: UIViewController{
 
 //        checkSimulator()
         UISetting()
-        CameraSetting()
-        openEditFloating()
+//        CameraSetting()
+//        openEditFloating()
     }
     
     func UISetting(){
@@ -79,6 +79,8 @@ class CameraViewController: UIViewController{
         fpc = FloatingPanelController()
         fpc.delegate = self
         let vc = storyboard!.instantiateViewController(withIdentifier: "EditViewController") as! EditViewController
+       
+        vc.ocrImage = imageview.image
         fpc.set(contentViewController: vc)
         fpc.changePanelStyle()
         fpc.layout = MyFloatingPanelLayout()
@@ -96,11 +98,14 @@ extension CameraViewController: UIImagePickerControllerDelegate, UINavigationCon
             
             if let image = info[UIImagePickerController.InfoKey(rawValue: "UIImagePickerControllerEditedImage")] as? UIImage {
                 imageview.image = image
+             
+        //
             }
-//
+        
+       
         
         picker.dismiss(animated: true, completion:{
-            //self.openEditFloating()
+            self.openEditFloating()
         })
             
             
@@ -125,7 +130,7 @@ class MyFloatingPanelLayout: FloatingPanelLayout{
         
         return [
             //.full: FloatingPanelLayoutAnchor(absoluteInset: 570, edge: .bottom, referenceGuide: .superview),
-            .half: FloatingPanelLayoutAnchor(absoluteInset: 370, edge: .bottom, referenceGuide: .superview),
+            .half: FloatingPanelLayoutAnchor(absoluteInset: 400, edge: .bottom, referenceGuide: .superview),
             .tip: FloatingPanelLayoutAnchor(absoluteInset: 113, edge: .bottom, referenceGuide: .superview)
         ]
     }

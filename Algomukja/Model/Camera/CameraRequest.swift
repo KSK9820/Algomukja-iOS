@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import Moya
 
 struct CameraRequest: Codable{
     var images: [clova_image]
@@ -33,14 +34,14 @@ struct CameraRequest: Codable{
 struct clova_image: Codable{
     var format: String
     var name: String
-    var data: Data?
+    var data: String
     var url: String
         
     init(){
-        self.init(format: "", name: "", data: Data(), url: "")
+        self.init(format: "", name: "", data: "", url: "")
     }
   
-    init(format: String, name: String, data: Data, url: String){
+    init(format: String, name: String, data: String, url: String){
         self.format = format
         self.name = name
         self.data = data
