@@ -22,9 +22,6 @@ class CameraViewController: UIViewController{
    
     let provider = MoyaProvider<CameraService>()
     
-//    var documentsUrl: URL {
-//        return FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!
-//    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -33,13 +30,14 @@ class CameraViewController: UIViewController{
         UISetting()
 //        CameraSetting()
 //        openEditFloating()
+        
     }
     
     func UISetting(){
         
         btnGallery.setViewShadow(backView: btnCamera, colorName: "200", width: -2, height: 2)
         btnCamera.setViewShadow(backView: btnCamera, colorName: "200", width: -2, height: 2)
-        //btnCamera.
+    
        
     }
     
@@ -60,9 +58,7 @@ class CameraViewController: UIViewController{
     
     
     
-    @IBAction func btnCamera(_ sender: Any) {
-        CameraSetting()
-    }
+
     
     func CameraSetting(){
         let camera = UIImagePickerController()
@@ -72,6 +68,13 @@ class CameraViewController: UIViewController{
         camera.cameraCaptureMode = .photo
         camera.delegate = self
         present(camera, animated: true, completion: nil)
+    }
+    
+    func GallerySetting(){
+        let gallery = UIImagePickerController()
+        gallery.delegate = self
+        gallery.sourceType = .photoLibrary
+        present(gallery, animated: true, completion: nil)
     }
     
     func openEditFloating(){
@@ -98,12 +101,11 @@ extension CameraViewController: UIImagePickerControllerDelegate, UINavigationCon
             
             if let image = info[UIImagePickerController.InfoKey(rawValue: "UIImagePickerControllerEditedImage")] as? UIImage {
                 imageview.image = image
-             
-        //
+            }else if let image = info[UIImagePickerController.InfoKey.originalImage] as? UIImage {
+                imageview.image = image
+                
             }
-        
-       
-        
+
         picker.dismiss(animated: true, completion:{
             self.openEditFloating()
         })
@@ -158,7 +160,11 @@ extension FloatingPanelController {
 
 
 extension CameraViewController{
-    func post_Clova(){
-        
+    @IBAction func btnCamera(_ sender: Any) {
+        CameraSetting()
     }
+    @IBAction func btnGallery(_ sender: Any) {
+        GallerySetting()
+    }
+    
 }

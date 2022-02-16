@@ -9,6 +9,8 @@ import UIKit
 import Foundation
 import Moya
 
+
+
 class EditViewController: UIViewController, UITextViewDelegate{
 
     @IBOutlet weak var topView: UIView!
@@ -22,7 +24,7 @@ class EditViewController: UIViewController, UITextViewDelegate{
     var text_material = [field]()
     
     var ocrImage: UIImage!
-
+    let screenHeight = UIScreen.main.bounds.height
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -63,10 +65,12 @@ class EditViewController: UIViewController, UITextViewDelegate{
         for i in 0..<text.count {
             //제품명과 식품유형을 제외
             if text[i].inferText == "제품명" || text[i].inferText == "식품유형"{
-               
                 continue
             }else if text[i].inferText == "유통기한"{
                 break
+//            }else if text[i].inferText == "원재료명" {
+//                material.append(text[i].inferText)
+//                string += text[i].inferText + " "
             }else{
                 material.append(text[i].inferText)
                 string += text[i].inferText + " "
@@ -75,6 +79,7 @@ class EditViewController: UIViewController, UITextViewDelegate{
         }
         
         tf_material.delegate = self
+        print(string)
         tf_material.text = string
         
         
@@ -97,8 +102,9 @@ class EditViewController: UIViewController, UITextViewDelegate{
               
               
               UIView.animate(withDuration: 1) { [self] in
-                  self.view.window?.frame.origin.y -= keyboardHeight
-                  //tf_material.setBottomInset(to: keyboardHeight)
+                  if self.view.window?.frame.origin.y == 0 {
+                      self.view.window?.frame.origin.y -= keyboardHeight    
+                  }
               }
 
             
@@ -137,9 +143,11 @@ extension EditViewController{
                 switch result {
                 case .success(let response):
                     do{
-                        print("***result: \(try response.mapJSON())")
+//                        print("***result: \(try response.mapJSON())")
                         let datas = try JSONDecoder().decode(CameraResponse.self, from: response.data)
+                    
                         self!.text_material = datas.images[0].fields
+                        
                      
                         DispatchQueue.main.async{ [self] in
                             self!.textSetting(text: self!.text_material)
