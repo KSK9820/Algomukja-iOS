@@ -181,16 +181,8 @@
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="64E-ZH-xQ4">
                                         <rect key="frame" x="10" y="10" width="334" height="678"/>
                                         <subviews>
-                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="등록을 원하시면 제품명을 입력해주세요." textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="3uf-w5-OHM">
-                                                <rect key="frame" x="0.0" y="0.0" width="334" height="33"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="height" constant="33" id="s3c-Nc-kEa"/>
-                                                </constraints>
-                                                <fontDescription key="fontDescription" name="AppleSDGothicNeo-Medium" family="Apple SD Gothic Neo" pointSize="17"/>
-                                                <textInputTraits key="textInputTraits"/>
-                                            </textField>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Amp-lF-eA4">
-                                                <rect key="frame" x="0.0" y="33" width="334" height="40"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="334" height="40"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="40" id="enE-cy-XWU"/>
                                                 </constraints>
@@ -199,7 +191,7 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="yh4-2r-hcm">
-                                                <rect key="frame" x="0.0" y="73" width="334" height="50"/>
+                                                <rect key="frame" x="0.0" y="40" width="334" height="50"/>
                                                 <subviews>
                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="0" translatesAutoresizingMaskIntoConstraints="NO" id="PnE-fp-kg0">
                                                         <rect key="frame" x="0.0" y="0.0" width="55.5" height="50"/>
@@ -226,14 +218,14 @@
                                                 </constraints>
                                             </stackView>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SUo-6i-DpN">
-                                                <rect key="frame" x="0.0" y="123" width="334" height="2"/>
+                                                <rect key="frame" x="0.0" y="90" width="334" height="2"/>
                                                 <color key="backgroundColor" name="200"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="2" id="Pnt-Rw-sAB"/>
                                                 </constraints>
                                             </view>
                                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="PND-OP-KLx">
-                                                <rect key="frame" x="0.0" y="125" width="334" height="306"/>
+                                                <rect key="frame" x="0.0" y="92" width="334" height="339"/>
                                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                 <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="NgA-8A-jDw">
                                                     <size key="itemSize" width="128" height="128"/>
@@ -294,15 +286,23 @@
                                             <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lCC-Na-8sg">
                                                 <rect key="frame" x="0.0" y="647" width="334" height="31"/>
                                                 <subviews>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cUa-ob-KmB">
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EOM-aQ-iSE">
                                                         <rect key="frame" x="0.0" y="0.0" width="167" height="31"/>
                                                         <state key="normal" title="Button"/>
-                                                        <buttonConfiguration key="configuration" style="plain" title="제품 등록하기"/>
+                                                        <buttonConfiguration key="configuration" style="plain" title="갤러리 다시 검색"/>
+                                                        <connections>
+                                                            <action selector="openGallery:" destination="MmO-Xm-M7I" eventType="touchUpInside" id="nDf-Tv-o7F"/>
+                                                        </connections>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="x99-0y-qsB">
                                                         <rect key="frame" x="167" y="0.0" width="167" height="31"/>
+                                                        <color key="backgroundColor" red="0.8868384534" green="1" blue="0.78011357199999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                        <color key="tintColor" name="200"/>
                                                         <state key="normal" title="Button"/>
-                                                        <buttonConfiguration key="configuration" style="plain" title="다시 검색하기"/>
+                                                        <buttonConfiguration key="configuration" style="plain" title="카메라 다시 검색"/>
+                                                        <connections>
+                                                            <action selector="openCamera:" destination="MmO-Xm-M7I" eventType="touchUpInside" id="bQH-I6-VCo"/>
+                                                        </connections>
                                                     </button>
                                                 </subviews>
                                             </stackView>
@@ -334,7 +334,6 @@
                         <outlet property="lbl_level" destination="Amp-lF-eA4" id="aaN-z3-W3s"/>
                         <outlet property="modalview" destination="9tb-Hd-4cA" id="Gv9-5i-Jhn"/>
                         <outlet property="scrollview" destination="naf-LU-s6s" id="4bW-xp-hmb"/>
-                        <outlet property="tf_name" destination="3uf-w5-OHM" id="i0z-C6-rve"/>
                         <outletCollection property="iv_level" destination="PnE-fp-kg0" collectionClass="NSMutableArray" id="6uj-Y5-smz"/>
                         <outletCollection property="iv_level" destination="pYi-yL-XpV" collectionClass="NSMutableArray" id="OWz-VI-dhd"/>
                         <outletCollection property="iv_level" destination="5fB-vl-GIr" collectionClass="NSMutableArray" id="pCW-Vq-H1b"/>

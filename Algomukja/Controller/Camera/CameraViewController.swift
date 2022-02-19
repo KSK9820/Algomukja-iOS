@@ -11,14 +11,20 @@ import Moya
 import Photos
 
 
-class CameraViewController: UIViewController{
+class CameraViewController: UIViewController, OpenDelegate {
+    func open(isCamera: Bool) {
+        if isCamera == true {
+            CameraSetting()
+        }else{
+            GallerySetting()
+        }
+    }
 
     @IBOutlet weak var btnCamera: UIButton!
     @IBOutlet weak var btnGallery: UIButton!
     @IBOutlet weak var imageview: UIImageView!
     
     var fpc: FloatingPanelController!
-    
    
     let provider = MoyaProvider<CameraService>()
     
@@ -28,10 +34,12 @@ class CameraViewController: UIViewController{
 
 //        checkSimulator()
         UISetting()
-//        CameraSetting()
-//        openEditFloating()
-        
     }
+    
+    
+
+    
+   
     
     func UISetting(){
         
@@ -61,7 +69,7 @@ class CameraViewController: UIViewController{
 
     
     func CameraSetting(){
-        let camera = UIImagePickerController()
+        var camera = UIImagePickerController()
         camera.sourceType = .camera
         camera.allowsEditing = true
         camera.cameraDevice = .rear
@@ -78,18 +86,26 @@ class CameraViewController: UIViewController{
     }
     
     func openEditFloating(){
-        
+
         fpc = FloatingPanelController()
         fpc.delegate = self
         let vc = storyboard!.instantiateViewController(withIdentifier: "EditViewController") as! EditViewController
-       
+//        vc.isCamera = isCamera
         vc.ocrImage = imageview.image
+        vc.openDelegate = self
         fpc.set(contentViewController: vc)
         fpc.changePanelStyle()
         fpc.layout = MyFloatingPanelLayout()
         fpc.addPanel(toParent: self)
+        fpc.show()
         //fpc.didMove(toParent: self)
-        
+    }
+    
+    func removeEditFloatin(){
+        fpc.willMove(toParent: nil)
+        fpc.hide(animated: true, completion: { [self] in
+            fpc.removeFromParent()
+        })
     }
 
 }
