@@ -149,30 +149,6 @@ extension Date {
         return Int64(self.timeIntervalSince1970 * 1000)
     }
     
-    func mimeType(for data: Data) -> String {
-
-        var b: UInt8 = 0
-        data.copyBytes(to: &b, count: 1)
-
-        switch b {
-        case 0xFF:
-            return "image/jpeg"
-        case 0x89:
-            return "image/png"
-        case 0x47:
-            return "image/gif"
-        case 0x4D, 0x49:
-            return "image/tiff"
-        case 0x25:
-            return "application/pdf"
-        case 0xD0:
-            return "application/vnd"
-        case 0x46:
-            return "text/plain"
-        default:
-            return "application/octet-stream"
-        }
-    }
 }
 
 extension UIImage {
@@ -193,5 +169,23 @@ extension UIImage {
     
     func convertImageToBase64String (img: UIImage) -> String {
         return img.jpegData(compressionQuality: 1)?.base64EncodedString() ?? ""
+    }
+}
+
+
+extension UIApplication {
+    class func topViewController(base: UIViewController? = UIApplication.shared.keyWindow?.rootViewController) -> UIViewController? {
+        if let nav = base as? UINavigationController {
+            return topViewController(base: nav.visibleViewController)
+        }
+        if let tab = base as? UITabBarController {
+            if let selected = tab.selectedViewController {
+                return topViewController(base: selected)
+            }
+        }
+        if let presented = base?.presentedViewController {
+            return topViewController(base: presented)
+        }
+        return base
     }
 }

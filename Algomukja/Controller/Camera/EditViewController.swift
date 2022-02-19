@@ -10,9 +10,20 @@ import Foundation
 import Moya
 
 
+protocol OpenDelegate{
+    func open(isCamera: Bool)
+}
 
-class EditViewController: UIViewController, UITextViewDelegate{
-
+class EditViewController: UIViewController, UITextViewDelegate, CloseDelegate{
+    
+    func close(isCamera: Bool) {
+        self.dismiss(animated: false, completion: {
+            self.openDelegate?.open(isCamera: isCamera)
+        })
+    }
+    
+    var openDelegate: OpenDelegate?
+    
     @IBOutlet weak var topView: UIView!
     @IBOutlet weak var tf_material: UITextView!
     
@@ -26,6 +37,8 @@ class EditViewController: UIViewController, UITextViewDelegate{
     var ocrImage: UIImage!
     let screenHeight = UIScreen.main.bounds.height
     
+
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -38,9 +51,12 @@ class EditViewController: UIViewController, UITextViewDelegate{
         
         request = CameraRequest(images: [clova_image(format: "jpg", name: String(timestamp), data: base64str, url: "http://image.nongshim.com/non/pro/bong_2.jpg")], lang: "ko", requestId: "e36ead3ac71f45d9a5c8d8da285818a7", resultType: "string", timestamp: timestamp ,version: "V2")
      
-        postOCR(data: request)
+        ///postOCR(data: request)
  
     }
+    
+  
+
     
     func UISetting(){
         self.view.clipsToBounds = true
@@ -130,9 +146,8 @@ class EditViewController: UIViewController, UITextViewDelegate{
 extension EditViewController{
     @IBAction func postButton(_ sender: Any) {
         //print(self.tf_material.text.components(separatedBy: ", "))
-        
-        getResult()
-        
+        self.getResult()
+//        self.dismiss(animated: true, completion: nil)
       
         
         
@@ -189,7 +204,9 @@ extension EditViewController{
             return
         }
         VC.modalPresentationStyle = .overFullScreen
-       
+        VC.delegate = self
+//        VC.isCamera = isCamera
         self.present(VC, animated: true, completion: nil)
     }
 }
+

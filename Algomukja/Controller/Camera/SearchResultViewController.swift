@@ -7,10 +7,19 @@
 
 import UIKit
 
-class SearchResultViewController: UIViewController {
+protocol CloseDelegate{
+    func close(isCamera: Bool)
+}
+
+
+
+
+class SearchResultViewController: UIViewController{
+    
+    var delegate: CloseDelegate?
+
     
     @IBOutlet weak var modalview: UIView!
-    @IBOutlet weak var tf_name: UITextField!
     @IBOutlet weak var lbl_level: UILabel!
     @IBOutlet var iv_level: [UIImageView]!
     @IBOutlet weak var collectionview: UICollectionView!
@@ -20,6 +29,7 @@ class SearchResultViewController: UIViewController {
     var tap: UITapGestureRecognizer!
     
     var info: ITEM?
+//    var isCamera: Bool!
    
     
     var message = ["식물성 음식 이외에는 아무것도 먹지않는 완전한 채식주의 비건입니다.", "치즈, 우유, 요구르트와 같은 유제품을 소비하는 락토 베지테리언입니다.","달걀제품을 소비하는 오보 베지테리언입니다.", "육류 섭취를 생선이나 해산물로 제한하여 섭취하는 페스코 베지테리언입니다.", "육류 소비를 가금류와 닭만으로 제한하는 폴로 베지테리언입니다.","채식을 하지만 때때로 육식을 하는 플렉시테리언입니다.","유제품과 달걀제품을 소비하는 락토 오보 베지테리언입니다."]
@@ -39,27 +49,21 @@ class SearchResultViewController: UIViewController {
           self.view.endEditing(true)
     }
     
-    func setKeyboardObserver() {
-        NotificationCenter.default.addObserver(self, selector: #selector(SearchResultViewController.keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
-//
-//        NotificationCenter.default.addObserver(self, selector: #selector(EditViewController.keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object:nil)
+    
+    
+    @IBAction func openGallery(_ sender: Any) {
+        self.dismiss(animated: true, completion: {
+            self.delegate?.close(isCamera: false)
+        })
+        
     }
     
-    @objc func keyboardWillShow(notification: NSNotification) {
-          if let keyboardFrame: NSValue = notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue {
-                  let keyboardRectangle = keyboardFrame.cgRectValue
-                  let keyboardHeight = keyboardRectangle.height
-              
-              
-              UIView.animate(withDuration: 1) { [self] in
-                  if self.view.window?.frame.origin.y == 0 {
-                      self.view.window?.frame.origin.y += keyboardHeight
-                  }
-              }
-
-            
-      }
+    @IBAction func openCamera(_ sender: Any) {
+        self.dismiss(animated: true, completion: {
+            self.delegate?.close(isCamera: true)
+        })
     }
+    
     
     func backgroundSetting(){
         self.view.backgroundColor = UIColor.init(red: 0, green: 0, blue: 0, alpha: 0.3)
@@ -78,7 +82,7 @@ class SearchResultViewController: UIViewController {
 //            lbl_level.text = message[info!.finalLevel]
 //        }
 //        setImage()
-        scrollview.heightAnchor.constraint(equalToConstant: modalview.frame.height - tf_name.frame.height - lbl_level.frame.height - 50 - UIScreen.main.bounds.height * 0.3
+        scrollview.heightAnchor.constraint(equalToConstant: modalview.frame.height -  lbl_level.frame.height - 50 - UIScreen.main.bounds.height * 0.3
         ).isActive = true
         lbl_info.setHeight(24)
         lbl_info.text = "원재료명을 선택해보세요!"
