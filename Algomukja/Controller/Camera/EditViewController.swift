@@ -51,7 +51,7 @@ class EditViewController: UIViewController, UITextViewDelegate, CloseDelegate{
         
         request = CameraRequest(images: [clova_image(format: "jpg", name: String(timestamp), data: base64str, url: "http://image.nongshim.com/non/pro/bong_2.jpg")], lang: "ko", requestId: "e36ead3ac71f45d9a5c8d8da285818a7", resultType: "string", timestamp: timestamp ,version: "V2")
      
-        ///postOCR(data: request)
+        postOCR(data: request)
  
     }
     
