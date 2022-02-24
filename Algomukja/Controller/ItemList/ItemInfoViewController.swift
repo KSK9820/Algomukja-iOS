@@ -55,7 +55,7 @@ class ItemInfoViewController: UIViewController {
         if info?.finalLevel == 3 && info?.level[2] == 1{
             lbl_level.text = message[6]
         }else {
-            lbl_level.text = message[info!.finalLevel]
+            //lbl_level.text = message[info!.finalLevel - 1]
         }
         setImage()
         scrollview.heightAnchor.constraint(equalToConstant: modalview.frame.height - lbl_name.frame.height - lbl_level.frame.height - 50 - UIScreen.main.bounds.height * 0.3

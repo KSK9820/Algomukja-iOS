@@ -1,0 +1,14 @@
+//
+//  ProductRequest.swift
+//  Algomukja
+//
+//  Created by 김수경 on 2022/02/21.
+//
+
+import Foundation
+
+struct ProductRequest: Codable{
+    var type: Int
+    var start: Int
+    var limit: Int
+}

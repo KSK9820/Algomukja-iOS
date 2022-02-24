@@ -277,7 +277,7 @@ extension RankViewController: UICollectionViewDelegate, UICollectionViewDataSour
             let data = item[indexPath.row]
             let Cell = collectionView.dequeueReusableCell(withReuseIdentifier: ItemCollectionViewCell.identifier, for: indexPath) as! ItemCollectionViewCell
             infoItem = item[indexPath.row]
-            Cell.configure(with: data, indexpath: indexPath.row)
+            //Cell.configure(with: data, indexpath: indexPath.row)
             Cell.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(tap(_:))))
             return Cell
             
