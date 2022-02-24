@@ -124,7 +124,7 @@ extension SearchResultViewController: UICollectionViewDelegate, UICollectionView
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let info = material_info[indexPath.row]
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: MaterialCollectionViewCell.identifier, for: indexPath) as! MaterialCollectionViewCell
-        cell.configure(with: info, indexpath: indexPath.row)
+        //cell.configure(with: material, indexpath: indexPath.row)
         
         if collectionview.contentSize.height <= UIScreen.main.bounds.height * 0.5{
             collectionview.heightAnchor.constraint(equalToConstant: collectionview.contentSize.height).isActive = true

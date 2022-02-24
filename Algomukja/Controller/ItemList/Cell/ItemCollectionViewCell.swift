@@ -18,7 +18,7 @@ class ItemCollectionViewCell: UICollectionViewCell {
     
     static var identifier = "ItemCollectionViewCell"
     
-    let level = ["프루테리언","비건", "락토 베지테리언", "오보 베지테리언", "페스코 베지테리언", "폴로 베지테리언", "플렉시테리언"]
+    let level = ["", "비건", "락토 베지테리언", "오보 베지테리언", "락토오보 베지테리언", "페스코 베지테리언", "폴로 베지테리언", "플렉시테리언"]
     let caution = ["확인되지 않은 재료명이 있습니다. \n제조사에 문의 바랍니다.", "분석이 확실합니다!"]
     
     override func awakeFromNib() {
@@ -45,25 +45,57 @@ class ItemCollectionViewCell: UICollectionViewCell {
     
     
     
-    public func configure(with item: ITEM, indexpath: Int){
-        let url = URL(string: item.photo)
+    public func configure(with item: Payload, indexpath: Int){
+        
+        let url = URL(string: Config.api + item.image)
         iv_item.load(url: url!)
+        
         lbl_name.text = item.name
-        lbl_level.text = level[item.finalLevel]
-        if item.accurate == false{
+        if item.finalLevel == 4 && item.level[2] == 1{
+            lbl_level.text = level[4]
+        }else if item.finalLevel == 4 && item.level[2] == 0 {
+            lbl_level.text = level[3]
+        }else{
+            lbl_level.text = level[item.finalLevel]
+        }
+        
+        
+        if item.isAccurate == false{
             lbl_caution.text = caution[0]
-        }else {
+        }else{
             lbl_caution.text = caution[1]
         }
         
-       
         for i in 0..<6{
             iv_level[i].image = UIImage(named: String(i))
-            if item.level[i] == 0 {
+        }
+        
+        for i in 0..<6{
+            iv_level[i].image = UIImage(named: String(i))
+            if item.level[i + 1] == 0 {
                 iv_level[i].setImageColor(color: UIColor(named: "400")!)
             }
         }
+        
+        
+//        let url = URL(string: item.photo)
+//        iv_item.load(url: url!)
+//        lbl_name.text = item.name
+//        lbl_level.text = level[item.finalLevel]
+//        if item.accurate == false{
+//            lbl_caution.text = caution[0]
+//        }else {
+//            lbl_caution.text = caution[1]
+//        }
+//
+//
+//        for i in 0..<6{
+//            iv_level[i].image = UIImage(named: String(i))
+//            if item.level[i] == 0 {
+//                iv_level[i].setImageColor(color: UIColor(named: "400")!)
+//            }
+//        }
+//    }
+    
     }
-    
-    
 }

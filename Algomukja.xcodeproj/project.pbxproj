@@ -27,6 +27,9 @@
 		53622A91275699EA0063A4DB /* ItemCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 53622A8F275699EA0063A4DB /* ItemCollectionViewCell.xib */; };
 		53622A9327569D5D0063A4DB /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53622A9227569D5D0063A4DB /* Extensions.swift */; };
 		53622A952757EABC0063A4DB /* ItemInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53622A942757EABC0063A4DB /* ItemInfoViewController.swift */; };
+		5382297227C375370062AA61 /* ProductResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5382297127C375370062AA61 /* ProductResponse.swift */; };
+		5382297427C375D30062AA61 /* ProductService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5382297327C375D30062AA61 /* ProductService.swift */; };
+		5382297627C37CA60062AA61 /* ProductRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5382297527C37CA60062AA61 /* ProductRequest.swift */; };
 		53BB54AA2785552700306AB2 /* Pods_Algomukja.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A9A74D08D08D0AED3BA060B1 /* Pods_Algomukja.framework */; };
 		53BB54AE278563DB00306AB2 /* Rank.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 53BB54AD278563DB00306AB2 /* Rank.storyboard */; };
 		53BB54B1278563F600306AB2 /* RankViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53BB54B0278563F600306AB2 /* RankViewController.swift */; };
@@ -62,6 +65,9 @@
 		53622A8F275699EA0063A4DB /* ItemCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ItemCollectionViewCell.xib; sourceTree = "<group>"; };
 		53622A9227569D5D0063A4DB /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		53622A942757EABC0063A4DB /* ItemInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemInfoViewController.swift; sourceTree = "<group>"; };
+		5382297127C375370062AA61 /* ProductResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductResponse.swift; sourceTree = "<group>"; };
+		5382297327C375D30062AA61 /* ProductService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductService.swift; sourceTree = "<group>"; };
+		5382297527C37CA60062AA61 /* ProductRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductRequest.swift; sourceTree = "<group>"; };
 		53BB54AD278563DB00306AB2 /* Rank.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Rank.storyboard; sourceTree = "<group>"; };
 		53BB54B0278563F600306AB2 /* RankViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RankViewController.swift; sourceTree = "<group>"; };
 		53BB54B527859B4600306AB2 /* CardCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -128,6 +134,7 @@
 			children = (
 				53EB7ACC279DC26F007FD22A /* Utils */,
 				53EB7ACA279DC20B007FD22A /* CameraService.swift */,
+				5382297327C375D30062AA61 /* ProductService.swift */,
 			);
 			path = Service;
 			sourceTree = "<group>";
@@ -135,6 +142,7 @@
 		53380DAF273A72F40044E63E /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				5382297027C3751E0062AA61 /* Product */,
 				53EB7ACF279DC4BC007FD22A /* Camera */,
 			);
 			path = Model;
@@ -226,6 +234,15 @@
 				53599BDA275919E7009EA34F /* MaterialCollectionViewCell.xib */,
 			);
 			path = Cell;
+			sourceTree = "<group>";
+		};
+		5382297027C3751E0062AA61 /* Product */ = {
+			isa = PBXGroup;
+			children = (
+				5382297127C375370062AA61 /* ProductResponse.swift */,
+				5382297527C37CA60062AA61 /* ProductRequest.swift */,
+			);
+			path = Product;
 			sourceTree = "<group>";
 		};
 		53BB54AF278563E700306AB2 /* Rank */ = {
@@ -404,13 +421,16 @@
 			buildActionMask = 2147483647;
 			files = (
 				53EB7AD1279DC4EA007FD22A /* CameraRequest.swift in Sources */,
+				5382297227C375370062AA61 /* ProductResponse.swift in Sources */,
 				533B79292774D43C00D0225D /* EditViewController.swift in Sources */,
 				53BB54B1278563F600306AB2 /* RankViewController.swift in Sources */,
+				5382297627C37CA60062AA61 /* ProductRequest.swift in Sources */,
 				53EB7ACE279DC279007FD22A /* Config.swift in Sources */,
 				53622A90275699EA0063A4DB /* ItemCollectionViewCell.swift in Sources */,
 				53622A9327569D5D0063A4DB /* Extensions.swift in Sources */,
 				53BB54B727859B4600306AB2 /* CardCollectionViewCell.swift in Sources */,
 				53599BDB275919E7009EA34F /* MaterialCollectionViewCell.swift in Sources */,
+				5382297427C375D30062AA61 /* ProductService.swift in Sources */,
 				53EB7ACB279DC20B007FD22A /* CameraService.swift in Sources */,
 				53622A952757EABC0063A4DB /* ItemInfoViewController.swift in Sources */,
 				5325C0F227BD5CAC006D4B9F /* SearchResultViewController.swift in Sources */,

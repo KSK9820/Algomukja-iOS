@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Moya
 
 struct ITEM {
     let photo, name: String
@@ -33,20 +34,21 @@ class ListViewController: UIViewController {
     @IBOutlet weak var collectionview: UICollectionView!
     var filterType: ChatAlarmFilterType = .level0
     
-    var item: [ITEM] = [ITEM(photo: "https://contents.lotteon.com/itemimage/_v010018/LF/15/38/53/3_/0/LF1538533_0_1.jpg", name: "고기대신 비건 제육볶음 (냉동)", finalLevel: 0, level: [1,0,0,0,0,0], accurate: true), ITEM(photo: "https://image.homeplus.kr/td/967ef98d-08fd-4ece-a1b5-dd6dd745b4b8", name: "고기대신 맛있는녀석들 비건육포 오리지널", finalLevel: 0, level: [1,0,0,0,0,0], accurate: false), ITEM(photo: "https://image.homeplus.kr/td/ef39ed5d-7bc7-4ab2-96d3-908e1601215d", name: "씨제이 삼호 맑은 어묵", finalLevel: 3, level: [1,0,0,1,0,0], accurate: false), ITEM(photo: "https://image.homeplus.kr/td/29983ea0-51ff-4a94-813e-8922cd372d0b", name: "홈플러스시그니처 매콤한 순대 볶음", finalLevel: 5, level: [1,1,0,0,0,1], accurate: false), ITEM(photo: "https://image.homeplus.kr/td/2e29ccec-0dc8-438b-acc6-e80e67e15506", name: "풀무원 국물 떡볶이", finalLevel: 0, level: [1,0,0,0,0,0], accurate: false), ITEM(photo: "https://image.homeplus.kr/td/e334c618-804c-4905-b262-4f3f71ab9ddc", name: "농심 올리브 짜파게티", finalLevel: 5, level: [1,1,1,1,0,1], accurate: false)]
-        
     
-    var selectedItem: [ITEM] = []
+    let provider = MoyaProvider<ProductService>()
+    var request = ProductRequest(type: 1, start: 0, limit: 10)
+    var payload = [Payload]()
+    var addPayload = [[Payload]](repeating: [], count: 9)
+    var lastId = [Int](repeating: 0, count: 9)
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         UISetting()
-        collectionviewSetting()
-        updateFilterType()
         addViewTapGesture()
-        
+        getProduct(data: self.request)
+        collectionviewSetting()
     }
     
     func UISetting(){
@@ -60,6 +62,7 @@ class ListViewController: UIViewController {
     func collectionviewSetting(){
             collectionview.delegate = self
             collectionview.dataSource = self
+            collectionview.prefetchDataSource = self
             collectionview.register(ItemCollectionViewCell.nib(), forCellWithReuseIdentifier: ItemCollectionViewCell.identifier)
             let flowLayout = UICollectionViewFlowLayout()
             collectionview.collectionViewLayout = flowLayout
@@ -68,7 +71,6 @@ class ListViewController: UIViewController {
     func greySetting(except: Int){
         for i in 0..<6{
             if i == except {
-//                continue
                 vegan_level[i].image = UIImage(named: String(except))
             }else{
                 vegan_level[i].setImageColor(color: UIColor(named: "400")!)
@@ -81,22 +83,22 @@ class ListViewController: UIViewController {
             switch filterType {
             case .level0:
                 greySetting(except: 0)
-                setSelectedItem(selected: 0)
+                setSelectedItem(selected: 1)
             case .level1:
                 greySetting(except: 1)
-                setSelectedItem(selected: 1)
+                setSelectedItem(selected: 2)
             case .level2:
                 greySetting(except: 2)
-                setSelectedItem(selected: 2)
+                setSelectedItem(selected: 4)
             case .level3:
                 greySetting(except: 3)
-                setSelectedItem(selected: 3)
+                setSelectedItem(selected: 5)
             case .level4:
                 greySetting(except: 4)
-                setSelectedItem(selected: 4)
+                setSelectedItem(selected: 6)
             case .level5:
                 greySetting(except: 5)
-                setSelectedItem(selected: 5)
+                setSelectedItem(selected: 7)
             }
         }
 
@@ -124,48 +126,64 @@ class ListViewController: UIViewController {
         if sender.view == vegan_level[0] {
             filterType = .level0
             //각 단계 api get
+            request.type = 1
         }
         else if sender.view == vegan_level[1] {
+            request.type = 2
             filterType = .level1
         }
         else if sender.view == vegan_level[2] {
+            request.type = 4
             filterType = .level2
         }
         else if sender.view == vegan_level[3] {
+            request.type = 5
             filterType = .level3
         }
         else if sender.view == vegan_level[4] {
+            request.type = 6
             filterType = .level4
         }
         else if sender.view == vegan_level[5] {
+            request.type = 7
             filterType = .level5
         }
-       
-        updateFilterType()
         
+        if addPayload[request.type].count == 0 {
+            request.start = 0
+            getProduct(data: self.request)
+            
+        }
+        updateFilterType()
     }
     
     
     func setSelectedItem(selected: Int){
-        selectedItem.removeAll()
-        for i in 0..<item.count{
-            if item[i].finalLevel == selected {
-                selectedItem.append(item[i])
+        //selectedItem.removeAll()
+        for i in 0..<payload.count {
+            if payload[i].finalLevel == selected && addPayload[request.type].count == 0{
+                addPayload[request.type] += payload
             }
-            collectionview.reloadData()
+            if i == payload.count - 1 {
+                lastId[request.type] = payload[i].id
+                print(lastId[request.type])
+            }
         }
+        payload.removeAll()
+        collectionview.reloadData()
     }
 }
 
-extension ListViewController: UICollectionViewDelegate, UICollectionViewDataSource{
+extension ListViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDataSourcePrefetching{
+   
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return selectedItem.count
-        }
+        return addPayload[request.type].count
+    }
         
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        
-        let Info = selectedItem[indexPath.row]
+      
+        let Info = addPayload[request.type][indexPath.row]
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ItemCollectionViewCell.identifier, for: indexPath) as! ItemCollectionViewCell
         cell.configure(with: Info, indexpath: indexPath.row)
         
@@ -180,11 +198,25 @@ extension ListViewController: UICollectionViewDelegate, UICollectionViewDataSour
             return
         }
         VC.modalPresentationStyle = .overFullScreen
-        VC.info = selectedItem[indexPath.row]
+        VC.product = addPayload[request.type][indexPath.row]
+        //VC.info = selectedItem[indexPath.row]
         self.present(VC, animated: true, completion: nil)
     }
     
     
+    func collectionView(_ collectionView: UICollectionView, prefetchItemsAt indexPaths: [IndexPath]) {
+        for indexPath in indexPaths {
+            
+            if indexPath.row >= addPayload[request.type].count - 2 {
+                request.start = lastId[request.type] + 1
+                getProduct(data: self.request)
+                self.addPayload[request.type] += payload
+                setSelectedItem(selected: request.type)
+
+          break
+            }
+        }
+    }
 }
 
 extension ListViewController: UICollectionViewDelegateFlowLayout{
@@ -199,4 +231,52 @@ extension ListViewController: UICollectionViewDelegateFlowLayout{
        
             return UIEdgeInsets(top: 0, left: 10, bottom: 0, right: 10)
     }
+}
+
+
+
+extension ListViewController{
+    func getProduct(data: ProductRequest){
+        provider.request(.getProduct(product: request)){ [weak self] result in
+                guard let self = self else {return}
+                
+                switch result {
+                case .success(let response):
+                    do{
+//                        print("***result: \(try response.mapJSON())")
+                        let datas = try JSONDecoder().decode(ProductResponse.self, from: response.data)
+                        self.payload = datas.payload
+                        print(self.payload)
+                        DispatchQueue.main.async{ [self] in
+                            if self.addPayload[self.request.type].count == 0 {
+                                self.updateFilterType()
+                            }else{
+                                self.collectionview.reloadData()
+                            }
+                            
+                        }
+                       
+                    }catch let DecodingError.dataCorrupted(context) {
+                        print(context)
+                    } catch let DecodingError.keyNotFound(key, context) {
+                        print("Key '\(key)' not found:", context.debugDescription)
+                        print("codingPath:", context.codingPath)
+                    } catch let DecodingError.valueNotFound(value, context) {
+                        print("Value '\(value)' not found:", context.debugDescription)
+                        print("codingPath:", context.codingPath)
+                    } catch let DecodingError.typeMismatch(type, context)  {
+                        print("Type '\(type)' mismatch:", context.debugDescription)
+                        print("codingPath:", context.codingPath)
+                    } catch {
+                        print("error: ", error)
+                    }
+                    
+                case .failure(let error):
+                    
+                    print("***error: \(error.localizedDescription)")
+                }
+                
+                
+            }
+        }
 }

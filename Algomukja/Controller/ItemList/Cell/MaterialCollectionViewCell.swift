@@ -37,9 +37,9 @@ class MaterialCollectionViewCell: UICollectionViewCell {
     
     
     
-    public func configure(with material: material, indexpath: Int){
+    public func configure(with material: Materials, indexpath: Int){
         lbl_meterial.text = material.name
-        lbl_meterial.backgroundColor = UIColor(named: "level\(material.level + 1)")
+        lbl_meterial.backgroundColor = UIColor(named: "level\(material.level)")
         lbl_meterial.makeRoundView(radius: 10)
         
     }
