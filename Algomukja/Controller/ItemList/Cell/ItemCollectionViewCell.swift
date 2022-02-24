@@ -51,7 +51,14 @@ class ItemCollectionViewCell: UICollectionViewCell {
         iv_item.load(url: url!)
         
         lbl_name.text = item.name
-        lbl_level.text = level[item.finalLevel]
+        if item.finalLevel == 4 && item.level[2] == 1{
+            lbl_level.text = level[4]
+        }else if item.finalLevel == 4 && item.level[2] == 0 {
+            lbl_level.text = level[3]
+        }else{
+            lbl_level.text = level[item.finalLevel]
+        }
+        
         
         if item.isAccurate == false{
             lbl_caution.text = caution[0]

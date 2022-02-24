@@ -198,6 +198,7 @@ extension ListViewController: UICollectionViewDelegate, UICollectionViewDataSour
             return
         }
         VC.modalPresentationStyle = .overFullScreen
+        VC.product = addPayload[request.type][indexPath.row]
         //VC.info = selectedItem[indexPath.row]
         self.present(VC, animated: true, completion: nil)
     }

@@ -51,9 +51,9 @@ class CardCollectionViewCell: UICollectionViewCell {
                 level[i].setImageColor(color: UIColor(named: "400")!)
             }
         }
-        iv_rank.setImageColor(color: UIColor(named: "level\(data.finalLevel + 1)")!)
+        iv_rank.setImageColor(color: UIColor(named: "level\(data.finalLevel)")!)
         lbl_rank.text = String(indexpath + 1)
-        cardview.setViewShadow(backView: cardview, colorName: "level\(data.finalLevel + 1)", width: -3, height: 1)
+        cardview.setViewShadow(backView: cardview, colorName: "level\(data.finalLevel)", width: -3, height: 1)
     }
   
 
