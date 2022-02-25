@@ -1,19 +1,19 @@
 //
-//  ProductService.swift
+//  SearchService.swift
 //  Algomukja
 //
-//  Created by 김수경 on 2022/02/21.
+//  Created by 김수경 on 2022/02/25.
 //
 
 import Foundation
 import Moya
 
-enum ProductService {
-    case getProduct(product: ProductRequest)
+enum SearchService {
+    case getSearch(search: SearchRequest)
     
 }
 
-extension ProductService: TargetType {
+extension SearchService: TargetType {
     var baseURL: URL {
         guard let url = URL(string: Config.api) else{
             fatalError()
@@ -23,22 +23,22 @@ extension ProductService: TargetType {
     
     var path: String {
         switch self{
-        case .getProduct:
-           return "/api/v1/product/"
+        case .getSearch:
+           return "/api/v1/product/search"
         }
     }
     
     var method: Moya.Method {
         switch self {
-        case .getProduct:
+        case .getSearch:
             return .get
         }
     }
     
     var task: Task {
         switch self{
-        case .getProduct(let request):
-            return .requestParameters(parameters: ["type": request.type, "start": request.start, "limit": request.limit], encoding: URLEncoding.default)
+        case .getSearch(let request):
+            return .requestParameters(parameters: ["keyword": request.keyword, "start": request.start, "limit": request.limit], encoding: URLEncoding.default)
             
         }
     }

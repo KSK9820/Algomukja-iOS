@@ -20,6 +20,8 @@
 		533FE9C02771D61900CCC596 /* CameraViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 533FE9BF2771D61900CCC596 /* CameraViewController.swift */; };
 		53599BDB275919E7009EA34F /* MaterialCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53599BD9275919E7009EA34F /* MaterialCollectionViewCell.swift */; };
 		53599BDC275919E7009EA34F /* MaterialCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 53599BDA275919E7009EA34F /* MaterialCollectionViewCell.xib */; };
+		535C197A27C7F8BE006365AA /* SearchRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 535C197927C7F8BE006365AA /* SearchRequest.swift */; };
+		535C197C27C7F99D006365AA /* SearchService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 535C197B27C7F99D006365AA /* SearchService.swift */; };
 		53622A83275699400063A4DB /* ListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53622A82275699400063A4DB /* ListViewController.swift */; };
 		53622A852756997C0063A4DB /* TabBar.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 53622A842756997C0063A4DB /* TabBar.storyboard */; };
 		53622A87275699860063A4DB /* ItemList.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 53622A86275699860063A4DB /* ItemList.storyboard */; };
@@ -58,6 +60,8 @@
 		533FE9BF2771D61900CCC596 /* CameraViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraViewController.swift; sourceTree = "<group>"; };
 		53599BD9275919E7009EA34F /* MaterialCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MaterialCollectionViewCell.swift; sourceTree = "<group>"; };
 		53599BDA275919E7009EA34F /* MaterialCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MaterialCollectionViewCell.xib; sourceTree = "<group>"; };
+		535C197927C7F8BE006365AA /* SearchRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchRequest.swift; sourceTree = "<group>"; };
+		535C197B27C7F99D006365AA /* SearchService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchService.swift; sourceTree = "<group>"; };
 		53622A82275699400063A4DB /* ListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListViewController.swift; sourceTree = "<group>"; };
 		53622A842756997C0063A4DB /* TabBar.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = TabBar.storyboard; sourceTree = "<group>"; };
 		53622A86275699860063A4DB /* ItemList.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ItemList.storyboard; sourceTree = "<group>"; };
@@ -134,6 +138,7 @@
 			children = (
 				53EB7ACC279DC26F007FD22A /* Utils */,
 				53EB7ACA279DC20B007FD22A /* CameraService.swift */,
+				535C197B27C7F99D006365AA /* SearchService.swift */,
 				5382297327C375D30062AA61 /* ProductService.swift */,
 			);
 			path = Service;
@@ -142,6 +147,7 @@
 		53380DAF273A72F40044E63E /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				535C197827C7F8B2006365AA /* Search */,
 				5382297027C3751E0062AA61 /* Product */,
 				53EB7ACF279DC4BC007FD22A /* Camera */,
 			);
@@ -198,6 +204,14 @@
 				5325C0F127BD5CAC006D4B9F /* SearchResultViewController.swift */,
 			);
 			path = Camera;
+			sourceTree = "<group>";
+		};
+		535C197827C7F8B2006365AA /* Search */ = {
+			isa = PBXGroup;
+			children = (
+				535C197927C7F8BE006365AA /* SearchRequest.swift */,
+			);
+			path = Search;
 			sourceTree = "<group>";
 		};
 		53622A7C275698BE0063A4DB /* TabBar */ = {
@@ -421,6 +435,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				53EB7AD1279DC4EA007FD22A /* CameraRequest.swift in Sources */,
+				535C197A27C7F8BE006365AA /* SearchRequest.swift in Sources */,
 				5382297227C375370062AA61 /* ProductResponse.swift in Sources */,
 				533B79292774D43C00D0225D /* EditViewController.swift in Sources */,
 				53BB54B1278563F600306AB2 /* RankViewController.swift in Sources */,
@@ -440,6 +455,7 @@
 				53622A83275699400063A4DB /* ListViewController.swift in Sources */,
 				53EB7AC9279BD9AC007FD22A /* TabBarViewController.swift in Sources */,
 				53380D9D273A72DE0044E63E /* SceneDelegate.swift in Sources */,
+				535C197C27C7F99D006365AA /* SearchService.swift in Sources */,
 				533FE9C02771D61900CCC596 /* CameraViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

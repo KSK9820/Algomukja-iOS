@@ -45,7 +45,7 @@
                                                             <imageReference key="image" image="magnifyingglass" catalog="system" symbolScale="large"/>
                                                         </buttonConfiguration>
                                                         <connections>
-                                                            <action selector="nameSearch:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="ovX-rz-g5X"/>
+                                                            <action selector="nameSearch:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="yAr-nO-LWp"/>
                                                         </connections>
                                                     </button>
                                                 </subviews>
@@ -69,11 +69,11 @@
                                     <constraint firstItem="EgG-1g-Oq7" firstAttribute="top" secondItem="bki-l9-DeS" secondAttribute="top" constant="85" id="zwH-BN-BbS"/>
                                 </constraints>
                             </view>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3Dv-6c-xk8">
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3Dv-6c-xk8">
                                 <rect key="frame" x="0.0" y="160" width="414" height="653"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9H2-Z5-lyg">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="1000"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="1500"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="금주의 pick" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="021-l7-30i">
                                                 <rect key="frame" x="20" y="0.0" width="103.5" height="26.5"/>
@@ -182,7 +182,7 @@
                                             <constraint firstAttribute="trailing" secondItem="Wqc-Yv-3BH" secondAttribute="trailing" constant="10" id="EyL-Ts-BmJ"/>
                                             <constraint firstItem="Wqc-Yv-3BH" firstAttribute="top" secondItem="YcS-hQ-KqQ" secondAttribute="bottom" constant="20" id="HiZ-gO-tza"/>
                                             <constraint firstAttribute="trailing" secondItem="AJ8-fV-bWf" secondAttribute="trailing" constant="10" id="TyF-Ph-iMO"/>
-                                            <constraint firstAttribute="height" constant="1000" id="W0g-Ua-2Y0"/>
+                                            <constraint firstAttribute="height" constant="1500" id="W0g-Ua-2Y0"/>
                                             <constraint firstItem="Wqc-Yv-3BH" firstAttribute="leading" secondItem="9H2-Z5-lyg" secondAttribute="leading" constant="10" id="d3u-ba-prk"/>
                                             <constraint firstItem="021-l7-30i" firstAttribute="top" secondItem="9H2-Z5-lyg" secondAttribute="top" id="gDW-nW-hxV"/>
                                             <constraint firstItem="AJ8-fV-bWf" firstAttribute="leading" secondItem="9H2-Z5-lyg" secondAttribute="leading" constant="10" id="mgc-my-yFg"/>
@@ -218,6 +218,7 @@
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="CardCollectionView" destination="AJ8-fV-bWf" id="FJG-op-Prd"/>
+                        <outlet property="heightview" destination="9H2-Z5-lyg" id="5qK-uu-cga"/>
                         <outlet property="iv_result" destination="Wmg-gU-MqS" id="UP2-25-rbJ"/>
                         <outlet property="lbl_result" destination="YcS-hQ-KqQ" id="8Hk-cK-FBV"/>
                         <outlet property="scrollview" destination="3Dv-6c-xk8" id="my8-DC-K8h"/>

@@ -7,6 +7,7 @@
 
 import UIKit
 import UPCarouselFlowLayout
+import Moya
 
 struct Card {
     let photo, name: String
@@ -15,9 +16,10 @@ struct Card {
 }
 
 
-class RankViewController: UIViewController {
+class RankViewController: UIViewController, UIGestureRecognizerDelegate {
    
 
+    @IBOutlet weak var heightview: UIView!
     @IBOutlet weak var scrollview: UIScrollView!
     @IBOutlet weak var topview: UIView!
     @IBOutlet weak var searchView: UIView!
@@ -37,6 +39,12 @@ class RankViewController: UIViewController {
     var item: [ITEM] = []
     var infoItem: ITEM?
     
+    let provider = MoyaProvider<SearchService>()
+    var request = SearchRequest(keyword: "", start: 0, limit: 20)
+    var searchResult: [Payload] = []
+    var selectedResult: Payload!
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -47,15 +55,15 @@ class RankViewController: UIViewController {
         addViewTapGesture()
         invisibleResult()
         hideKeyboard()
-       
+        
+        heightview.translatesAutoresizingMaskIntoConstraints = true
+        tf_search.text = "오뚜기"
+
     }
     
     override func viewDidLayoutSubviews() {
-//        self.changeCollectionHeight()
         scrollview.contentSize.height = 700 + self.searchCollectionView.contentSize.height
-       
     }
-    
     func UISetting(){
         topview.layer.cornerRadius = 40
         topview.layer.maskedCorners = [.layerMinXMaxYCorner, .layerMaxXMaxYCorner]
@@ -91,6 +99,19 @@ class RankViewController: UIViewController {
         layout.spacingMode = UPCarouselFlowLayoutSpacingMode.fixed(spacing: 30)
         layout.sideItemScale = 0.7
         CardCollectionView.collectionViewLayout = layout
+        
+        
+        
+        
+        searchCollectionView.delegate = self
+        searchCollectionView.dataSource = self
+        searchCollectionView.register(ItemCollectionViewCell.nib(), forCellWithReuseIdentifier: ItemCollectionViewCell.identifier)
+        let flowLayout = UICollectionViewFlowLayout()
+        flowLayout.itemSize = CGSize(width: screenWidth - 40, height: 180)
+        
+        searchCollectionView.collectionViewLayout = flowLayout
+        searchCollectionView.isUserInteractionEnabled = true
+        
         
     }
     
@@ -189,61 +210,113 @@ class RankViewController: UIViewController {
 //        }
     }
     
-    
     func invisibleResult(){
-        iv_result.visibility = .gone
-        lbl_result.visibility = .gone
-        //searchCollectionView.visibility = .invisible
-    }
-    
-    func visibleResult(){
-        iv_result.visibility = .visible
-        
-        
-        lbl_result.text = "'\(tf_search.text!)' 제품 검색 결과입니다."
-        lbl_result.visibility = .visible
-        searchCollectionView.visibility = .visible
+           iv_result.visibility = .gone
+           lbl_result.visibility = .gone
+//           searchCollectionView.visibility = .gone
+       }
+       
+       func visibleResult(){
+           iv_result.visibility = .visible
+           lbl_result.text = "'\(tf_search.text!)' 제품 검색 결과입니다."
+           lbl_result.visibility = .visible
+           if searchResult.count != 0 {
 
-        
-        searchCollectionView.delegate = self
-        searchCollectionView.dataSource = self
-        searchCollectionView.register(ItemCollectionViewCell.nib(), forCellWithReuseIdentifier: ItemCollectionViewCell.identifier)
-        let flowLayout = UICollectionViewFlowLayout()
-        flowLayout.itemSize = CGSize(width: screenWidth - 40, height: 180)
-        
-        searchCollectionView.collectionViewLayout = flowLayout
-        searchCollectionView.isUserInteractionEnabled = true
-        
-        searchCollectionView.contentSize.height = CGFloat(self.item.count * 190)
-        searchCollectionViewHeight.constant = searchCollectionView.contentSize.height
+               searchCollectionView.contentSize.height = CGFloat(searchResult.count * 190)
+               searchCollectionViewHeight.constant = searchCollectionView.contentSize.height
+               
+               scrollview.contentSize.height = 700 + self.searchCollectionView.contentSize.height
+               
+               
+               heightview.frame.size.height = 700 + self.searchCollectionView.contentSize.height
+//               heightview.heightAnchor.constraint(equalToConstant: 4000)
+               heightview.frame.size.width = self.view.bounds.width
+           }
+           self.searchCollectionView.reloadData()
+       }
 
-    }
-    
-    
-    
-    
 }
 
 extension RankViewController{
+    func getSearch(data: SearchRequest){
+        provider.request(.getSearch(search: request)){ [weak self] result in
+                guard let self = self else {return}
+                
+                switch result {
+                case .success(let response):
+                    do{
+//                        print("***result: \(try response.mapJSON())")
+                        let datas = try JSONDecoder().decode(ProductResponse.self, from: response.data)
+                        self.searchResult = datas.payload
+
+                        DispatchQueue.main.async{ [self] in
+                            
+                            self.visibleResult()
+                            self.view.endEditing(true)
+                            self.scrollview.setContentOffset(CGPoint(x: 0, y: self.lbl_result.frame.origin.y), animated: true)
+                           
+                            
+       
+                        }
+
+                       
+                    }catch let DecodingError.dataCorrupted(context) {
+                        print(context)
+                    } catch let DecodingError.keyNotFound(key, context) {
+                        print("Key '\(key)' not found:", context.debugDescription)
+                        print("codingPath:", context.codingPath)
+                    } catch let DecodingError.valueNotFound(value, context) {
+                        print("Value '\(value)' not found:", context.debugDescription)
+                        print("codingPath:", context.codingPath)
+                    } catch let DecodingError.typeMismatch(type, context)  {
+                        print("Type '\(type)' mismatch:", context.debugDescription)
+                        print("codingPath:", context.codingPath)
+                    } catch {
+                        print("error: ", error)
+                    }
+                    
+                case .failure(let error):
+                    
+                    print("***error: \(error.localizedDescription)")
+                }
+                
+                
+            }
+        }
+    
+    
     @IBAction func nameSearch(_ sender: UIButton) {
         hideKeyboard()
-        self.item = [ITEM(photo: "https://contents.lotteon.com/itemimage/_v010018/LF/15/38/53/3_/0/LF1538533_0_1.jpg", name: "고기대신 비건 제육볶음 (냉동)", finalLevel: 0, level: [1,0,0,0,0,0], accurate: true), ITEM(photo: "https://image.homeplus.kr/td/967ef98d-08fd-4ece-a1b5-dd6dd745b4b8", name: "고기대신 맛있는녀석들 비건육포 오리지널", finalLevel: 0, level: [1,0,0,0,0,0], accurate: false), ITEM(photo: "https://image.homeplus.kr/td/ef39ed5d-7bc7-4ab2-96d3-908e1601215d", name: "씨제이 삼호 맑은 어묵", finalLevel: 3, level: [1,0,0,1,0,0], accurate: false), ITEM(photo: "https://image.homeplus.kr/td/29983ea0-51ff-4a94-813e-8922cd372d0b", name: "홈플러스시그니처 매콤한 순대 볶음", finalLevel: 5, level: [1,1,0,0,0,1], accurate: false), ITEM(photo: "https://image.homeplus.kr/td/2e29ccec-0dc8-438b-acc6-e80e67e15506", name: "풀무원 국물 떡볶이", finalLevel: 0, level: [1,0,0,0,0,0], accurate: false), ITEM(photo: "https://image.homeplus.kr/td/e334c618-804c-4905-b262-4f3f71ab9ddc", name: "농심 올리브 짜파게티", finalLevel: 5, level: [1,1,1,1,0,1], accurate: false)]
-        self.visibleResult()
-        view.endEditing(true)
-        self.scrollview.setContentOffset(CGPoint(x: 0, y: lbl_result.frame.origin.y), animated: true)
-
+        searchResult.removeAll()
+        request.keyword = self.tf_search.text!
+        getSearch(data: self.request)
     }
 
     @objc func tap(_ sender: UITapGestureRecognizer) {
+
+        
+        let p = sender.location(in: searchCollectionView)
+        if let indexPath = searchCollectionView?.indexPathForItem(at: p){
+            selectedResult = searchResult[indexPath.row]
+        }
+        
+      
+        
+    
         let storyboard = UIStoryboard(name: "ItemList", bundle: nil)
         guard let VC = storyboard.instantiateViewController(identifier: "ItemInfoViewController") as? ItemInfoViewController else {
             print("Controller not found")
             return
         }
         VC.modalPresentationStyle = .overFullScreen
-        VC.info = infoItem
-        self.present(VC, animated: true, completion: nil)
+        VC.product = selectedResult
+        self.present(VC, animated: true, completion: { [self] in
+            searchCollectionView.isUserInteractionEnabled = true
+        })
     }
+    
+    
+
     
 }
 
@@ -254,7 +327,7 @@ extension RankViewController: UICollectionViewDelegate, UICollectionViewDataSour
         if collectionView == CardCollectionView{
             return self.card.count
         }else if collectionView == searchCollectionView{
-            return self.item.count
+            return self.searchResult.count
         }
         
         return 0
@@ -270,19 +343,35 @@ extension RankViewController: UICollectionViewDelegate, UICollectionViewDataSour
             //infoItem에 값 넣기
             Cell.configure(with: data, indexpath: indexPath.row)
             infoItem = card[indexPath.row]
-            Cell.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(tap(_:))))
+//            Cell.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(tap(_:))))
             
            return Cell
         }else if collectionView == searchCollectionView{
-            let data = item[indexPath.row]
+            let data = searchResult[indexPath.row]
             let Cell = collectionView.dequeueReusableCell(withReuseIdentifier: ItemCollectionViewCell.identifier, for: indexPath) as! ItemCollectionViewCell
-            infoItem = item[indexPath.row]
-            //Cell.configure(with: data, indexpath: indexPath.row)
+//            infoItem = searchResult[indexPath.row]
+            Cell.configure(with: data, indexpath: indexPath.row)
             Cell.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(tap(_:))))
+          
             return Cell
             
         }
         return UICollectionViewCell()
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        print(indexPath.row)
+        if collectionView == searchCollectionView{
+            let storyboard = UIStoryboard(name: "ItemList", bundle: nil)
+            guard let VC = storyboard.instantiateViewController(identifier: "ItemInfoViewController") as? ItemInfoViewController else {
+                print("Controller not found")
+                return
+            }
+            VC.modalPresentationStyle = .overFullScreen
+            VC.product = searchResult[indexPath.row]
+            self.present(VC, animated: true, completion: nil)
+            //selectedResult = searchResult[indexPath.row]
+        }
     }
     
 
