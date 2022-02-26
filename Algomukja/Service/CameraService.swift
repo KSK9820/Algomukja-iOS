@@ -150,6 +150,7 @@ extension CameraService: TargetType {
     }
 
     var headers: [String:String]?{
-        return ["Content-Type": "application/json", "X-OCR-SECRET": "dUV6UXdyR3l1a3pCWHdCU2hXc1pNa2tqVUdLTkpBaEc="]
+        return ["Content-Type": "application/json", "X-OCR-SECRET": "c3JhcWJsZXFhc1FUQUhweGZScmNjZUxOcmV2ZnBnUmQ="]
+        //"dUV6UXdyR3l1a3pCWHdCU2hXc1pNa2tqVUdLTkpBaEc="]
     }
 }

@@ -10,6 +10,7 @@ import Moya
 
 enum ProductService {
     case getProduct(product: ProductRequest)
+    
 }
 
 extension ProductService: TargetType {
