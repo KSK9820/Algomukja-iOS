@@ -40,7 +40,7 @@ class RankViewController: UIViewController, UIGestureRecognizerDelegate {
     var infoItem: ITEM?
     
     let provider = MoyaProvider<SearchService>()
-    var request = SearchRequest(keyword: "", start: 0, limit: 20)
+    var request = SearchRequest(keyword: "", start: 0, limit: 100)
     var searchResult: [Payload] = []
     var selectedResult: Payload!
     
@@ -57,7 +57,6 @@ class RankViewController: UIViewController, UIGestureRecognizerDelegate {
         hideKeyboard()
         
         heightview.translatesAutoresizingMaskIntoConstraints = true
-        tf_search.text = "오뚜기"
 
     }
     
@@ -250,13 +249,9 @@ extension RankViewController{
                         self.searchResult = datas.payload
 
                         DispatchQueue.main.async{ [self] in
-                            
                             self.visibleResult()
                             self.view.endEditing(true)
                             self.scrollview.setContentOffset(CGPoint(x: 0, y: self.lbl_result.frame.origin.y), animated: true)
-                           
-                            
-       
                         }
 
                        

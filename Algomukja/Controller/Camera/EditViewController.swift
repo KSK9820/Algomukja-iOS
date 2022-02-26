@@ -30,9 +30,15 @@ class EditViewController: UIViewController, UITextViewDelegate, CloseDelegate{
     @IBOutlet weak var btn_send: UIButton!
     
     let provider = MoyaProvider<CameraService>()
+    let provider2 = MoyaProvider<SearchService>()
     var request = CameraRequest()
     var imageRequest = [clova_image]()
     var text_material = [field]()
+    
+    var materialRequest = MaterialRequest(keyword: "", start: 0, limit: 1)
+    var materialResponse = [materialPayload]()
+    var tempMaterial: materialPayload!
+    var materials: [String] = []
     
     var ocrImage: UIImage!
     let screenHeight = UIScreen.main.bounds.height
@@ -82,7 +88,7 @@ class EditViewController: UIViewController, UITextViewDelegate, CloseDelegate{
             //제품명과 식품유형을 제외
             if text[i].inferText == "제품명" || text[i].inferText == "식품유형"{
                 continue
-            }else if text[i].inferText == "유통기한"{
+            }else if text[i].inferText == "유통기한" || text[i].inferText == "함유"{
                 break
 //            }else if text[i].inferText == "원재료명" {
 //                material.append(text[i].inferText)
@@ -145,12 +151,17 @@ class EditViewController: UIViewController, UITextViewDelegate, CloseDelegate{
 
 extension EditViewController{
     @IBAction func postButton(_ sender: Any) {
-        //print(self.tf_material.text.components(separatedBy: ", "))
-        self.getResult()
-//        self.dismiss(animated: true, completion: nil)
-      
+        materials = self.tf_material.text.components(separatedBy: ", ")
         
-        
+        for i in 0..<materials.count{
+            materialRequest.keyword = materials[i] as! String
+            getMaterial(data: materialRequest)
+            if i == materials.count - 1 {
+                self.getResult()
+                
+            }
+        }
+       
     }
 }
 
@@ -197,16 +208,67 @@ extension EditViewController{
             }
         }
     
+    
+    func getMaterial(data: MaterialRequest){
+        provider2.request(.getMaterial(request: materialRequest)){ [weak self] result in
+                guard let self = self else {return}
+                
+                switch result {
+                case .success(let response):
+                    do{
+                        //print("***result: \(try response.mapJSON())")
+                        let datas = try JSONDecoder().decode(MaterialResponse.self, from: response.data)
+                        
+                        self.materialResponse.append(datas.payload)
+//                        DispatchQueue.main.async{ [self] in
+//
+//                        }
+                       
+                    }catch let DecodingError.dataCorrupted(context) {
+                        print(context)
+                    } catch let DecodingError.keyNotFound(key, context) {
+                        print("Key '\(key)' not found:", context.debugDescription)
+                        print("codingPath:", context.codingPath)
+                    } catch let DecodingError.valueNotFound(value, context) {
+                        print("Value '\(value)' not found:", context.debugDescription)
+                        print("codingPath:", context.codingPath)
+                    } catch let DecodingError.typeMismatch(type, context)  {
+                        print("Type '\(type)' mismatch:", context.debugDescription)
+                        print("codingPath:", context.codingPath)
+                    } catch {
+                        print("error: ", error)
+                    }
+                    
+                case .failure(let error):
+                    
+                    print("***error: \(error.localizedDescription)")
+                }
+                
+                
+            }
+        }
+    
     func getResult(){
         let storyboard = UIStoryboard(name: "Camera", bundle: nil)
         guard let VC = storyboard.instantiateViewController(identifier: "SearchResultViewController") as? SearchResultViewController else {
             print("Controller not found")
             return
         }
+        VC.response = self.materialResponse
+        VC.materialName = materials
         VC.modalPresentationStyle = .overFullScreen
         VC.delegate = self
-//        VC.isCamera = isCamera
-        self.present(VC, animated: true, completion: nil)
+        
+        
+        //level넘겨주기
+      
+        if materialResponse.count != 0 {
+            self.present(VC, animated: true, completion: {
+                self.materialResponse.removeAll()
+                self.materials.removeAll()
+            })
+        }
+        
     }
 }
 

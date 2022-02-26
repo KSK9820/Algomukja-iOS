@@ -29,6 +29,8 @@
 		53622A91275699EA0063A4DB /* ItemCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 53622A8F275699EA0063A4DB /* ItemCollectionViewCell.xib */; };
 		53622A9327569D5D0063A4DB /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53622A9227569D5D0063A4DB /* Extensions.swift */; };
 		53622A952757EABC0063A4DB /* ItemInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53622A942757EABC0063A4DB /* ItemInfoViewController.swift */; };
+		5377236B27CA5F0A00F6DCCB /* MaterialRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5377236A27CA5F0A00F6DCCB /* MaterialRequest.swift */; };
+		5377236E27CA5FEB00F6DCCB /* MaterialResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5377236D27CA5FEB00F6DCCB /* MaterialResponse.swift */; };
 		5382297227C375370062AA61 /* ProductResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5382297127C375370062AA61 /* ProductResponse.swift */; };
 		5382297427C375D30062AA61 /* ProductService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5382297327C375D30062AA61 /* ProductService.swift */; };
 		5382297627C37CA60062AA61 /* ProductRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5382297527C37CA60062AA61 /* ProductRequest.swift */; };
@@ -69,6 +71,8 @@
 		53622A8F275699EA0063A4DB /* ItemCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ItemCollectionViewCell.xib; sourceTree = "<group>"; };
 		53622A9227569D5D0063A4DB /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		53622A942757EABC0063A4DB /* ItemInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemInfoViewController.swift; sourceTree = "<group>"; };
+		5377236A27CA5F0A00F6DCCB /* MaterialRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MaterialRequest.swift; sourceTree = "<group>"; };
+		5377236D27CA5FEB00F6DCCB /* MaterialResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MaterialResponse.swift; sourceTree = "<group>"; };
 		5382297127C375370062AA61 /* ProductResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductResponse.swift; sourceTree = "<group>"; };
 		5382297327C375D30062AA61 /* ProductService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductService.swift; sourceTree = "<group>"; };
 		5382297527C37CA60062AA61 /* ProductRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductRequest.swift; sourceTree = "<group>"; };
@@ -199,6 +203,7 @@
 		533FE9BE2771D60500CCC596 /* Camera */ = {
 			isa = PBXGroup;
 			children = (
+				5377236F27CA888800F6DCCB /* Cell */,
 				533FE9BF2771D61900CCC596 /* CameraViewController.swift */,
 				533B79282774D43C00D0225D /* EditViewController.swift */,
 				5325C0F127BD5CAC006D4B9F /* SearchResultViewController.swift */,
@@ -250,6 +255,13 @@
 			path = Cell;
 			sourceTree = "<group>";
 		};
+		5377236F27CA888800F6DCCB /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
 		5382297027C3751E0062AA61 /* Product */ = {
 			isa = PBXGroup;
 			children = (
@@ -290,6 +302,8 @@
 			children = (
 				53EB7AD0279DC4EA007FD22A /* CameraRequest.swift */,
 				53EB7AD227A3192D007FD22A /* CameraResponse.swift */,
+				5377236A27CA5F0A00F6DCCB /* MaterialRequest.swift */,
+				5377236D27CA5FEB00F6DCCB /* MaterialResponse.swift */,
 			);
 			path = Camera;
 			sourceTree = "<group>";
@@ -440,8 +454,10 @@
 				533B79292774D43C00D0225D /* EditViewController.swift in Sources */,
 				53BB54B1278563F600306AB2 /* RankViewController.swift in Sources */,
 				5382297627C37CA60062AA61 /* ProductRequest.swift in Sources */,
+				5377236E27CA5FEB00F6DCCB /* MaterialResponse.swift in Sources */,
 				53EB7ACE279DC279007FD22A /* Config.swift in Sources */,
 				53622A90275699EA0063A4DB /* ItemCollectionViewCell.swift in Sources */,
+				5377236B27CA5F0A00F6DCCB /* MaterialRequest.swift in Sources */,
 				53622A9327569D5D0063A4DB /* Extensions.swift in Sources */,
 				53BB54B727859B4600306AB2 /* CardCollectionViewCell.swift in Sources */,
 				53599BDB275919E7009EA34F /* MaterialCollectionViewCell.swift in Sources */,
