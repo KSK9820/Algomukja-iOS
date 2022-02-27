@@ -116,6 +116,8 @@ class RankViewController: UIViewController, UIGestureRecognizerDelegate {
     
     
     
+    
+    
     func greySetting(except: Int){
         for i in 0..<6{
             if i == except {

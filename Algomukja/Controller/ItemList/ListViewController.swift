@@ -71,9 +71,11 @@ class ListViewController: UIViewController {
     func greySetting(except: Int){
         for i in 0..<6{
             if i == except {
-                vegan_level[i].image = UIImage(named: String(except))
+                vegan_level[i].image = UIImage(named: String("\(i + 1)단계"))
+                vegan_level[i].setViewShadow(backView: vegan_level[i], colorName: "200", width: -1, height: 1)
             }else{
-                vegan_level[i].setImageColor(color: UIColor(named: "400")!)
+                vegan_level[i].image = UIImage(named: String("\(i + 1)단계(흑백)"))
+                vegan_level[i].setViewShadow(backView: vegan_level[i], colorName: "000", width: 0, height: 0)
             }
             
         }
@@ -199,6 +201,7 @@ extension ListViewController: UICollectionViewDelegate, UICollectionViewDataSour
         }
         VC.modalPresentationStyle = .overFullScreen
         VC.product = addPayload[request.type][indexPath.row]
+        print("view:::\(addPayload[request.type][indexPath.row].view)")
         //VC.info = selectedItem[indexPath.row]
         self.present(VC, animated: true, completion: nil)
     }

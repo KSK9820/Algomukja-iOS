@@ -18,6 +18,7 @@ struct Payload: Codable{
     var name: String
     var level: [Int]
     var finalLevel: Int
+    var view: Int
     var materials: [Materials]
     var image: String
     var isAccurate: Bool
