@@ -89,6 +89,20 @@ extension UIImageView{
                 if let image = UIImage(data: data) {
                     DispatchQueue.main.async {
                         self?.image = image
+                        
+                    }
+                }
+            }
+        }
+    }
+    
+    func grayLoad(url: URL){
+        DispatchQueue.global().async { [weak self] in
+            if let data = try? Data(contentsOf: url) {
+                if let image = UIImage(data: data) {
+                    DispatchQueue.main.async {
+                        self?.image = self?.grayscale(image: image)
+                        
                     }
                 }
             }
@@ -101,7 +115,18 @@ extension UIImageView{
         self.tintColor = color
     }
     
-   
+    func grayscale(image: UIImage) -> UIImage? {
+        let context = CIContext(options: nil)
+        if let filter = CIFilter(name: "CIPhotoEffectNoir") {
+            filter.setValue(CIImage(image: image), forKey: kCIInputImageKey)
+            if let output = filter.outputImage {
+                if let cgImage = context.createCGImage(output, from: output.extent) {
+                    return UIImage(cgImage: cgImage)
+                }
+            }
+        }
+        return nil
+    }
 }
 
 extension UILabel{
@@ -116,6 +141,14 @@ extension UILabel{
             self.attributedText = attributeString
         }
     }
+    
+    func asColor(targetString: String, color: UIColor) {
+            let fullText = text ?? ""
+            let attributedString = NSMutableAttributedString(string: fullText)
+            let range = (fullText as NSString).range(of: targetString)
+            attributedString.addAttribute(.foregroundColor, value: color, range: range)
+            attributedText = attributedString
+        }
 }
 
 extension UITextView {
@@ -170,6 +203,9 @@ extension UIImage {
     func convertImageToBase64String (img: UIImage) -> String {
         return img.jpegData(compressionQuality: 1)?.base64EncodedString() ?? ""
     }
+    
+  
+
 }
 
 

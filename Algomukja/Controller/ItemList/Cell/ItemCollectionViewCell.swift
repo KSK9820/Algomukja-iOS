@@ -67,17 +67,17 @@ class ItemCollectionViewCell: UICollectionViewCell {
         }
 
         for i in 0..<6{
-            iv_level[i].image = UIImage(named: "\(i + 1)단계")
+            iv_level[i].image = UIImage(named: "\(i + 1)단계(숫자없음)")
         }
 
         for i in 0..<3{
             if item.level[i] == 0 {
-                iv_level[i].image = UIImage(named: "\(i + 1)단계(흑백)")
+                iv_level[i].image = UIImage(named: "\(i + 1)단계(숫자없음흑백)")
             }
         }
         for i in 4..<7{
             if item.level[i] == 0 {
-                iv_level[i - 1].image = UIImage(named: "\(i)단계(흑백)")
+                iv_level[i - 1].image = UIImage(named: "\(i)단계(숫자없음흑백)")
             }
         }
     }

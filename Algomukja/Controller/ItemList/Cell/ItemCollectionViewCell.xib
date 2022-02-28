@@ -60,22 +60,22 @@
                                             <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="HLy-hZ-dVy">
                                                 <rect key="frame" x="0.0" y="65" width="225" height="40"/>
                                                 <subviews>
-                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="1단계" translatesAutoresizingMaskIntoConstraints="NO" id="ksS-a0-0kI">
+                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="1단계(숫자없음)" translatesAutoresizingMaskIntoConstraints="NO" id="ksS-a0-0kI">
                                                         <rect key="frame" x="0.0" y="0.0" width="37.5" height="40"/>
                                                     </imageView>
-                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="2단계" translatesAutoresizingMaskIntoConstraints="NO" id="qeW-r1-4di">
+                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="2단계(숫자없음)" translatesAutoresizingMaskIntoConstraints="NO" id="qeW-r1-4di">
                                                         <rect key="frame" x="37.5" y="0.0" width="37.5" height="40"/>
                                                     </imageView>
-                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="3단계" translatesAutoresizingMaskIntoConstraints="NO" id="Ex3-X4-mup">
+                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="3단계(숫자없음)" translatesAutoresizingMaskIntoConstraints="NO" id="Ex3-X4-mup">
                                                         <rect key="frame" x="75" y="0.0" width="37.5" height="40"/>
                                                     </imageView>
-                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="4단계" translatesAutoresizingMaskIntoConstraints="NO" id="XFx-eK-XpX">
+                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="4단계(숫자없음)" translatesAutoresizingMaskIntoConstraints="NO" id="XFx-eK-XpX">
                                                         <rect key="frame" x="112.5" y="0.0" width="37.5" height="40"/>
                                                     </imageView>
-                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="5단계" translatesAutoresizingMaskIntoConstraints="NO" id="dHS-W9-LWZ">
+                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="5단계(숫자없음)" translatesAutoresizingMaskIntoConstraints="NO" id="dHS-W9-LWZ">
                                                         <rect key="frame" x="150" y="0.0" width="37.5" height="40"/>
                                                     </imageView>
-                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="6단계" translatesAutoresizingMaskIntoConstraints="NO" id="Whe-so-VhE">
+                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="6단계(숫자없음)" translatesAutoresizingMaskIntoConstraints="NO" id="Whe-so-VhE">
                                                         <rect key="frame" x="187.5" y="0.0" width="37.5" height="40"/>
                                                     </imageView>
                                                 </subviews>
@@ -131,12 +131,12 @@
         </collectionViewCell>
     </objects>
     <resources>
-        <image name="1단계" width="800" height="800"/>
-        <image name="2단계" width="801" height="800"/>
-        <image name="3단계" width="801" height="800"/>
-        <image name="4단계" width="801" height="800"/>
-        <image name="5단계" width="801" height="800"/>
-        <image name="6단계" width="801" height="800"/>
+        <image name="1단계(숫자없음)" width="800" height="801"/>
+        <image name="2단계(숫자없음)" width="801" height="801"/>
+        <image name="3단계(숫자없음)" width="801" height="801"/>
+        <image name="4단계(숫자없음)" width="801" height="801"/>
+        <image name="5단계(숫자없음)" width="801" height="801"/>
+        <image name="6단계(숫자없음)" width="801" height="801"/>
         <namedColor name="300">
             <color red="0.68599998950958252" green="0.70200002193450928" blue="0.74500000476837158" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>

@@ -56,7 +56,7 @@ class RankViewController: UIViewController, UIGestureRecognizerDelegate {
         invisibleResult()
         hideKeyboard()
         
-//        heightview.translatesAutoresizingMaskIntoConstraints = true
+        heightview.translatesAutoresizingMaskIntoConstraints = true
 
     }
     
@@ -253,10 +253,7 @@ extension RankViewController{
                             self.visibleResult()
                             self.view.endEditing(true)
                             self.scrollview.setContentOffset(CGPoint(x: 0, y: self.lbl_result.frame.origin.y), animated: true)
-                            
                         }
-
-                       
                     }catch let DecodingError.dataCorrupted(context) {
                         print(context)
                     } catch let DecodingError.keyNotFound(key, context) {

@@ -7,17 +7,17 @@
 
 import UIKit
 
-//struct material{
-//    let name: String
-//    let level: Int
-//    let info: String
-//}
+
 
 class ItemInfoViewController: UIViewController {
     
+    
     @IBOutlet weak var modalview: UIView!
+    
+    @IBOutlet weak var iv_product: UIImageView!
     @IBOutlet weak var lbl_name: UILabel!
     @IBOutlet weak var lbl_level: UILabel!
+    @IBOutlet weak var lbl_view: UILabel!
     @IBOutlet var iv_level: [UIImageView]!
     @IBOutlet weak var collectionview: UICollectionView!
     @IBOutlet weak var scrollview: UIScrollView!
@@ -26,32 +26,34 @@ class ItemInfoViewController: UIViewController {
     var tap: UITapGestureRecognizer!
     var product: Payload!
     
-    
-    var info: ITEM?
    
     
     var message = ["","식물성 음식 이외에는 아무것도 먹지않는 완전한 채식주의 비건입니다.", "치즈, 우유, 요구르트와 같은 유제품을 소비하는 락토 베지테리언입니다.","달걀제품을 소비하는 오보 베지테리언입니다.", "유제품과 달걀제품을 소비하는 락토 오보 베지테리언입니다.", "육류 섭취를 생선이나 해산물로 제한하여 섭취하는 페스코 베지테리언입니다.", "육류 소비를 가금류와 닭만으로 제한하는 폴로 베지테리언입니다.","채식을 하지만 때때로 육식을 하는 플렉시테리언입니다.",]
     
-//    var material_info: [material] = [material(name: "소맥분", level: 0, info: "밀의 배유부분을 가루로 만든 것"), material(name: "감자전분", level: 0, info: "녹말가루. 식물의 뿌리나 덩이줄기, 줄기, 열매, 씨의 전분을 가루로 만든 것"), material(name: "팜유", level: 0, info: "팜 유화학용어사전 팜 나무(기름 야자) 열매의 과육 기름으로 방(함유분 16~20%)마다 쪄서 압축 채유되는 식물성 기름팜 유화학용어사전 팜 나무(기름 야자) "), material(name: "계란", level: 2, info: "닭이 낳은 알"), material(name: "우유", level: 1, info: "암소의 젖."), material(name: "대두", level: 0, info: "‘밭의 고기’라고 불릴 정도로 양질의 식물성 단백질과 지방이 풍부한 대두는 우리가 매일 접하는 간장, 된장의 원료로 이용되고 두부, 콩나물과 같은 필수 식품의 원천이다."), material(name: "돼지고기", level: 5, info: "멧돼지과의 포유동물로 정육을 식용으로 소비할 목적으로 사육한다"), material(name: "새우", level: 3, info:"바다 또는 민물에 사는 소형 십각류를 통칭하는 용어이다."), material(name: "쇠고기", level: 5, info: "도축 소의 고기")]
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         // Do any additional setup after loading the view.
-        backgroundSetting()
+        UISetting()
         collectionviewSetting()
         contextSetting()
     }
     
     
-    func backgroundSetting(){
-        self.view.backgroundColor = UIColor.init(red: 0, green: 0, blue: 0, alpha: 0.3)
-        self.view.isOpaque = true
-        modalview.setViewShadow(backView: modalview, colorName: "900", width: -2, height: 6)
+    func UISetting(){
+//        self.view.backgroundColor = UIColor.init(red: 0, green: 0, blue: 0, alpha: 0.3)
+//        self.view.isOpaque = true
+//        modalview.setViewShadow(backView: modalview, colorName: "900", width: -2, height: 6)
+        let url = URL(string: Config.api + product.image)
+        iv_product.load(url: url!)
         
     }
     
     func contextSetting(){
+        lbl_view.text = String(product.view)
+        //"\(product.view)회 조회"
         lbl_name.text = product.name
         lbl_info.setHeight(22)
         if product.finalLevel == 3 && product.level[2] == 1{
@@ -105,6 +107,13 @@ class ItemInfoViewController: UIViewController {
        
         
     }
+    
+    
+    @IBAction func cancecl(_ sender: Any) {
+        self.dismiss(animated: true, completion: nil)
+    }
+    
+    
 }
 
 extension ItemInfoViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout{
@@ -138,10 +147,16 @@ extension ItemInfoViewController: UICollectionViewDelegate, UICollectionViewData
        }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        lbl_info
-            .text = product.materials[indexPath.row].description
+        
+        var text = "[\(product.materials[indexPath.row].name)]\n\(product.materials[indexPath.row].description)"
+        let attributedString = NSMutableAttributedString(string: text)
+        let range = (text as NSString).range(of: "[\(product.materials[indexPath.row].name)]")
+        attributedString.addAttribute(.foregroundColor, value: UIColor(named: "level\(product.materials[indexPath.row].level)"), range: range)
+        lbl_info.attributedText = attributedString
+
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: MaterialCollectionViewCell.identifier, for: indexPath) as! MaterialCollectionViewCell
-        cell.lbl_meterial.setViewShadow(backView: cell.lbl_meterial, colorName: "400", width: -2, height: 2)
+        
+
     }
     
 
