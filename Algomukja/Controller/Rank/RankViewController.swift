@@ -56,33 +56,28 @@ class RankViewController: UIViewController, UIGestureRecognizerDelegate {
         invisibleResult()
         hideKeyboard()
         
-        heightview.translatesAutoresizingMaskIntoConstraints = true
+//        heightview.translatesAutoresizingMaskIntoConstraints = true
 
     }
     
     override func viewDidLayoutSubviews() {
-        scrollview.contentSize.height = 700 + self.searchCollectionView.contentSize.height
+        scrollview.contentSize.height = 1000 + self.searchCollectionView.contentSize.height
     }
     func UISetting(){
         topview.layer.cornerRadius = 40
         topview.layer.maskedCorners = [.layerMinXMaxYCorner, .layerMaxXMaxYCorner]
-        topview.setViewShadow(backView: topview, colorName: "level6", width: -2, height: 2)
-        //topview.layer.masksToBounds = true
+        searchView.makeBorder(colorName: "green3")
+        searchView.makeRoundView(radius: 10)
         
-        searchView.setViewShadow(backView: searchView, colorName: "300", width: -3, height: 2)
-        searchView.makeRoundView(radius: 30)
         tf_search.borderStyle = .none
         tf_search.layer.borderColor = UIColor.clear.cgColor
         
         for i in 0..<6 {
-            iv_level[i].backgroundColor = .white
-            
             iv_level[i].isUserInteractionEnabled = true
         }
     }
     
     func CollectionViewSetting(){
-//        CardCollectionView.backgroundColor = UIColor(named: "100")
         
         CardCollectionView.register(CardCollectionViewCell.nib(), forCellWithReuseIdentifier: CardCollectionViewCell.identifier)
         
@@ -117,14 +112,13 @@ class RankViewController: UIViewController, UIGestureRecognizerDelegate {
     
     
     
-    
     func greySetting(except: Int){
         for i in 0..<6{
             if i == except {
-                iv_level[i].image = UIImage(named: String(except))
-                iv_level[i].setViewShadow(backView: iv_level[i], colorName: "200", width: -1, height: 1)
+                iv_level[i].image = UIImage(named: String("\(i + 1)단계"))
+                iv_level[i].setViewShadow(backView: iv_level[i], colorName: "300", width: -1, height: 1)
             }else{
-                iv_level[i].setImageColor(color: UIColor(named: "400")!)
+                iv_level[i].image = UIImage(named: String("\(i + 1)단계(흑백)"))
                 iv_level[i].setViewShadow(backView: iv_level[i], colorName: "000", width: 0, height: 0)
             }
             
@@ -219,19 +213,24 @@ class RankViewController: UIViewController, UIGestureRecognizerDelegate {
        
        func visibleResult(){
            iv_result.visibility = .visible
-           lbl_result.text = "'\(tf_search.text!)' 제품 검색 결과입니다."
+           
+          
            lbl_result.visibility = .visible
            if searchResult.count != 0 {
-
-               searchCollectionView.contentSize.height = CGFloat(searchResult.count * 190)
+               searchCollectionView.contentSize.height = CGFloat((searchResult.count) * 190 )
                searchCollectionViewHeight.constant = searchCollectionView.contentSize.height
                
-               scrollview.contentSize.height = 700 + self.searchCollectionView.contentSize.height
+               scrollview.contentSize.height = 1000 + self.searchCollectionView.contentSize.height
                
                
-               heightview.frame.size.height = 700 + self.searchCollectionView.contentSize.height
+               heightview.frame.size.height = 1000 + self.searchCollectionView.contentSize.height
 //               heightview.heightAnchor.constraint(equalToConstant: 4000)
                heightview.frame.size.width = self.view.bounds.width
+               
+               lbl_result.text = "'\(tf_search.text!)' 제품 검색 결과입니다."
+           }else{
+               lbl_result.numberOfLines = 2
+               lbl_result.text = "'\(tf_search.text!)' 제품 검색 결과가 없습니다. \n 알고 싶은 다른 제품은 없으신가요?"
            }
            self.searchCollectionView.reloadData()
        }
@@ -254,6 +253,7 @@ extension RankViewController{
                             self.visibleResult()
                             self.view.endEditing(true)
                             self.scrollview.setContentOffset(CGPoint(x: 0, y: self.lbl_result.frame.origin.y), animated: true)
+                            
                         }
 
                        
@@ -340,7 +340,7 @@ extension RankViewController: UICollectionViewDelegate, UICollectionViewDataSour
             //infoItem에 값 넣기
             Cell.configure(with: data, indexpath: indexPath.row)
             infoItem = card[indexPath.row]
-//            Cell.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(tap(_:))))
+            //Cell.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(tap(_:))))
             
            return Cell
         }else if collectionView == searchCollectionView{

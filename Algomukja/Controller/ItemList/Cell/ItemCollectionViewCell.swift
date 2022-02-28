@@ -65,13 +65,12 @@ class ItemCollectionViewCell: UICollectionViewCell {
         }else{
             lbl_caution.text = caution[1]
         }
-//
+
         for i in 0..<6{
             iv_level[i].image = UIImage(named: "\(i + 1)단계")
         }
-//
+
         for i in 0..<3{
-            //iv_level[i].image = UIImage(named: "\(i + 1)단계")
             if item.level[i] == 0 {
                 iv_level[i].image = UIImage(named: "\(i + 1)단계(흑백)")
             }
@@ -81,26 +80,5 @@ class ItemCollectionViewCell: UICollectionViewCell {
                 iv_level[i - 1].image = UIImage(named: "\(i)단계(흑백)")
             }
         }
-        
-        
-//        let url = URL(string: item.photo)
-//        iv_item.load(url: url!)
-//        lbl_name.text = item.name
-//        lbl_level.text = level[item.finalLevel]
-//        if item.accurate == false{
-//            lbl_caution.text = caution[0]
-//        }else {
-//            lbl_caution.text = caution[1]
-//        }
-//
-//
-//        for i in 0..<6{
-//            iv_level[i].image = UIImage(named: String(i))
-//            if item.level[i] == 0 {
-//                iv_level[i].setImageColor(color: UIColor(named: "400")!)
-//            }
-//        }
-//    }
-    
     }
 }

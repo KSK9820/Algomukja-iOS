@@ -66,13 +66,14 @@ class ListViewController: UIViewController {
             collectionview.register(ItemCollectionViewCell.nib(), forCellWithReuseIdentifier: ItemCollectionViewCell.identifier)
             let flowLayout = UICollectionViewFlowLayout()
             collectionview.collectionViewLayout = flowLayout
+       
         }
     
     func greySetting(except: Int){
         for i in 0..<6{
             if i == except {
                 vegan_level[i].image = UIImage(named: String("\(i + 1)단계"))
-                vegan_level[i].setViewShadow(backView: vegan_level[i], colorName: "200", width: -1, height: 1)
+                vegan_level[i].setViewShadow(backView: vegan_level[i], colorName: "300", width: -1, height: 1)
             }else{
                 vegan_level[i].image = UIImage(named: String("\(i + 1)단계(흑백)"))
                 vegan_level[i].setViewShadow(backView: vegan_level[i], colorName: "000", width: 0, height: 0)

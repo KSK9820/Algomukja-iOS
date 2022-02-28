@@ -46,11 +46,17 @@ class CardCollectionViewCell: UICollectionViewCell {
         lbl_name.text = data.name
 //        lbl_manufacture.text = data.manufacture
         
-        for i in 0..<6{
-            if data.level[i] == 0 {
-                level[i].setImageColor(color: UIColor(named: "400")!)
-            }
-        }
+        
+         for i in 0..<6{
+             if data.level[i] == 0 {
+                 level[i].image = UIImage(named: "\(i + 1)단계(흑백)")
+             }
+         }
+//         for i in 4..<7{
+//             if data.level[i] == 0 {
+//                 level[i - 1].image = UIImage(named: "\(i)단계(흑백)")
+//             }
+//         }
         iv_rank.setImageColor(color: UIColor(named: "level\(data.finalLevel)")!)
         lbl_rank.text = String(indexpath + 1)
         cardview.setViewShadow(backView: cardview, colorName: "level\(data.finalLevel)", width: -3, height: 1)
