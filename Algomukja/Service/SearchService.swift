@@ -11,6 +11,7 @@ import Moya
 enum SearchService {
     case getSearch(search: SearchRequest)
     case getMaterial(request: MaterialRequest)
+    case getRank
 
 }
 
@@ -28,6 +29,8 @@ extension SearchService: TargetType {
            return "/api/v1/product/search"
         case .getMaterial:
             return "/api/v1/material/search"
+        case .getRank:
+            return "/api/v1/product/rank"
         }
         
         
@@ -35,7 +38,7 @@ extension SearchService: TargetType {
     
     var method: Moya.Method {
         switch self {
-        case .getSearch, .getMaterial:
+        case .getSearch, .getMaterial, .getRank:
             return .get
         }
     }
@@ -46,7 +49,8 @@ extension SearchService: TargetType {
             return .requestParameters(parameters: ["keyword": request.keyword, "start": request.start, "limit": request.limit], encoding: URLEncoding.default)
         case .getMaterial(let request):
             return .requestParameters(parameters: ["keyword": request.keyword, "start": request.start, "limit": request.limit], encoding: URLEncoding.default)
-        
+        case .getRank:
+            return .requestPlain
         }
     }
     

@@ -128,7 +128,6 @@ class SearchResultViewController: UIViewController{
 
 extension SearchResultViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout{
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        print("--------\(self.response.count)")
         return self.response.count
     }
     

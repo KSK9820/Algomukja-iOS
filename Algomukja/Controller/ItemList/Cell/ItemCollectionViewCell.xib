@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="19455" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19454"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -60,26 +60,23 @@
                                             <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="HLy-hZ-dVy">
                                                 <rect key="frame" x="0.0" y="65" width="225" height="40"/>
                                                 <subviews>
-                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="0" translatesAutoresizingMaskIntoConstraints="NO" id="ksS-a0-0kI">
-                                                        <rect key="frame" x="0.0" y="0.0" width="32" height="40"/>
+                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="1단계(숫자없음)" translatesAutoresizingMaskIntoConstraints="NO" id="ksS-a0-0kI">
+                                                        <rect key="frame" x="0.0" y="0.0" width="37.5" height="40"/>
                                                     </imageView>
-                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="1" translatesAutoresizingMaskIntoConstraints="NO" id="qeW-r1-4di">
-                                                        <rect key="frame" x="32" y="0.0" width="32.5" height="40"/>
+                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="2단계(숫자없음)" translatesAutoresizingMaskIntoConstraints="NO" id="qeW-r1-4di">
+                                                        <rect key="frame" x="37.5" y="0.0" width="37.5" height="40"/>
                                                     </imageView>
-                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="2" translatesAutoresizingMaskIntoConstraints="NO" id="Ex3-X4-mup">
-                                                        <rect key="frame" x="64.5" y="0.0" width="32" height="40"/>
+                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="3단계(숫자없음)" translatesAutoresizingMaskIntoConstraints="NO" id="Ex3-X4-mup">
+                                                        <rect key="frame" x="75" y="0.0" width="37.5" height="40"/>
                                                     </imageView>
-                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="3" translatesAutoresizingMaskIntoConstraints="NO" id="XFx-eK-XpX">
-                                                        <rect key="frame" x="96.5" y="0.0" width="32" height="40"/>
+                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="4단계(숫자없음)" translatesAutoresizingMaskIntoConstraints="NO" id="XFx-eK-XpX">
+                                                        <rect key="frame" x="112.5" y="0.0" width="37.5" height="40"/>
                                                     </imageView>
-                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="4" translatesAutoresizingMaskIntoConstraints="NO" id="dHS-W9-LWZ">
-                                                        <rect key="frame" x="128.5" y="0.0" width="32" height="40"/>
+                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="5단계(숫자없음)" translatesAutoresizingMaskIntoConstraints="NO" id="dHS-W9-LWZ">
+                                                        <rect key="frame" x="150" y="0.0" width="37.5" height="40"/>
                                                     </imageView>
-                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="5" translatesAutoresizingMaskIntoConstraints="NO" id="Whe-so-VhE">
-                                                        <rect key="frame" x="160.5" y="0.0" width="32.5" height="40"/>
-                                                    </imageView>
-                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="6" translatesAutoresizingMaskIntoConstraints="NO" id="rCb-9g-muA">
-                                                        <rect key="frame" x="193" y="0.0" width="32" height="40"/>
+                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="6단계(숫자없음)" translatesAutoresizingMaskIntoConstraints="NO" id="Whe-so-VhE">
+                                                        <rect key="frame" x="187.5" y="0.0" width="37.5" height="40"/>
                                                     </imageView>
                                                 </subviews>
                                                 <constraints>
@@ -129,19 +126,17 @@
                 <outletCollection property="iv_level" destination="XFx-eK-XpX" collectionClass="NSMutableArray" id="OjY-i9-mg2"/>
                 <outletCollection property="iv_level" destination="dHS-W9-LWZ" collectionClass="NSMutableArray" id="Ve1-JL-pmU"/>
                 <outletCollection property="iv_level" destination="Whe-so-VhE" collectionClass="NSMutableArray" id="RfM-xZ-yId"/>
-                <outletCollection property="iv_level" destination="rCb-9g-muA" collectionClass="NSMutableArray" id="0ze-IY-LHR"/>
             </connections>
             <point key="canvasLocation" x="132" y="99"/>
         </collectionViewCell>
     </objects>
     <resources>
-        <image name="0" width="136" height="128"/>
-        <image name="1" width="348" height="482"/>
-        <image name="2" width="134" height="96"/>
-        <image name="3" width="166" height="102"/>
-        <image name="4" width="398" height="462"/>
-        <image name="5" width="424" height="400"/>
-        <image name="6" width="424" height="400"/>
+        <image name="1단계(숫자없음)" width="800" height="801"/>
+        <image name="2단계(숫자없음)" width="801" height="801"/>
+        <image name="3단계(숫자없음)" width="801" height="801"/>
+        <image name="4단계(숫자없음)" width="801" height="801"/>
+        <image name="5단계(숫자없음)" width="801" height="801"/>
+        <image name="6단계(숫자없음)" width="801" height="801"/>
         <namedColor name="300">
             <color red="0.68599998950958252" green="0.70200002193450928" blue="0.74500000476837158" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
