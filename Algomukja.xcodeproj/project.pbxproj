@@ -625,6 +625,7 @@
 				DEVELOPMENT_TEAM = CX8P4D8Z7M;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Algomukja/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "알고먹자";
 				INFOPLIST_KEY_NSCameraUsageDescription = "카메라를 통해 원재료명을 읽을 수 있습니다.";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
@@ -657,6 +658,7 @@
 				DEVELOPMENT_TEAM = CX8P4D8Z7M;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Algomukja/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "알고먹자";
 				INFOPLIST_KEY_NSCameraUsageDescription = "카메라를 통해 원재료명을 읽을 수 있습니다.";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
