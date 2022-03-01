@@ -53,7 +53,6 @@ class ItemInfoViewController: UIViewController {
     
     func contextSetting(){
         lbl_view.text = String(product.view)
-        //"\(product.view)회 조회"
         lbl_name.text = product.name
         lbl_info.setHeight(22)
         if product.finalLevel == 3 && product.level[2] == 1{

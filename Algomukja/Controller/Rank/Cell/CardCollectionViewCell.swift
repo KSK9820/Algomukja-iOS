@@ -39,19 +39,28 @@ class CardCollectionViewCell: UICollectionViewCell {
     
     static func nib() -> UINib { return UINib(nibName: "CardCollectionViewCell", bundle: nil) }
 
-    public func configure(with data: ITEM, indexpath: Int){
-        let url = URL(string: data.photo)
+    public func configure(with data: Payload, indexpath: Int){
+        let url = URL(string: Config.api + data.image)
         iv_item.load(url: url!)
         
         lbl_name.text = data.name
 //        lbl_manufacture.text = data.manufacture
         
         
-         for i in 0..<6{
-             if data.level[i] == 0 {
-                 level[i].image = UIImage(named: "\(i + 1)단계(숫자없음흑백)")
-             }
-         }
+        for i in 0..<6{
+            level[i].image = UIImage(named: "\(i + 1)단계(숫자없음)")
+        }
+
+        for i in 0..<3{
+            if data.level[i] == 0 {
+                level[i].image = UIImage(named: "\(i + 1)단계(숫자없음흑백)")
+            }
+        }
+        for i in 4..<7{
+            if data.level[i] == 0 {
+                level[i - 1].image = UIImage(named: "\(i)단계(숫자없음흑백)")
+            }
+        }
 
         iv_rank.setImageColor(color: UIColor(named: "level\(data.finalLevel)")!)
         lbl_rank.text = String(indexpath + 1)

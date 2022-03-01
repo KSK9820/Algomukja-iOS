@@ -33,7 +33,7 @@ class RankViewController: UIViewController, UIGestureRecognizerDelegate {
     @IBOutlet weak var searchCollectionViewHeight: NSLayoutConstraint!
     
     var filterType: ChatAlarmFilterType = .level0
-    var selectedItem: [Card] = []
+    
     var card: [ITEM] = [ITEM(photo: "https://contents.lotteon.com/itemimage/_v010018/LF/15/38/53/3_/0/LF1538533_0_1.jpg", name: "고기대신 비건 제육볶음 (냉동)", finalLevel: 0, level: [1,0,0,0,0,0], accurate: true), ITEM(photo: "https://image.homeplus.kr/td/967ef98d-08fd-4ece-a1b5-dd6dd745b4b8", name: "고기대신 맛있는녀석들 비건육포 오리지널", finalLevel: 0, level: [1,0,0,0,0,0], accurate: true), ITEM(photo: "https://image.homeplus.kr/td/2e29ccec-0dc8-438b-acc6-e80e67e15506", name: "풀무원) 국물 떡볶이", finalLevel: 0, level: [1,0,0,0,0,0], accurate: false), ITEM(photo: "https://image.homeplus.kr/td/ef39ed5d-7bc7-4ab2-96d3-908e1601215d", name: "씨제이 삼호 맑은 어묵", finalLevel: 3, level: [1,0,0,1,0,0], accurate: false)]
     
     var item: [ITEM] = []
@@ -44,6 +44,9 @@ class RankViewController: UIViewController, UIGestureRecognizerDelegate {
     var searchResult: [Payload] = []
     var selectedResult: Payload!
     
+    var rankList: [Payload] = []
+    var rankSortedList: [Payload] = []
+    var selected: Int = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -51,11 +54,11 @@ class RankViewController: UIViewController, UIGestureRecognizerDelegate {
         // Do any additional setup after loading the view.
         UISetting()
         CollectionViewSetting()
-        updateFilterType()
+
         addViewTapGesture()
         invisibleResult()
         hideKeyboard()
-        
+        getRank()
         heightview.translatesAutoresizingMaskIntoConstraints = true
 
     }
@@ -63,6 +66,8 @@ class RankViewController: UIViewController, UIGestureRecognizerDelegate {
     override func viewDidLayoutSubviews() {
         scrollview.contentSize.height = 1000 + self.searchCollectionView.contentSize.height
     }
+    
+    
     func UISetting(){
         topview.layer.cornerRadius = 40
         topview.layer.maskedCorners = [.layerMinXMaxYCorner, .layerMaxXMaxYCorner]
@@ -130,22 +135,22 @@ class RankViewController: UIViewController, UIGestureRecognizerDelegate {
             switch filterType {
             case .level0:
                 greySetting(except: 0)
-                setSelectedItem(selected: 0)
+                setSelectedItem(selected: 1)
             case .level1:
                 greySetting(except: 1)
-                setSelectedItem(selected: 1)
+                setSelectedItem(selected: 2)
             case .level2:
                 greySetting(except: 2)
-                setSelectedItem(selected: 2)
+                setSelectedItem(selected: 4)
             case .level3:
                 greySetting(except: 3)
-                setSelectedItem(selected: 3)
+                setSelectedItem(selected: 5)
             case .level4:
                 greySetting(except: 4)
-                setSelectedItem(selected: 4)
+                setSelectedItem(selected: 6)
             case .level5:
                 greySetting(except: 5)
-                setSelectedItem(selected: 5)
+                setSelectedItem(selected: 7)
             }
         }
 
@@ -196,13 +201,23 @@ class RankViewController: UIViewController, UIGestureRecognizerDelegate {
     
     
     func setSelectedItem(selected: Int){
-//        selectedItem.removeAll()
-//        for i in 0..<card.count{
-//            if card[i].finallevel == selected {
-//                selectedItem.append(card[i])
+        self.selected = selected
+        rankSortedList.removeAll()
+//        for i in 0..<rankList.count{
+//            if rankList[i].finalLevel == selected {
+//                rankSortedList[selected].append(rankList[i])
 //            }
-//            CardCollectionView.reloadData()
+//
 //        }
+        for i in 0..<rankList.count{
+            if rankList[i].finalLevel == selected{
+                print("\(i)번 째: \(rankList[i].name), \(rankList[i].finalLevel)")
+                rankSortedList.append(rankList[i])
+                
+            }
+        }
+        
+        CardCollectionView.reloadData()
     }
     
     func invisibleResult(){
@@ -238,6 +253,45 @@ class RankViewController: UIViewController, UIGestureRecognizerDelegate {
 }
 
 extension RankViewController{
+    
+    func getRank(){
+        provider.request(.getRank){[weak self] result in
+            guard let self = self else {return}
+            
+            switch result {
+            case .success(let response):
+                do{
+//                        print("***result: \(try response.mapJSON())")
+                    let datas = try JSONDecoder().decode(ProductResponse.self, from: response.data)
+                    self.rankList = datas.payload
+                    DispatchQueue.main.async{ [self] in
+                        self.updateFilterType()
+                    }
+                }catch let DecodingError.dataCorrupted(context) {
+                    print(context)
+                } catch let DecodingError.keyNotFound(key, context) {
+                    print("Key '\(key)' not found:", context.debugDescription)
+                    print("codingPath:", context.codingPath)
+                } catch let DecodingError.valueNotFound(value, context) {
+                    print("Value '\(value)' not found:", context.debugDescription)
+                    print("codingPath:", context.codingPath)
+                } catch let DecodingError.typeMismatch(type, context)  {
+                    print("Type '\(type)' mismatch:", context.debugDescription)
+                    print("codingPath:", context.codingPath)
+                } catch {
+                    print("error: ", error)
+                }
+                
+            case .failure(let error):
+                
+                print("***error: \(error.localizedDescription)")
+            }
+            
+            
+        }
+    }
+    
+    
     func getSearch(data: SearchRequest){
         provider.request(.getSearch(search: request)){ [weak self] result in
                 guard let self = self else {return}
@@ -294,6 +348,11 @@ extension RankViewController{
             selectedResult = searchResult[indexPath.row]
         }
         
+        let p2 = sender.location(in: CardCollectionView)
+        if let indexPath2 = CardCollectionView?.indexPathForItem(at: p2){
+            selectedResult = rankSortedList[indexPath2.row]
+        }
+        
       
         
     
@@ -319,7 +378,7 @@ extension RankViewController: UICollectionViewDelegate, UICollectionViewDataSour
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         if collectionView == CardCollectionView{
-            return self.card.count
+            return self.rankSortedList.count
         }else if collectionView == searchCollectionView{
             return self.searchResult.count
         }
@@ -331,19 +390,17 @@ extension RankViewController: UICollectionViewDelegate, UICollectionViewDataSour
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
         if collectionView == CardCollectionView{
-            let data = card[indexPath.row]
+            let data = rankSortedList[indexPath.row]
             let Cell = collectionView.dequeueReusableCell(withReuseIdentifier: CardCollectionViewCell.identifier, for: indexPath) as! CardCollectionViewCell
             
             //infoItem에 값 넣기
             Cell.configure(with: data, indexpath: indexPath.row)
-            infoItem = card[indexPath.row]
-            //Cell.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(tap(_:))))
+            Cell.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(tap(_:))))
             
            return Cell
         }else if collectionView == searchCollectionView{
             let data = searchResult[indexPath.row]
             let Cell = collectionView.dequeueReusableCell(withReuseIdentifier: ItemCollectionViewCell.identifier, for: indexPath) as! ItemCollectionViewCell
-//            infoItem = searchResult[indexPath.row]
             Cell.configure(with: data, indexpath: indexPath.row)
             Cell.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(tap(_:))))
           

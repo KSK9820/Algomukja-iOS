@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		531CE39427CCA7F20051ADC4 /* RankRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 531CE39327CCA7F20051ADC4 /* RankRequest.swift */; };
 		5325C0F227BD5CAC006D4B9F /* SearchResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5325C0F127BD5CAC006D4B9F /* SearchResultViewController.swift */; };
 		53380D9B273A72DE0044E63E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53380D9A273A72DE0044E63E /* AppDelegate.swift */; };
 		53380D9D273A72DE0044E63E /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53380D9C273A72DE0044E63E /* SceneDelegate.swift */; };
@@ -48,7 +47,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		531CE39327CCA7F20051ADC4 /* RankRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RankRequest.swift; sourceTree = "<group>"; };
 		5325C0F127BD5CAC006D4B9F /* SearchResultViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultViewController.swift; sourceTree = "<group>"; };
 		53380D97273A72DE0044E63E /* Algomukja.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Algomukja.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		53380D9A273A72DE0044E63E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -217,7 +215,6 @@
 			isa = PBXGroup;
 			children = (
 				535C197927C7F8BE006365AA /* SearchRequest.swift */,
-				531CE39327CCA7F20051ADC4 /* RankRequest.swift */,
 			);
 			path = Search;
 			sourceTree = "<group>";
@@ -474,7 +471,6 @@
 				53622A83275699400063A4DB /* ListViewController.swift in Sources */,
 				53EB7AC9279BD9AC007FD22A /* TabBarViewController.swift in Sources */,
 				53380D9D273A72DE0044E63E /* SceneDelegate.swift in Sources */,
-				531CE39427CCA7F20051ADC4 /* RankRequest.swift in Sources */,
 				535C197C27C7F99D006365AA /* SearchService.swift in Sources */,
 				533FE9C02771D61900CCC596 /* CameraViewController.swift in Sources */,
 			);
