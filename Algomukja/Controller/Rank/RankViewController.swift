@@ -93,7 +93,7 @@ class RankViewController: UIViewController, UIGestureRecognizerDelegate {
 
         
         let layout = UPCarouselFlowLayout()
-        layout.itemSize = CGSize(width: 280, height: 380)
+        layout.itemSize = CGSize(width: 280, height: 360)
         layout.scrollDirection = .horizontal
         layout.spacingMode = UPCarouselFlowLayoutSpacingMode.fixed(spacing: 30)
         layout.sideItemScale = 0.7

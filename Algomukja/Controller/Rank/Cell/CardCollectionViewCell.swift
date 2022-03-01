@@ -14,7 +14,7 @@ class CardCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var cardview: UIView!
     @IBOutlet weak var iv_item: UIImageView!
     @IBOutlet weak var lbl_name: UILabel!
-    @IBOutlet weak var lbl_manufacture: UILabel!
+//    @IBOutlet weak var lbl_manufacture: UILabel!
     
     @IBOutlet var level: [UIImageView]!
     @IBOutlet weak var iv_rank: UIImageView!
@@ -62,9 +62,24 @@ class CardCollectionViewCell: UICollectionViewCell {
             }
         }
 
+        
         iv_rank.setImageColor(color: UIColor(named: "level\(data.finalLevel)")!)
+        if data.finalLevel == 4 && data.level[2] == 1{
+            print(data.name)
+            iv_rank.setImageColor(color: UIColor(named: "level4")!)
+            cardview.setViewShadow(backView: cardview, colorName: "level4", width: -3, height: 1)
+                
+        }else if data.finalLevel == 4 && data.level[2] == 0 {
+            iv_rank.setImageColor(color: UIColor(named: "level3")!)
+            cardview.setViewShadow(backView: cardview, colorName: "level3", width: -3, height: 1)
+                
+        }else{
+            iv_rank.setImageColor(color: UIColor(named: "level\(data.finalLevel)")!)
+            cardview.setViewShadow(backView: cardview, colorName: "level\(data.finalLevel)", width: -3, height: 1)
+                
+        }
         lbl_rank.text = String(indexpath + 1)
-        cardview.setViewShadow(backView: cardview, colorName: "level\(data.finalLevel)", width: -3, height: 1)
+        
     }
   
 
