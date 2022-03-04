@@ -56,24 +56,29 @@ class CardCollectionViewCell: UICollectionViewCell {
                 level[i].image = UIImage(named: "\(i + 1)단계(숫자없음흑백)")
             }
         }
+        
         for i in 4..<7{
             if data.level[i] == 0 {
                 level[i - 1].image = UIImage(named: "\(i)단계(숫자없음흑백)")
             }
         }
+        
+        if data.level[3] == 1 {
+            level[1].image = UIImage(named:  "2단계")
+            level[2].image = UIImage(named: "3단계")
+        }
 
         
         iv_rank.setImageColor(color: UIColor(named: "level\(data.finalLevel)")!)
-        if data.finalLevel == 4 && data.level[2] == 1{
-            print(data.name)
+        if data.finalLevel == 4 && data.level[1] == 1{
             iv_rank.setImageColor(color: UIColor(named: "level4")!)
             cardview.setViewShadow(backView: cardview, colorName: "level4", width: -3, height: 1)
                 
-        }else if data.finalLevel == 4 && data.level[2] == 0 {
+        }else if data.finalLevel == 4 && data.level[1] == 0 {
             iv_rank.setImageColor(color: UIColor(named: "level3")!)
             cardview.setViewShadow(backView: cardview, colorName: "level3", width: -3, height: 1)
                 
-        }else{
+        }else {
             iv_rank.setImageColor(color: UIColor(named: "level\(data.finalLevel)")!)
             cardview.setViewShadow(backView: cardview, colorName: "level\(data.finalLevel)", width: -3, height: 1)
                 

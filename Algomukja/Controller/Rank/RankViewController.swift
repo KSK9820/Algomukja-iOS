@@ -9,11 +9,6 @@ import UIKit
 import UPCarouselFlowLayout
 import Moya
 
-struct Card {
-    let photo, name: String
-    let finallevel: Int
-    let level: [Int]
-}
 
 
 class RankViewController: UIViewController, UIGestureRecognizerDelegate {
@@ -34,11 +29,7 @@ class RankViewController: UIViewController, UIGestureRecognizerDelegate {
     
     var filterType: ChatAlarmFilterType = .level0
     
-    var card: [ITEM] = [ITEM(photo: "https://contents.lotteon.com/itemimage/_v010018/LF/15/38/53/3_/0/LF1538533_0_1.jpg", name: "고기대신 비건 제육볶음 (냉동)", finalLevel: 0, level: [1,0,0,0,0,0], accurate: true), ITEM(photo: "https://image.homeplus.kr/td/967ef98d-08fd-4ece-a1b5-dd6dd745b4b8", name: "고기대신 맛있는녀석들 비건육포 오리지널", finalLevel: 0, level: [1,0,0,0,0,0], accurate: true), ITEM(photo: "https://image.homeplus.kr/td/2e29ccec-0dc8-438b-acc6-e80e67e15506", name: "풀무원) 국물 떡볶이", finalLevel: 0, level: [1,0,0,0,0,0], accurate: false), ITEM(photo: "https://image.homeplus.kr/td/ef39ed5d-7bc7-4ab2-96d3-908e1601215d", name: "씨제이 삼호 맑은 어묵", finalLevel: 3, level: [1,0,0,1,0,0], accurate: false)]
-    
-    var item: [ITEM] = []
-    var infoItem: ITEM?
-    
+
     let provider = MoyaProvider<SearchService>()
     var request = SearchRequest(keyword: "", start: 0, limit: 100)
     var searchResult: [Payload] = []

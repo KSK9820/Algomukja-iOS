@@ -28,7 +28,7 @@ class SearchResultViewController: UIViewController{
     
     var tap: UITapGestureRecognizer!
     
-    var info: ITEM?
+    
     
     var response = [materialPayload]()
     var temp: Materials!
@@ -99,12 +99,37 @@ class SearchResultViewController: UIViewController{
        
     }
     
-    func setImage(){
-        for i in 0..<6{
-            iv_level[i].image = UIImage(named: String(i))
-            if info?.level[i] == 0 {
-                iv_level[i].setImageColor(color: UIColor(named: "400")!)
-            }
+    func setImage(stage: Int){
+//        for i in 0..<6{
+//            iv_level[i].image = UIImage(named: String(i))
+//            if info?.level[i] == 0 {
+//                iv_level[i].setImageColor(color: UIColor(named: "400")!)
+//            }
+//        }
+        
+//         for i in 0..<3{
+//             if response == 0 {
+//                 iv_level[i].image = UIImage(named: "\(i + 1)단계(흑백)")
+//             }
+//         }
+//         for i in 4..<7{
+//             if info?.level[i] == 0 {
+//                 iv_level[i - 1].image = UIImage(named: "\(i)단계(흑백)")
+//             }
+//         }
+        
+        
+        
+        switch stage{
+        case 1, 2, 3:
+            iv_level[stage - 1].image = UIImage(named: "\(stage)단계")
+        case 4:
+            iv_level[1].image = UIImage(named: "2단계")
+            iv_level[2].image = UIImage(named: "3단계")
+        case 5, 6, 7:
+            iv_level[stage - 2].image = UIImage(named: "\(stage - 1)단계")
+        default:
+            break
         }
     }
     
@@ -137,11 +162,16 @@ extension SearchResultViewController: UICollectionViewDelegate, UICollectionView
         
         if !info.`internal`.isEmpty {
             temp = Materials(id: info.`internal`[0].id, name: info.`internal`[0].name, level: info.`internal`[0].level, description: info.`internal`[0].description)
+            setImage(stage: temp.level)
         }else if !info.external.isEmpty {
-            temp = Materials(id: 0, name: info.external[0].name, level: 7, description: info.external[0].description)
+            temp = Materials(id: 0, name: info.external[0].name, level: 0, description: info.external[0].description)
         }else{
-            temp = Materials(id: 0, name: materialName[indexPath.row], level: 7, description: "")
+            temp = Materials(id: 0, name: materialName[indexPath.row], level: 0, description: "")
         }
+        
+        
+        
+        
         
         if finalLevel < temp.level {
             finalLevel = temp.level

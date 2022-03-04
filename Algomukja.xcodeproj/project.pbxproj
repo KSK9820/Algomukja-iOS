@@ -163,7 +163,6 @@
 			children = (
 				53BB54AF278563E700306AB2 /* Rank */,
 				533FE9BE2771D60500CCC596 /* Camera */,
-				53622A7E275698E90063A4DB /* Recommend */,
 				53622A7D275698DA0063A4DB /* ItemList */,
 				53622A7C275698BE0063A4DB /* TabBar */,
 			);
@@ -235,13 +234,6 @@
 				53622A7F2756990D0063A4DB /* Cell */,
 			);
 			path = ItemList;
-			sourceTree = "<group>";
-		};
-		53622A7E275698E90063A4DB /* Recommend */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Recommend;
 			sourceTree = "<group>";
 		};
 		53622A7F2756990D0063A4DB /* Cell */ = {

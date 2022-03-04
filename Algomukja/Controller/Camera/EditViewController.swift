@@ -57,7 +57,7 @@ class EditViewController: UIViewController, UITextViewDelegate, CloseDelegate{
         
         request = CameraRequest(images: [clova_image(format: "jpg", name: String(timestamp), data: base64str, url: "http://image.nongshim.com/non/pro/bong_2.jpg")], lang: "ko", requestId: "e36ead3ac71f45d9a5c8d8da285818a7", resultType: "string", timestamp: timestamp ,version: "V2")
      
-        postOCR(data: request)
+//        postOCR(data: request)
  
     }
     
@@ -71,11 +71,12 @@ class EditViewController: UIViewController, UITextViewDelegate, CloseDelegate{
         
         topView.centerXAnchor.constraint(equalTo: self.view.centerXAnchor).isActive = true
         topView.makeRoundView(radius: 3)
-        tf_material.layer.borderColor = UIColor(named: "green1")!.cgColor
-        tf_material.layer.borderWidth = 1
+        tf_material.layer.borderColor = UIColor(named: "green3")!.cgColor
+        tf_material.layer.borderWidth = 1.5
         tf_material.makeRoundView(radius: 15)
         btn_send.setViewShadow(backView: btn_send, colorName: "200", width: -2, height: 2)
 //        btn_send.makeRoundView(radius: 15)
+       
     }
 
     func textSetting(text: [field]){
@@ -216,6 +217,7 @@ extension EditViewController{
                 switch result {
                 case .success(let response):
                     do{
+                        print("ddddd\(data)")
                         //print("***result: \(try response.mapJSON())")
                         let datas = try JSONDecoder().decode(MaterialResponse.self, from: response.data)
                         

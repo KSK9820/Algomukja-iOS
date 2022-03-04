@@ -80,5 +80,10 @@ class ItemCollectionViewCell: UICollectionViewCell {
                 iv_level[i - 1].image = UIImage(named: "\(i)단계(숫자없음흑백)")
             }
         }
+        
+        if item.finalLevel == 4{
+            iv_level[1].image = UIImage(named: "2단계")
+            iv_level[2].image = UIImage(named: "3단계")
+        }
     }
 }
