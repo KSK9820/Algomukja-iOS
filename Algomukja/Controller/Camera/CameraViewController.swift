@@ -31,9 +31,10 @@ class CameraViewController: UIViewController, OpenDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
 //        checkSimulator()
         UISetting()
+        openEditFloating()
     }
     
     

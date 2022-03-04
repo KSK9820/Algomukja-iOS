@@ -27,8 +27,8 @@ extension SearchService: TargetType {
         switch self{
         case .getSearch:
            return "/api/v1/product/search"
-        case .getMaterial:
-            return "/api/v1/material/search"
+        case .getMaterial(let request):
+            return "api/v1/material/search"
         case .getRank:
             return "/api/v1/product/rank"
         }
@@ -48,6 +48,7 @@ extension SearchService: TargetType {
         case .getSearch(let request):
             return .requestParameters(parameters: ["keyword": request.keyword, "start": request.start, "limit": request.limit], encoding: URLEncoding.default)
         case .getMaterial(let request):
+//            return .requestPlain
             return .requestParameters(parameters: ["keyword": request.keyword, "start": request.start, "limit": request.limit], encoding: URLEncoding.default)
         case .getRank:
             return .requestPlain

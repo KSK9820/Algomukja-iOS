@@ -11,5 +11,4 @@ struct MaterialRequest: Codable{
     var keyword: String
     var start: Int
     var limit: Int
-    //var exact: Bool
 }

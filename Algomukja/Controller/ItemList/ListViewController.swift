@@ -4,7 +4,6 @@
 //
 //  Created by 김수경 on 2021/12/01.
 //
-
 import UIKit
 import Moya
 
@@ -36,10 +35,10 @@ class ListViewController: UIViewController {
     
     
     let provider = MoyaProvider<ProductService>()
-    var request = ProductRequest(type: 1, start: 0, limit: 10)
+    var request = ProductRequest(type: 1, start: 0, limit: 30)
     var payload = [Payload]()
     var addPayload = [[Payload]](repeating: [], count: 9)
-    var lastId = [Int](repeating: 0, count: 9)
+//    var lastId = [Int](repeating: 0, count: 9)
     
     
     override func viewDidLoad() {
@@ -167,10 +166,10 @@ class ListViewController: UIViewController {
             if payload[i].finalLevel == selected && addPayload[request.type].count == 0{
                 addPayload[request.type] += payload
             }
-            if i == payload.count - 1 {
-                lastId[request.type] = payload[i].id
-                print(lastId[request.type])
-            }
+//            if i == payload.count - 1 {
+//                lastId[request.type] = payload[i].id
+//                print("last:\(lastId[request.type])")
+//            }
         }
         payload.removeAll()
         collectionview.reloadData()
@@ -213,7 +212,8 @@ extension ListViewController: UICollectionViewDelegate, UICollectionViewDataSour
         for indexPath in indexPaths {
             
             if indexPath.row >= addPayload[request.type].count - 2 {
-                request.start = lastId[request.type] + 1
+                
+                request.start = addPayload[request.type].count
                 getProduct(data: self.request)
                 self.addPayload[request.type] += payload
                 setSelectedItem(selected: request.type)
