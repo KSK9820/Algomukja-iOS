@@ -351,7 +351,9 @@
         <scene sceneID="IMS-an-Aqm">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="fkL-Uo-xjM" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="stage" image="list.bullet.rectangle" catalog="system" selectedImage="list.bullet.rectangle" id="GNY-fQ-KSd"/>
+                    <tabBarItem key="tabBarItem" title="stage" image="list.bullet.rectangle" catalog="system" selectedImage="list.bullet.rectangle" id="GNY-fQ-KSd">
+                        <color key="badgeColor" name="900"/>
+                    </tabBarItem>
                     <toolbarItems/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="6Rk-QI-heh">
@@ -383,6 +385,9 @@
         </namedColor>
         <namedColor name="600">
             <color red="0.3449999988079071" green="0.36500000953674316" blue="0.43900001049041748" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="900">
+            <color red="0.063000001013278961" green="0.071000002324581146" blue="0.13300000131130219" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="level1">
             <color red="0.73299998044967651" green="0.83099997043609619" blue="0.48199999332427979" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>

@@ -88,6 +88,11 @@ class ItemInfoViewController: UIViewController {
                 iv_level[i - 1].image = UIImage(named: "\(i)단계(흑백)")
             }
         }
+        
+        if product.finalLevel == 4{
+            iv_level[1].image = UIImage(named: "2단계")
+            iv_level[2].image = UIImage(named: "3단계")
+        }
     }
     
     func collectionviewSetting(){

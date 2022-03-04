@@ -71,11 +71,12 @@ class EditViewController: UIViewController, UITextViewDelegate, CloseDelegate{
         
         topView.centerXAnchor.constraint(equalTo: self.view.centerXAnchor).isActive = true
         topView.makeRoundView(radius: 3)
-        tf_material.layer.borderColor = UIColor(named: "green1")!.cgColor
-        tf_material.layer.borderWidth = 1
+        tf_material.layer.borderColor = UIColor(named: "green3")!.cgColor
+        tf_material.layer.borderWidth = 1.5
         tf_material.makeRoundView(radius: 15)
         btn_send.setViewShadow(backView: btn_send, colorName: "200", width: -2, height: 2)
 //        btn_send.makeRoundView(radius: 15)
+       
     }
 
     func textSetting(text: [field]){
