@@ -21,6 +21,7 @@ enum ChatAlarmFilterType {
     case level3
     case level4
     case level5
+    case level6
 }
 
 
@@ -51,7 +52,7 @@ class ListViewController: UIViewController {
     }
     
     func UISetting(){
-        for i in 0..<6{
+        for i in 0..<7{
             vegan_level[i].isUserInteractionEnabled = true
         }
     }
@@ -69,7 +70,7 @@ class ListViewController: UIViewController {
         }
     
     func greySetting(except: Int){
-        for i in 0..<6{
+        for i in 0..<7{
             if i == except {
                 vegan_level[i].image = UIImage(named: String("\(i + 1)단계"))
                 vegan_level[i].setViewShadow(backView: vegan_level[i], colorName: "300", width: -1, height: 1)
@@ -91,15 +92,18 @@ class ListViewController: UIViewController {
                 setSelectedItem(selected: 2)
             case .level2:
                 greySetting(except: 2)
-                setSelectedItem(selected: 4)
+                setSelectedItem(selected: 3)
             case .level3:
                 greySetting(except: 3)
-                setSelectedItem(selected: 5)
+                setSelectedItem(selected: 4)
             case .level4:
                 greySetting(except: 4)
-                setSelectedItem(selected: 6)
+                setSelectedItem(selected: 5)
             case .level5:
                 greySetting(except: 5)
+                setSelectedItem(selected: 6)
+            case .level6:
+                greySetting(except: 6)
                 setSelectedItem(selected: 7)
             }
         }
@@ -112,7 +116,7 @@ class ListViewController: UIViewController {
         let tap_3: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(buttonTapped(_:)))
         let tap_4: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(buttonTapped(_:)))
         let tap_5: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(buttonTapped(_:)))
-       
+        let tap_6: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(buttonTapped(_:)))
          
 
         vegan_level[0].addGestureRecognizer(tap_0)
@@ -121,6 +125,7 @@ class ListViewController: UIViewController {
         vegan_level[3].addGestureRecognizer(tap_3)
         vegan_level[4].addGestureRecognizer(tap_4)
         vegan_level[5].addGestureRecognizer(tap_5)
+        vegan_level[6].addGestureRecognizer(tap_6)
         
     }
     
@@ -135,20 +140,24 @@ class ListViewController: UIViewController {
             filterType = .level1
         }
         else if sender.view == vegan_level[2] {
-            request.type = 4
+            request.type = 3
             filterType = .level2
         }
         else if sender.view == vegan_level[3] {
-            request.type = 5
+            request.type = 4
             filterType = .level3
         }
         else if sender.view == vegan_level[4] {
-            request.type = 6
+            request.type = 5
             filterType = .level4
         }
         else if sender.view == vegan_level[5] {
-            request.type = 7
+            request.type = 6
             filterType = .level5
+        }
+        else if sender.view == vegan_level[6]{
+            request.type = 7
+            filterType = .level6
         }
         
         if addPayload[request.type].count == 0 {

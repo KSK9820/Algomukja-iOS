@@ -37,6 +37,9 @@ class CardCollectionViewCell: UICollectionViewCell {
     }
     
     
+    
+    
+    
     static func nib() -> UINib { return UINib(nibName: "CardCollectionViewCell", bundle: nil) }
 
     public func configure(with data: Payload, indexpath: Int){
@@ -47,27 +50,18 @@ class CardCollectionViewCell: UICollectionViewCell {
 //        lbl_manufacture.text = data.manufacture
         
         
-        for i in 0..<6{
-            level[i].image = UIImage(named: "\(i + 1)단계(숫자없음)")
-        }
-
         for i in 0..<3{
-            if data.level[i] == 0 {
-                level[i].image = UIImage(named: "\(i + 1)단계(숫자없음흑백)")
-            }
+            level[i].image = UIImage(named: "\(i + 1)단계(숫자없음흑백)")
         }
-        
-        for i in 4..<7{
-            if data.level[i] == 0 {
-                level[i - 1].image = UIImage(named: "\(i)단계(숫자없음흑백)")
-            }
-        }
-        
-        if data.level[3] == 1 {
-            level[1].image = UIImage(named:  "2단계")
-            level[2].image = UIImage(named: "3단계")
+        for i in 3..<6{
+            level[i].image = UIImage(named: "\(i + 2)단계(숫자없음흑백)")
         }
 
+        for i in 0..<7{
+            if data.level[i] == 1 {
+                setImage(stage: i)
+            }
+        }
         
         iv_rank.setImageColor(color: UIColor(named: "level\(data.finalLevel)")!)
         if data.finalLevel == 4 && data.level[1] == 1{
@@ -87,5 +81,20 @@ class CardCollectionViewCell: UICollectionViewCell {
         
     }
   
+    
+    
+    func setImage(stage: Int){
+        switch stage{
+        case 0, 1, 2:
+            level[stage].image = UIImage(named: "\(stage + 1)단계(숫자없음)")
+        case 3:
+            level[1].image = UIImage(named: "2단계(숫자없음)")
+            level[2].image = UIImage(named: "3단계(숫자없음)")
+        case 4, 5, 6:
+            level[stage - 1].image = UIImage(named: "\(stage + 1)단계(숫자없음)")
+        default:
+            break
+        }
+    }
 
 }

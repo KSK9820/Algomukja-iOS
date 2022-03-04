@@ -38,7 +38,7 @@ class SearchResultViewController: UIViewController{
 //    var isCamera: Bool!
    
     
-    var message = ["식물성 음식 이외에는 아무것도 먹지않는 완전한 채식주의 비건입니다.", "치즈, 우유, 요구르트와 같은 유제품을 소비하는 락토 베지테리언입니다.","달걀제품을 소비하는 오보 베지테리언입니다.", "유제품과 달걀제품을 소비하는 락토 오보 베지테리언입니다.", "육류 섭취를 생선이나 해산물로 제한하여 섭취하는 페스코 베지테리언입니다.", "육류 소비를 가금류와 닭만으로 제한하는 폴로 베지테리언입니다.","채식을 하지만 때때로 육식을 하는 플렉시테리언입니다.","정확한 분류가 어렵습니다. 제조사에 문의해주세요."]
+    var message = ["","식물성 음식 이외에는 아무것도 먹지않는 완전한 채식주의 비건입니다.", "치즈, 우유, 요구르트와 같은 유제품을 소비하는 락토 베지테리언입니다.","달걀제품을 소비하는 오보 베지테리언입니다.", "유제품과 달걀제품을 소비하는 락토 오보 베지테리언입니다.", "육류 섭취를 생선이나 해산물로 제한하여 섭취하는 페스코 베지테리언입니다.", "육류 소비를 가금류와 닭만으로 제한하는 폴로 베지테리언입니다.","채식을 하지만 때때로 육식을 하는 플렉시테리언입니다.","정확한 분류가 어렵습니다. 제조사에 문의해주세요."]
     
  
     
@@ -89,13 +89,14 @@ class SearchResultViewController: UIViewController{
 //        }else {
 //            lbl_level.text = message[info!.finalLevel]
 //        }
-//        setImage()
+
         
         
         scrollview.heightAnchor.constraint(equalToConstant: modalview.frame.height -  lbl_level.frame.height - 50 - UIScreen.main.bounds.height * 0.3
         ).isActive = true
         lbl_info.setHeight(24)
         lbl_info.text = "원재료명을 선택해보세요!"
+        
        
     }
     
@@ -123,14 +124,19 @@ class SearchResultViewController: UIViewController{
         switch stage{
         case 1, 2, 3:
             iv_level[stage - 1].image = UIImage(named: "\(stage)단계")
+
         case 4:
             iv_level[1].image = UIImage(named: "2단계")
             iv_level[2].image = UIImage(named: "3단계")
+
         case 5, 6, 7:
-            iv_level[stage - 2].image = UIImage(named: "\(stage - 1)단계")
+            iv_level[stage - 2].image = UIImage(named: "\(stage)단계")
+           
         default:
             break
         }
+        
+        
     }
     
     func collectionviewSetting(){

@@ -132,15 +132,18 @@ class RankViewController: UIViewController, UIGestureRecognizerDelegate {
                 setSelectedItem(selected: 2)
             case .level2:
                 greySetting(except: 2)
-                setSelectedItem(selected: 4)
+                setSelectedItem(selected: 3)
             case .level3:
                 greySetting(except: 3)
-                setSelectedItem(selected: 5)
+                setSelectedItem(selected: 4)
             case .level4:
                 greySetting(except: 4)
-                setSelectedItem(selected: 6)
+                setSelectedItem(selected: 5)
             case .level5:
                 greySetting(except: 5)
+                setSelectedItem(selected: 6)
+            case .level6:
+                greySetting(except: 6)
                 setSelectedItem(selected: 7)
             }
         }

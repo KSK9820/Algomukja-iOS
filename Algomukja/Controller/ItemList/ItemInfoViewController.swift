@@ -49,7 +49,11 @@ class ItemInfoViewController: UIViewController {
         let url = URL(string: Config.api + product.image)
         iv_product.load(url: url!)
         
+       
+        
     }
+    
+    
     
     func contextSetting(){
         lbl_view.text = String(product.view)
@@ -62,7 +66,11 @@ class ItemInfoViewController: UIViewController {
         }else{
             lbl_level.text = message[product.finalLevel]
         }
-        setImage()
+        for i in 0..<7{
+            if product.level[i] == 1 {
+                setImage(stage: i)
+            }
+        }
         scrollview.heightAnchor.constraint(equalToConstant: modalview.frame.height - lbl_name.frame.height - lbl_level.frame.height - 50 - UIScreen.main.bounds.height * 0.3
         ).isActive = true
         lbl_info.setHeight(24)
@@ -70,28 +78,20 @@ class ItemInfoViewController: UIViewController {
        
     }
     
-    func setImage(){
-//        for i in 1..<7{
-//            iv_level[i - 1].image = UIImage(named: "\(i)단계")
-//            if product.level[i] == 0 {
-//                iv_level[i - 1].image = UIImage(named: "\(i)단계"))
-//            }
-//        }
-       
-        for i in 0..<3{
-            if product.level[i] == 0 {
-                iv_level[i].image = UIImage(named: "\(i + 1)단계(흑백)")
-            }
-        }
-        for i in 4..<7{
-            if product.level[i] == 0 {
-                iv_level[i - 1].image = UIImage(named: "\(i)단계(흑백)")
-            }
-        }
-        
-        if product.finalLevel == 4{
-            iv_level[1].image = UIImage(named: "2단계")
-            iv_level[2].image = UIImage(named: "3단계")
+    
+    
+
+    func setImage(stage: Int){
+        switch stage{
+        case 0, 1, 2:
+            iv_level[stage].image = UIImage(named: "\(stage + 1)단계(숫자없음)")
+        case 3:
+            iv_level[1].image = UIImage(named: "2단계(숫자없음)")
+            iv_level[2].image = UIImage(named: "3단계(숫자없음)")
+        case 4, 5, 6:
+            iv_level[stage - 1].image = UIImage(named: "\(stage + 1)단계(숫자없음)")
+        default:
+            break
         }
     }
     

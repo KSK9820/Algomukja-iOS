@@ -16,7 +16,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" name="green1"/>
-                        <color key="tintColor" name="900"/>
+                        <color key="tintColor" name="000"/>
+                        <color key="selectedImageTintColor" name="000"/>
                     </tabBar>
                     <connections>
                         <segue destination="geV-fR-vF8" kind="relationship" relationship="viewControllers" id="LFa-wo-OS3"/>
@@ -61,8 +62,8 @@
         </scene>
     </scenes>
     <resources>
-        <namedColor name="900">
-            <color red="0.063000001013278961" green="0.071000002324581146" blue="0.13300000131130219" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        <namedColor name="000">
+            <color red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="green1">
             <color red="0.75686274509803919" green="0.8784313725490196" blue="0.82352941176470584" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

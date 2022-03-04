@@ -37,6 +37,22 @@ class ItemCollectionViewCell: UICollectionViewCell {
         self.iv_item.widthAnchor.constraint(equalToConstant: screenWidth * 0.3).isActive = true
         
     }
+    
+    
+    func setImage(stage: Int){
+        switch stage{
+        case 0, 1, 2:
+            iv_level[stage].image = UIImage(named: "\(stage + 1)단계(숫자없음)")
+        case 3:
+            iv_level[1].image = UIImage(named: "2단계(숫자없음)")
+            iv_level[2].image = UIImage(named: "3단계(숫자없음)")
+        case 4, 5, 6:
+            iv_level[stage - 1].image = UIImage(named: "\(stage + 1)단계(숫자없음)")
+        default:
+            break
+        }
+        
+    }
 
     
     static func nib() -> UINib {
@@ -51,13 +67,15 @@ class ItemCollectionViewCell: UICollectionViewCell {
         iv_item.load(url: url!)
         
         lbl_name.text = item.name
-        if item.finalLevel == 4 && item.level[2] == 1{
-            lbl_level.text = level[4]
-        }else if item.finalLevel == 4 && item.level[2] == 0 {
-            lbl_level.text = level[3]
-        }else{
-            lbl_level.text = level[item.finalLevel]
-        }
+//        if item.finalLevel == 4 && item.level[2] == 1{
+//            lbl_level.text = level[4]
+//        }else if item.finalLevel == 4 && item.level[2] == 0 {
+//            lbl_level.text = level[3]
+//        }else{
+//            lbl_level.text = level[item.finalLevel]
+//        }
+        
+        lbl_level.text = level[item.finalLevel]
         
         
         if item.isAccurate == false{
@@ -66,24 +84,20 @@ class ItemCollectionViewCell: UICollectionViewCell {
             lbl_caution.text = caution[1]
         }
 
-        for i in 0..<6{
-            iv_level[i].image = UIImage(named: "\(i + 1)단계(숫자없음)")
-        }
-
         for i in 0..<3{
-            if item.level[i] == 0 {
-                iv_level[i].image = UIImage(named: "\(i + 1)단계(숫자없음흑백)")
-            }
+            iv_level[i].image = UIImage(named: "\(i + 1)단계(숫자없음흑백)")
         }
         for i in 4..<7{
-            if item.level[i] == 0 {
-                iv_level[i - 1].image = UIImage(named: "\(i)단계(숫자없음흑백)")
+            iv_level[i - 1].image = UIImage(named: "\(i + 1)단계(숫자없음흑백)")
+        }
+    
+
+        for i in 0..<7{
+            if item.level[i] == 1 {
+                setImage(stage: i)
             }
+            
         }
-        
-        if item.finalLevel == 4{
-            iv_level[1].image = UIImage(named: "2단계")
-            iv_level[2].image = UIImage(named: "3단계")
-        }
+       
     }
 }
