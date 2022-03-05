@@ -34,7 +34,7 @@ class CameraViewController: UIViewController, OpenDelegate {
         
 //        checkSimulator()
         UISetting()
-        openEditFloating()
+        //openEditFloating()
     }
     
     

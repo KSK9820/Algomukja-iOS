@@ -32,7 +32,7 @@ class SearchResultViewController: UIViewController{
     
     var response = [materialPayload]()
     var temp: Materials!
-    var materialName: [String] = []
+//    var materialName: [String] = []
     var finalLevel: Int = 0
     
 //    var isCamera: Bool!
@@ -172,7 +172,7 @@ extension SearchResultViewController: UICollectionViewDelegate, UICollectionView
         }else if !info.external.isEmpty {
             temp = Materials(id: 0, name: info.external[0].name, level: 0, description: info.external[0].description)
         }else{
-            temp = Materials(id: 0, name: materialName[indexPath.row], level: 0, description: "")
+//            temp = Materials(id: 0, name: materialName[indexPath.row], level: 0, description: "")
         }
         
         
@@ -207,7 +207,7 @@ extension SearchResultViewController: UICollectionViewDelegate, UICollectionView
         }else if !self.response[indexPath.row].external.isEmpty{
             item = response[indexPath.row].external[0].name
         }else{
-            item = materialName[indexPath.row]
+//            item = materialName[indexPath.row]
         }
        
         let itemSize = item.size(withAttributes: [

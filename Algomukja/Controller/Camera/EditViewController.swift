@@ -55,9 +55,9 @@ class EditViewController: UIViewController, UITextViewDelegate, CloseDelegate{
         let timestamp = Date().currentTimeMillis()
         let base64str = ocrImage.jpegData(compressionQuality: 1)?.base64EncodedString() ?? ""
         
-        request = CameraRequest(images: [clova_image(format: "jpg", name: String(timestamp), data: base64str, url: "http://image.nongshim.com/non/pro/bong_2.jpg")], lang: "ko", requestId: "e36ead3ac71f45d9a5c8d8da285818a7", resultType: "string", timestamp: timestamp ,version: "V2")
+        request = CameraRequest(images: [clova_image(format: "jpg", name: String(timestamp), data: base64str, url: "")], lang: "ko", requestId: "e36ead3ac71f45d9a5c8d8da285818a7", resultType: "string", timestamp: timestamp ,version: "V2")
      
-//        postOCR(data: request)
+        postOCR(data: request)
  
     }
     
@@ -89,7 +89,7 @@ class EditViewController: UIViewController, UITextViewDelegate, CloseDelegate{
             //제품명과 식품유형을 제외
             if text[i].inferText == "제품명" || text[i].inferText == "식품유형"{
                 continue
-            }else if text[i].inferText == "유통기한" || text[i].inferText == "함유"{
+            }else if text[i].inferText == "유통기한" || text[i].inferText == "함유" || text[i].inferText == "포장재질"{
                 break
 //            }else if text[i].inferText == "원재료명" {
 //                material.append(text[i].inferText)
@@ -257,7 +257,7 @@ extension EditViewController{
             return
         }
         VC.response = self.materialResponse
-        VC.materialName = materials
+//        VC.materialName = materials
         VC.modalPresentationStyle = .overFullScreen
         VC.delegate = self
         
