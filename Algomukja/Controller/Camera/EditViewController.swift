@@ -84,20 +84,36 @@ class EditViewController: UIViewController, UITextViewDelegate, CloseDelegate{
 
         var material: [String] = []
         var string = ""
+        var start = 0
         
         for i in 0..<text.count {
-            //제품명과 식품유형을 제외
-            if text[i].inferText == "제품명" || text[i].inferText == "식품유형"{
-                continue
-            }else if text[i].inferText == "유통기한" || text[i].inferText == "함유" || text[i].inferText == "포장재질"{
-                break
-//            }else if text[i].inferText == "원재료명" {
-//                material.append(text[i].inferText)
-//                string += text[i].inferText + " "
-            }else{
+            
+            if start == 1 {
                 material.append(text[i].inferText)
                 string += text[i].inferText + " "
             }
+            
+            if text[i].inferText == "원재료명"{
+                start = 1
+            }else if text[i].inferText == "함유" || text[i].inferText == "포장재질"{
+                break
+            }
+            
+            
+            
+            
+//            //제품명과 식품유형을 제외
+//            if text[i].inferText == "제품명" || text[i].inferText == "식품유형"{
+//                continue
+//            }else if text[i].inferText == "함유" || text[i].inferText == "포장재질"{
+//                break
+////            }else if text[i].inferText == "원재료명" {
+////                material.append(text[i].inferText)
+////                string += text[i].inferText + " "
+//            }else{
+//                material.append(text[i].inferText)
+//                string += text[i].inferText + " "
+//            }
            
         }
         

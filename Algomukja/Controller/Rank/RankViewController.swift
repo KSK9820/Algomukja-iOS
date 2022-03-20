@@ -68,7 +68,7 @@ class RankViewController: UIViewController, UIGestureRecognizerDelegate {
         tf_search.borderStyle = .none
         tf_search.layer.borderColor = UIColor.clear.cgColor
         
-        for i in 0..<6 {
+        for i in 0..<7 {
             iv_level[i].isUserInteractionEnabled = true
         }
     }
@@ -109,7 +109,7 @@ class RankViewController: UIViewController, UIGestureRecognizerDelegate {
     
     
     func greySetting(except: Int){
-        for i in 0..<6{
+        for i in 0..<7{
             if i == except {
                 iv_level[i].image = UIImage(named: String("\(i + 1)단계"))
                 iv_level[i].setViewShadow(backView: iv_level[i], colorName: "300", width: -1, height: 1)
@@ -156,7 +156,7 @@ class RankViewController: UIViewController, UIGestureRecognizerDelegate {
         let tap_3: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(buttonTapped(_:)))
         let tap_4: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(buttonTapped(_:)))
         let tap_5: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(buttonTapped(_:)))
-       
+        let tap_6: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(buttonTapped(_:)))
          
 
         iv_level[0].addGestureRecognizer(tap_0)
@@ -165,6 +165,7 @@ class RankViewController: UIViewController, UIGestureRecognizerDelegate {
         iv_level[3].addGestureRecognizer(tap_3)
         iv_level[4].addGestureRecognizer(tap_4)
         iv_level[5].addGestureRecognizer(tap_5)
+        iv_level[6].addGestureRecognizer(tap_6)
         
     }
     
@@ -187,6 +188,9 @@ class RankViewController: UIViewController, UIGestureRecognizerDelegate {
         }
         else if sender.view == iv_level[5] {
             filterType = .level5
+        }
+        else if sender.view == iv_level[6] {
+            filterType = .level6
         }
        
         updateFilterType()
