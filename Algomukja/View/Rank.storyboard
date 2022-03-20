@@ -96,22 +96,25 @@
                                                 <rect key="frame" x="20" y="40" width="374" height="50"/>
                                                 <subviews>
                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="1단계" translatesAutoresizingMaskIntoConstraints="NO" id="EoI-NN-QNV">
-                                                        <rect key="frame" x="0.0" y="0.0" width="62.5" height="50"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="53.5" height="50"/>
                                                     </imageView>
                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="2단계" translatesAutoresizingMaskIntoConstraints="NO" id="kmA-ss-xIS">
-                                                        <rect key="frame" x="62.5" y="0.0" width="62" height="50"/>
+                                                        <rect key="frame" x="53.5" y="0.0" width="53.5" height="50"/>
                                                     </imageView>
                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="3단계" translatesAutoresizingMaskIntoConstraints="NO" id="2cA-Vz-nrT">
-                                                        <rect key="frame" x="124.5" y="0.0" width="62.5" height="50"/>
+                                                        <rect key="frame" x="107" y="0.0" width="53.5" height="50"/>
                                                     </imageView>
                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="4단계" translatesAutoresizingMaskIntoConstraints="NO" id="7SA-66-xex">
-                                                        <rect key="frame" x="187" y="0.0" width="62.5" height="50"/>
+                                                        <rect key="frame" x="160.5" y="0.0" width="53" height="50"/>
                                                     </imageView>
                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="5단계" translatesAutoresizingMaskIntoConstraints="NO" id="6xF-lV-TLv">
-                                                        <rect key="frame" x="249.5" y="0.0" width="62" height="50"/>
+                                                        <rect key="frame" x="213.5" y="0.0" width="53.5" height="50"/>
                                                     </imageView>
                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="6단계" translatesAutoresizingMaskIntoConstraints="NO" id="eHi-mk-DXR">
-                                                        <rect key="frame" x="311.5" y="0.0" width="62.5" height="50"/>
+                                                        <rect key="frame" x="267" y="0.0" width="53.5" height="50"/>
+                                                    </imageView>
+                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="7단계" translatesAutoresizingMaskIntoConstraints="NO" id="vZx-b8-fGH" userLabel="7단계">
+                                                        <rect key="frame" x="320.5" y="0.0" width="53.5" height="50"/>
                                                     </imageView>
                                                 </subviews>
                                                 <constraints>
@@ -244,6 +247,7 @@
                         <outletCollection property="iv_level" destination="7SA-66-xex" collectionClass="NSMutableArray" id="m8S-kU-h4g"/>
                         <outletCollection property="iv_level" destination="6xF-lV-TLv" collectionClass="NSMutableArray" id="L4W-dc-0YW"/>
                         <outletCollection property="iv_level" destination="eHi-mk-DXR" collectionClass="NSMutableArray" id="zdB-mh-9tX"/>
+                        <outletCollection property="iv_level" destination="vZx-b8-fGH" collectionClass="NSMutableArray" id="oCZ-tf-f3q"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -258,6 +262,7 @@
         <image name="4단계" width="801" height="800"/>
         <image name="5단계" width="801" height="800"/>
         <image name="6단계" width="801" height="800"/>
+        <image name="7단계" width="801" height="800"/>
         <image name="bookmark" catalog="system" width="112" height="128"/>
         <image name="magnifyingglass" catalog="system" width="128" height="115"/>
         <namedColor name="200">
